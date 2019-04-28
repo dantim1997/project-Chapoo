@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project_Chapoo.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,10 @@ namespace project_Chapoo
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
         }
     }
 }
