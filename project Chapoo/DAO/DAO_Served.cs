@@ -1,0 +1,78 @@
+﻿using project_Chapoo.DAL;
+using project_Chapoo.Models;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace project_Chapoo.DAO
+{
+    class DAO_Served : Base
+    {
+        private SqlConnection dbConnection;
+
+        public DAO_Served()
+        {
+            string connstring = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
+            dbConnection = new SqlConnection(connstring);
+        }
+
+        public Served GetBill(int billId)
+        {
+            string query = "SELECT BillId, TableNumber, WorkerId, StartDate, EndeDate FROM Served where BillId = " + billId;
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTable(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public List<Served> GetAllBills()
+        {
+            string query = "SELECT BillId, TableNumber, WorkerId, StartDate, EndeDate FROM Served";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadAllTable(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private Served ReadTable(DataTable dataTable)
+        {
+            List<Product> products = new List<Product>();
+            //each row from the database is converted into the login class
+            DAO_Bill dao_Bill = new DAO_Bill();
+            Served served = new Served();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                served.BillId = (int)dr["BillId"];
+                served.TableNumber = (int)dr["TableNumber"];
+                served.WorkerId = (int)dr["WorkerId"];
+                served.StartDate = (DateTime)dr["StartDate"];
+                served.EndDate = (DateTime)dr["EndeDate"];
+                served.Products = dao_Bill.GetBillfromId(served.BillId);
+            };
+
+            return served;
+        }
+
+        private List<Served> ReadAllTable(DataTable dataTable)
+        {
+            List<Product> products = new List<Product>();
+            //each row from the database is converted into the login class
+            DAO_Bill dao_Bill = new DAO_Bill();
+            List<Served> allServed = new List<Served>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Served served = new Served();
+                served.BillId = (int)dr["BillId"];
+                served.TableNumber = (int)dr["TableNumber"];
+                served.WorkerId = (int)dr["WorkerId"];
+                served.StartDate = (DateTime)dr["StartDate"];
+                served.EndDate = (DateTime)dr["EndeDate"];
+                served.Products = dao_Bill.GetBillfromId(served.BillId);
+                allServed.Add(served);
+            };
+
+            return allServed;
+        }
+    }
+}

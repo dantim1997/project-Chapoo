@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace project_Chapoo.Models
 {
-    public class Product
+    public class Bill_ViewModel
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public double ProductPrice { get; set; }
-        public string ProductType { get; set; }
-        public int BTW { get; set; }
-
-        public bool Done { get; set; }
         public int Amount { get; set; }
+        public bool Done { get; set; }
     }
 }

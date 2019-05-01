@@ -54,7 +54,9 @@
       <DependentUpon>BarOverview.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\Base.cs" />
+    <Compile Include="DAO\DAO_Bill.cs" />
     <Compile Include="DAO\DAO_Product.cs" />
+    <Compile Include="DAO\DAO_Served.cs" />
     <Compile Include="DAO\DAO_Table.cs" />
     <Compile Include="DAO\DAO_Worker.cs" />
     <Compile Include="DAO\DAO_WorkerLogin.cs" />
@@ -71,7 +73,9 @@
       <DependentUpon>KitchenOverview.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Bill.cs" />
+    <Compile Include="Models\Bill_ViewModel.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Served.cs" />
     <Compile Include="Models\Table.cs" />
     <Compile Include="Models\Worker.cs" />
     <Compile Include="Models\WorkerLogin.cs" />
@@ -83,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Bill_Service.cs" />
+    <Compile Include="Service\Product_Service.cs" />
+    <Compile Include="Service\Served_Service.cs" />
     <Compile Include="TableOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KitchenOverview.resx">
+      <DependentUpon>KitchenOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

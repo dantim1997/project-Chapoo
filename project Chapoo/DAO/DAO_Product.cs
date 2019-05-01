@@ -21,27 +21,28 @@ namespace project_Chapoo.DAO
             dbConnection = new SqlConnection(connstring);
         }
 
-        public Product GetProducts()
+        public List<Product> GetProducts()
         {
             string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        private Product ReadProduct(SqlDataReader reader)
+        public List<Product> GetAllFood()
         {
-            Product product = new Product()
-            {
-                ProductId = (int)reader["ProductId"],
-                ProductName = (string)reader["ProductName"],
-                ProductPrice = (decimal)reader["ProductPrice"],
-                ProductType = (string)reader["ProductType"],
-                BTW = (int)reader["BTW"]
-            };
-            return product;
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductType = 'Food'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        private Product ReadTable(DataTable dataTable)
+        public Product GetAllByBill(int productId)
+        {
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductType = 'Food' and ProductId = "+productId;
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadProduct(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private Product ReadProduct(DataTable dataTable)
         {
             Product product = new Product();
             //each row from the database is converted into the login class
@@ -49,11 +50,28 @@ namespace project_Chapoo.DAO
             {
                 product.ProductId = (int)dr["ProductId"];
                 product.ProductName = (string)dr["ProductName"];
-                product.ProductPrice = (decimal)dr["ProductPrice"];
+                product.ProductPrice = (double)dr["ProductPrice"];
                 product.ProductType = (string)dr["ProductType"];
                 product.BTW = (int)dr["BTW"];
             };
             return product;
+        }
+
+        private List<Product> ReadTable(DataTable dataTable)
+        {
+            List<Product> products = new List<Product>();
+            //each row from the database is converted into the login class
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Product product = new Product();
+                product.ProductId = (int)dr["ProductId"];
+                product.ProductName = (string)dr["ProductName"];
+                product.ProductPrice = (double)dr["ProductPrice"];
+                product.ProductType = (string)dr["ProductType"];
+                product.BTW = (int)dr["BTW"];
+                products.Add(product);
+            };
+            return products;
         }
     }
 }

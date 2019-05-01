@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace project_Chapoo.Models
 {
-    class Bill
+    public class Bill
     {
+        public int OrderId { get; set; }
         public int BillId { get; set; }
         public int ProductId { get; set; }
-        public int Amount { get; set; }
         public DateTime Date { get; set; }
+        
+        public Product product;
     }
 }
