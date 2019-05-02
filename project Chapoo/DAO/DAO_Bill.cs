@@ -30,7 +30,7 @@ namespace project_Chapoo.DAO
 
         public List<Bill> GetBillfromId(int billId)
         {
-            string query = "SELECT ProductId, BillId, Amount, Date, Done FROM Bill where BillId = "+ billId;
+            string query = "SELECT ProductId, BillId, Amount, Date, Done FROM Bill where BillId = " + billId;
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -64,6 +64,22 @@ namespace project_Chapoo.DAO
             };
 
             return products;
+        }
+
+        public int GetAllDoneByBill(int billId)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("select Count(*) as [count] from Bill where BillId = @BillId and Done = 'true'", dbConnection);
+            command.Parameters.AddWithValue("@BillId", billId);
+            int count = 0;
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                count = (int)reader["Count"];
+
+            }
+            dbConnection.Close();
+            return count;
         }
     }
 }

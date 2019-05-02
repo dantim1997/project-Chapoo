@@ -21,5 +21,10 @@ namespace project_Chapoo.Service
         {
            return dAO_Bill.GetBillfromId(billId);
         }
+
+        public int GetAllDoneByBill(int BillId)
+        {
+            return dAO_Bill.GetAllDoneByBill(BillId);
+        }
     }
 }

@@ -115,6 +115,19 @@ namespace project_Chapoo
         private void UpdateBill(bool done)
         {
             Bill_Service.UpdateBillByIds(selectedBillId, selectedProductId, done);
+            if(dataGridView2.Rows.Count == Bill_Service.GetAllDoneByBill(1))
+            {
+                //if all records are made where wil be an question to remove the bill from the view
+                DialogResult dialogResult = MessageBox.Show("the whole order is made, remove from list?","warnig", MessageBoxButtons.YesNo);
+                if(dialogResult == DialogResult.Yes)
+                {
+
+                }
+                else if(dialogResult == DialogResult.No)
+                {
+
+                }
+            }
             dataGridView2.DataSource = null;
             ReloadBillList();
         }
