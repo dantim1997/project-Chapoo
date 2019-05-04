@@ -14,5 +14,6 @@ namespace project_Chapoo.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public List<Bill> Products { get; set; }
+        public bool Done { get; set; }
     }
 }

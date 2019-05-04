@@ -121,7 +121,7 @@ namespace project_Chapoo
                 DialogResult dialogResult = MessageBox.Show("the whole order is made, remove from list?","warnig", MessageBoxButtons.YesNo);
                 if(dialogResult == DialogResult.Yes)
                 {
-
+                    Served_Service.UpdateStatus(selectedBillId);
                 }
                 else if(dialogResult == DialogResult.No)
                 {

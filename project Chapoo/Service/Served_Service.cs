@@ -15,6 +15,11 @@ namespace project_Chapoo.Service
         {
             return dAO_Served.GetAllBills();
         }
+
+        public void UpdateStatus(int billId)
+        {
+            dAO_Served.UpdateServedByIds(billId);
+        }
         
             
     }

@@ -23,16 +23,26 @@ namespace project_Chapoo.DAO
 
         public Served GetBill(int billId)
         {
-            string query = "SELECT BillId, TableNumber, WorkerId, StartDate, EndeDate FROM Served where BillId = " + billId;
+            string query = "SELECT BillId, TableNumber, WorkerId, StartDate, EndeDate, Done FROM Served where BillId = " + billId;
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<Served> GetAllBills()
         {
-            string query = "SELECT BillId, TableNumber, WorkerId, StartDate, EndeDate FROM Served";
+            string query = "SELECT BillId, TableNumber, WorkerId, StartDate, EndeDate, Done FROM Served";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadAllTable(ExecuteSelectQuery(query, sqlParameters));
+            return ReadAllTables(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public void UpdateServedByIds(int billId)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("UPDATE Served SET Done = @Done WHERE BillId = @BillId", dbConnection);
+            command.Parameters.AddWithValue("@BillId", billId);
+            command.Parameters.AddWithValue("@Done", true);
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
         }
 
         private Served ReadTable(DataTable dataTable)
@@ -48,13 +58,14 @@ namespace project_Chapoo.DAO
                 served.WorkerId = (int)dr["WorkerId"];
                 served.StartDate = (DateTime)dr["StartDate"];
                 served.EndDate = (DateTime)dr["EndeDate"];
+                served.Done = (bool)dr["Done"];
                 served.Products = dao_Bill.GetBillfromId(served.BillId);
             };
 
             return served;
         }
 
-        private List<Served> ReadAllTable(DataTable dataTable)
+        private List<Served> ReadAllTables(DataTable dataTable)
         {
             List<Product> products = new List<Product>();
             //each row from the database is converted into the login class
@@ -68,6 +79,7 @@ namespace project_Chapoo.DAO
                 served.WorkerId = (int)dr["WorkerId"];
                 served.StartDate = (DateTime)dr["StartDate"];
                 served.EndDate = (DateTime)dr["EndeDate"];
+                served.Done = (bool)dr["Done"];
                 served.Products = dao_Bill.GetBillfromId(served.BillId);
                 allServed.Add(served);
             };
