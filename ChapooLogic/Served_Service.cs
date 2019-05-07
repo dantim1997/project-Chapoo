@@ -1,12 +1,12 @@
-﻿using project_Chapoo.DAO;
-using project_Chapoo.Models;
+﻿using ChapooModels;
+using ChapooDAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_Chapoo.Service
+namespace ChapooLogic
 {
     public class Served_Service
     {

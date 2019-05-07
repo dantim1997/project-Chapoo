@@ -1,5 +1,5 @@
-﻿using project_Chapoo.Models;
-using project_Chapoo.Service;
+﻿using ChapooLogic;
+using ChapooModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

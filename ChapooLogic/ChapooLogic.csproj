@@ -45,6 +45,7 @@
     <Compile Include="Product_Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Served_Service.cs" />
+    <Compile Include="Worker_Servce.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChapooDAL\ChapooDAL.csproj">

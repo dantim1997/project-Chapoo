@@ -1,4 +1,4 @@
-﻿using project_Chapoo.Models;
+﻿using ChapooModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace project_Chapoo.DAL
+namespace ChapooDAL
 {
-    class DAO_WorkerLogin: Base
+    public class DAO_WorkerLogin: Base
     {
         private SqlConnection dbConnection;
 

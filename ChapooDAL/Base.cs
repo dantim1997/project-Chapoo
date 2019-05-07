@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-namespace project_Chapoo.DAL
+namespace ChapooDAL
 {
 
     public abstract class Base

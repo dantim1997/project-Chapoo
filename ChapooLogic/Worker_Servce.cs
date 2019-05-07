@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChapooDAL;
+using ChapooModels;
 
-namespace ChapooModels
+namespace ChapooLogic
 {
-    public class Table
+    public class Worker_Servce
     {
-        public int TableNumber { get; set; }
-        public string Status { get; set; }
     }
 }
