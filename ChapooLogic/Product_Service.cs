@@ -19,6 +19,13 @@ namespace ChapooLogic
             return products;
         }
 
+        public List<Product> GetProducts()
+        {
+            DAO_Product ProductDAO = new DAO_Product();
+            List<Product> products = ProductDAO.GetProducts();
+            return products;
+        }
+
         public List<Bill_ViewModel> FromProductToBill_ViewModel(List<Product> products)
         {
             List<Bill_ViewModel> bills = new List<Bill_ViewModel>();
