@@ -13,8 +13,6 @@ namespace ChapooModels
         public double ProductPrice { get; set; }
         public string ProductType { get; set; }
         public int BTW { get; set; }
-
-        public bool Done { get; set; }
-        public int Amount { get; set; }
+        public int Supply { get; set; }
     }
 }
