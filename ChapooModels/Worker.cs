@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project_Chapoo.Models
 {
-    class Worker
+    public class Worker
     {
         public int WorkerId { get; set; }
         public string Name { get; set; }

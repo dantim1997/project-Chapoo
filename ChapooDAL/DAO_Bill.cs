@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace project_Chapoo.DAO
 {
-    class DAO_Bill : Base
+    public class DAO_Bill : Base
     {
         private SqlConnection dbConnection;
 

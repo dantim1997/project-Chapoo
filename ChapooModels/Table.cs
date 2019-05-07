@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project_Chapoo.Models
 {
-    class Table
+    public class Table
     {
         public int TableNumber { get; set; }
         public string Status { get; set; }

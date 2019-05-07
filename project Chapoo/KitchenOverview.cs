@@ -1,5 +1,4 @@
-﻿using project_Chapoo.DAO;
-using project_Chapoo.Models;
+﻿using project_Chapoo.Models;
 using project_Chapoo.Service;
 using System;
 using System.Collections.Generic;
@@ -51,8 +50,8 @@ namespace project_Chapoo
                 int value3 = int.Parse(row.Cells[2].Value.ToString());
 
                 selectedBillId = value1;
-                DAO_Worker worker = new DAO_Worker();
-                LB_WorkerName.Text = worker.GetWorkerById(value2).Name;
+                //DAO_Worker worker = new DAO_Worker();
+                //LB_WorkerName.Text = worker.GetWorkerById(value2).Name;
                 LB_Table.Text = value3.ToString();
                 ReloadBillList();
             }

@@ -1,5 +1,4 @@
-﻿using project_Chapoo.DAO;
-using project_Chapoo.Models;
+﻿using project_Chapoo.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,15 +22,6 @@ namespace project_Chapoo
         {
             KitchenOverview kitchenOverview = new KitchenOverview();
             kitchenOverview.Show();
-
-            DAO_Product product = new DAO_Product();
-            List<Product> products = product.GetAllFood();
-
-            DAO_Served dAO_Bill = new DAO_Served();
-            Served served = new Served();
-            served = dAO_Bill.GetBill(1);
-
-            List<Served> serveds = dAO_Bill.GetAllBills();
         }
     }
 }
