@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ChapooModels
+{
+    class Order
+    {
+        public int OderId { get; set; }
+        public int EmployeeId { get; set; }
+        public DateTime Date { get; set; }
+        public string Status { get; set; }
+    }
+}
