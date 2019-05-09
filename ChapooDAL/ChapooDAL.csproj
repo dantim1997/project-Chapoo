@@ -47,8 +47,7 @@
     <Compile Include="DAO_Product.cs" />
     <Compile Include="DAO_Served.cs" />
     <Compile Include="DAO_Table.cs" />
-    <Compile Include="DAO_Worker.cs" />
-    <Compile Include="DAO_WorkerLogin.cs" />
+    <Compile Include="DAO_Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
