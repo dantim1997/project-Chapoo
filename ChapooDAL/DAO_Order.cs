@@ -1,5 +1,4 @@
-﻿using ChapooModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -7,29 +6,30 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChapooModels;
 
 namespace ChapooDAL
 {
-    public class DAO_Served : Base
+    public class DAO_Order : Base
     {
         private SqlConnection dbConnection;
 
-        public DAO_Served()
+        public DAO_Order()
         {
             string connstring = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             dbConnection = new SqlConnection(connstring);
         }
 
-        public Served GetBill(int billId)
+        public List<Order> GetBill(int orderId)
         {
-            string query = "SELECT BillId, TableNumber, WorkerId, StartDate, EndeDate, Done FROM Served where BillId = " + billId;
+            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Done FROM Order where OrderId = " + orderId;
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public List<Served> GetAllBills()
+        public List<Order> GetAllOrders()
         {
-            string query = "SELECT BillId, TableNumber, WorkerId, StartDate, EndeDate, Done FROM Served";
+            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM Order";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -44,40 +44,37 @@ namespace ChapooDAL
             dbConnection.Close();
         }
 
-        private Served ReadTable(DataTable dataTable)
+        private List<Order> ReadTable(DataTable dataTable)
         {
-            List<Product> products = new List<Product>();
+            List<Order> orders = new List<Order>();
             //each row from the database is converted into the login class
-            DAO_Bill dao_Bill = new DAO_Bill();
-            Served served = new Served();
             foreach (DataRow dr in dataTable.Rows)
             {
-                served.BillId = (int)dr["BillId"];
+                Order served = new Order();
+                served.OrderId = (int)dr["OrderId"];
                 served.TableNumber = (int)dr["TableNumber"];
-                served.WorkerId = (int)dr["WorkerId"];
-                served.StartDate = (DateTime)dr["StartDate"];
-                served.EndDate = (DateTime)dr["EndeDate"];
-                served.Done = (bool)dr["Done"];
+                served.EmployeeId = (int)dr["EmployeeId"];
+                served.Date = (DateTime)dr["Date"];
+                served.Status = (string)dr["Status"];
             };
 
-            return served;
+            return orders;
         }
 
-        private List<Served> ReadAllTables(DataTable dataTable)
+        private List<Order> ReadAllTables(DataTable dataTable)
         {
             List<Product> products = new List<Product>();
             //each row from the database is converted into the login class
             DAO_Bill dao_Bill = new DAO_Bill();
-            List<Served> allServed = new List<Served>();
+            List<Order> allServed = new List<Order>();
             foreach (DataRow dr in dataTable.Rows)
             {
-                Served served = new Served();
-                served.BillId = (int)dr["BillId"];
+                Order served = new Order();
+                served.OrderId = (int)dr["OrderId"];
+                served.EmployeeId = (int)dr["EmployeeId"];
                 served.TableNumber = (int)dr["TableNumber"];
-                served.WorkerId = (int)dr["WorkerId"];
-                served.StartDate = (DateTime)dr["StartDate"];
-                served.EndDate = (DateTime)dr["EndeDate"];
-                served.Done = (bool)dr["Done"];
+                served.Date = (DateTime)dr["Date"];
+                served.Status= (string)dr["Status"];
                 allServed.Add(served);
             };
 

@@ -15,8 +15,8 @@ namespace project_Chapoo
     public partial class KitchenOverview : Form
     {
         Product_Service ProductService = new Product_Service();
-        Bill_Service Bill_Service = new Bill_Service();
-        Served_Service Served_Service = new Served_Service();
+        OrderProduct_Service Bill_Service = new OrderProduct_Service();
+        Order_Service Order_Service = new Order_Service();
         int selectedBillId, selectedProductId;
 
         public KitchenOverview()
@@ -32,7 +32,7 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void KitchenOverview_Load(object sender, EventArgs e)
         {
-            List<Served> serveds = Served_Service.GetAllBills();
+            List<ChapooModels.Order> serveds = Order_Service.GetOrders();
             dataGridView1.DataSource = serveds;
         }
 
@@ -113,22 +113,6 @@ namespace project_Chapoo
         /// <param name="done"></param>
         private void UpdateBill(bool done)
         {
-            Bill_Service.UpdateBillByIds(selectedBillId, selectedProductId, done);
-            if(dataGridView2.Rows.Count == Bill_Service.GetAllDoneByBill(1))
-            {
-                //if all records are made where wil be an question to remove the bill from the view
-                DialogResult dialogResult = MessageBox.Show("the whole order is made, remove from list?","warnig", MessageBoxButtons.YesNo);
-                if(dialogResult == DialogResult.Yes)
-                {
-                    Served_Service.UpdateStatus(selectedBillId);
-                }
-                else if(dialogResult == DialogResult.No)
-                {
-
-                }
-            }
-            dataGridView2.DataSource = null;
-            ReloadBillList();
         }
 
 
@@ -137,9 +121,9 @@ namespace project_Chapoo
         /// </summary>
         private void ReloadBillList()
         {
-            List<Bill> bills = Bill_Service.GetBillfromId(selectedBillId);
+            List<OrderProduct> Orders = Bill_Service.GetAllByOrder(selectedBillId);
 
-            List<Bill_ViewModel> bill_Views = ProductService.FromProductToBill_ViewModel(ProductService.FromBillToProducts(bills));
+            List<OrderProduct> bill_Views = Orders;
             dataGridView2.DataSource = bill_Views;
         }
     }

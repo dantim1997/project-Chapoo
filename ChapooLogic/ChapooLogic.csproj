@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bill_Service.cs" />
+    <Compile Include="OrderProduct_Service.cs" />
+    <Compile Include="Order_Service.cs" />
     <Compile Include="Product_Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Served_Service.cs" />

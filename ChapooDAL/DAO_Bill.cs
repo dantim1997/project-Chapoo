@@ -27,7 +27,7 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public List<Bill> GetBillfromId(int billId)
+        public List<Bill> GetOrderfromId(int billId)
         {
             string query = "SELECT ProductId, BillId, Amount, Date, Done FROM Bill where BillId = " + billId;
             SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -47,22 +47,16 @@ namespace ChapooDAL
 
         private List<Bill> ReadTable(DataTable dataTable)
         {
-            List<Bill> products = new List<Bill>();
+            List<Bill> orders = new List<Bill>();
             //each row from the database is converted into the login class
             DAO_Product dao_product = new DAO_Product();
             foreach (DataRow dr in dataTable.Rows)
             {
                 Bill bill = new Bill();
-                bill.ProductId = (int)dr["ProductId"];
-                bill.BillId = (int)dr["BillId"];
-                bill.Date = (DateTime)dr["Date"];
-                bill.product = dao_product.GetAllByBill(bill.ProductId);
-                bill.product.Amount = (int)dr["Amount"];
-                bill.product.Done = (bool)dr["Done"];
-                products.Add(bill);
+                orders.Add(bill);
             };
 
-            return products;
+            return orders;
         }
 
         public int GetAllDoneByBill(int billId)

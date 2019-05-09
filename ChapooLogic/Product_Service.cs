@@ -1,4 +1,5 @@
 ﻿using ChapooModels;
+using ChapooDAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,23 +25,6 @@ namespace ChapooLogic
             DAO_Product ProductDAO = new DAO_Product();
             List<Product> products = ProductDAO.GetProducts();
             return products;
-        }
-
-        public List<Bill_ViewModel> FromProductToBill_ViewModel(List<Product> products)
-        {
-            List<Bill_ViewModel> bills = new List<Bill_ViewModel>();
-            foreach (Product product in products)
-            {
-                Bill_ViewModel bill = new Bill_ViewModel()
-                {
-                    ProductId = product.ProductId,
-                    ProductName = product.ProductName,
-                    Amount = product.Amount,
-                    Done = product.Done
-                };
-                bills.Add(bill);
-            }
-            return bills;
         }
     }
 }

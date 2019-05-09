@@ -16,11 +16,7 @@ namespace ChapooLogic
         {
             dAO_Bill.UpdateBillByIds(billId, productId, done);
         }
-
-        public List<Bill> GetBillfromId(int billId)
-        {
-           return dAO_Bill.GetBillfromId(billId);
-        }
+        
 
         public int GetAllDoneByBill(int BillId)
         {
