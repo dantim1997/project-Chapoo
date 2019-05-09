@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Bill.cs" />
     <Compile Include="Bill_ViewModel.cs" />
-    <Compile Include="Employee.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderProduct.cs" />
     <Compile Include="Product.cs" />
