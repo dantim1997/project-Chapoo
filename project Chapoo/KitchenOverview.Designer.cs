@@ -35,11 +35,11 @@
             this.LB_WorkerName = new System.Windows.Forms.Label();
             this.LB_Table = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.btn_NotDone = new System.Windows.Forms.Button();
             this.btn_Done = new System.Windows.Forms.Button();
             this.LB_Amount = new System.Windows.Forms.Label();
             this.LB_ProductName = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -49,6 +49,7 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -61,6 +62,7 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView2.Location = new System.Drawing.Point(500, 122);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -122,6 +124,16 @@
             this.panel1.Size = new System.Drawing.Size(276, 100);
             this.panel1.TabIndex = 8;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 17);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Amount:";
+            // 
             // btn_NotDone
             // 
             this.btn_NotDone.Location = new System.Drawing.Point(196, 72);
@@ -159,16 +171,6 @@
             this.LB_ProductName.Name = "LB_ProductName";
             this.LB_ProductName.Size = new System.Drawing.Size(0, 17);
             this.LB_ProductName.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Amount:";
             // 
             // KitchenOverview
             // 

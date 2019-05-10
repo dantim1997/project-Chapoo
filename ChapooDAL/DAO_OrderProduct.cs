@@ -23,9 +23,19 @@ namespace ChapooDAL
 
         public List<OrderProduct> GetAllByOrder(int orderId)
         {
-            string query = "SELECT OrderId, ProductId, Name, Amount, Status FROM Product where OrderProductId = "+ orderId;
+            string query = "SELECT OrderId, ProductId, Amount, Status, Id FROM Order_Product where OrderId = "+ orderId;
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public void UpdateOrderProductByIds(int OrderProductId, bool Status)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("UPDATE Order_Product SET Status = @Status WHERE Id = @OrderProductId", dbConnection);
+            command.Parameters.AddWithValue("@Status", Status);
+            command.Parameters.AddWithValue("@OrderProductId", OrderProductId);
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
         }
 
         private List<OrderProduct> ReadTable(DataTable dataTable)
@@ -38,9 +48,10 @@ namespace ChapooDAL
                 OrderProduct.OrderId = (int)dr["OrderID"];
                 OrderProduct.ProductId = (int)dr["ProductID"];
                 Product product = DAO_Product.GetByProductId(OrderProduct.ProductId);
-                OrderProduct.Name = (string)dr["Name"];
+                OrderProduct.Product = product;
                 OrderProduct.Amount = (int)dr["Amount"];
-                OrderProduct.Status= (string)dr["Status"];
+                OrderProduct.Status= (bool)dr["Status"];
+                OrderProduct.OrderProductId= (int)dr["Id"];
                 OrderProducts.Add(OrderProduct);
             };
             return OrderProducts;

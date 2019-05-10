@@ -10,16 +10,6 @@ namespace ChapooLogic
 {
     public class Product_Service
     {
-        public List<Product> FromBillToProducts(List<Bill> bills)
-        {
-            List<Product> products = new List<Product>();
-            foreach (Bill bill in bills)
-            {
-                products.Add(bill.product);
-            }
-            return products;
-        }
-
         public List<Product> GetProducts()
         {
             DAO_Product ProductDAO = new DAO_Product();

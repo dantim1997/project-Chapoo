@@ -15,5 +15,35 @@ namespace ChapooLogic
         {
             return DAO_OrderProduct.GetAllByOrder(OrderId);
         }
+
+        public void UpdateStatus(int orderProductId, bool status)
+        {
+            DAO_OrderProduct.UpdateOrderProductByIds(orderProductId, status);
+        }
+
+        public List<OrderProductViewModel> OrderProductsToViewModels(List<OrderProduct> orderProducts)
+        {
+            List<OrderProductViewModel> orderProductViewModels = new List<OrderProductViewModel>();
+            foreach (OrderProduct orderProduct in orderProducts)
+            {
+                orderProductViewModels.Add(OrderProductToViewModel(orderProduct));
+            }
+            return orderProductViewModels;
+        }
+
+        public OrderProductViewModel OrderProductToViewModel(OrderProduct orderProduct)
+        {
+            OrderProductViewModel orderProductViewModel = new OrderProductViewModel
+            {
+                Amount = orderProduct.Amount,
+                Name = orderProduct.Product.ProductName,
+                ProductId = orderProduct.ProductId,
+                Supply = orderProduct.Product.Supply,
+                Status = orderProduct.Status,
+                OrderProductId = orderProduct.OrderProductId
+            };
+            
+            return orderProductViewModel;
+        }
     }
 }

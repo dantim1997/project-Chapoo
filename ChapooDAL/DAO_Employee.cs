@@ -47,7 +47,7 @@ namespace ChapooDAL
             //each row from the database is converted into the login class
             foreach (DataRow dr in dataTable.Rows)
             {
-                login.WorkerId = (int)dr["WorkerId"];
+                login.EmployeeId = (int)dr["WorkerId"];
                 login.Name = (string)dr["Name"];
                 login.Surname = (string)dr["Surname"];
                 login.TypeWorker = (string)dr["TypeWorker"];

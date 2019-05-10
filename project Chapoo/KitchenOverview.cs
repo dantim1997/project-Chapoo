@@ -15,9 +15,9 @@ namespace project_Chapoo
     public partial class KitchenOverview : Form
     {
         Product_Service ProductService = new Product_Service();
-        OrderProduct_Service Bill_Service = new OrderProduct_Service();
+        OrderProduct_Service OrderProduct_Service = new OrderProduct_Service();
         Order_Service Order_Service = new Order_Service();
-        int selectedBillId, selectedProductId;
+        int SelectedOrderId, SelectedProductId, SelectedOrderProductId;
 
         public KitchenOverview()
         {
@@ -45,15 +45,14 @@ namespace project_Chapoo
         {
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                int value1 = int.Parse(row.Cells[0].Value.ToString());
+                SelectedOrderId = int.Parse(row.Cells[0].Value.ToString());
                 int value2 = int.Parse(row.Cells[1].Value.ToString());
-                int value3 = int.Parse(row.Cells[2].Value.ToString());
-
-                selectedBillId = value1;
+                int TableNumber = int.Parse(row.Cells[2].Value.ToString());
+                
                 //DAO_Worker worker = new DAO_Worker();
                 //LB_WorkerName.Text = worker.GetWorkerById(value2).Name;
-                LB_Table.Text = value3.ToString();
-                ReloadBillList();
+                LB_Table.Text = TableNumber.ToString();
+                ReloadOrderProductList();
             }
         }
 
@@ -66,12 +65,13 @@ namespace project_Chapoo
         {
             foreach (DataGridViewRow row in dataGridView2.SelectedRows)
             {
-                int productId = int.Parse(row.Cells[0].Value.ToString());
-                string productname = row.Cells[1].Value.ToString();
-                string amount = row.Cells[2].Value.ToString();
-                bool made = Convert.ToBoolean(row.Cells[3].Value);
+                SelectedOrderProductId= int.Parse(row.Cells[0].Value.ToString());
+                int productId = int.Parse(row.Cells[1].Value.ToString());
+                string productname = row.Cells[2].Value.ToString();
+                string amount = row.Cells[3].Value.ToString();
+                bool made = Convert.ToBoolean(row.Cells[5].Value);
 
-                selectedProductId = productId;
+                SelectedProductId = productId;
                 LB_ProductName.Text = productname;
                 LB_Amount.Text = amount;
                 if (made != false)
@@ -94,7 +94,10 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void btn_Done_Click(object sender, EventArgs e)
         {
-            UpdateBill(true);
+            UpdateOrderProduct(true);
+            btn_Done.Hide();
+            btn_NotDone.Show();
+            
         }
 
         /// <summary>
@@ -104,27 +107,31 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void btn_NotDone_Click(object sender, EventArgs e)
         {
-            UpdateBill(false);
+            UpdateOrderProduct(false);
+            btn_NotDone.Hide();
+            btn_Done.Show();
         }
 
         /// <summary>
         /// Update the checkbox in de database table Bill
         /// </summary>
         /// <param name="done"></param>
-        private void UpdateBill(bool done)
+        private void UpdateOrderProduct(bool done)
         {
+            OrderProduct_Service.UpdateStatus(SelectedOrderProductId, done);
+            ReloadOrderProductList();
         }
 
 
         /// <summary>
         /// Reload the productlist
         /// </summary>
-        private void ReloadBillList()
+        private void ReloadOrderProductList()
         {
-            List<OrderProduct> Orders = Bill_Service.GetAllByOrder(selectedBillId);
+            List<OrderProduct> Orders = OrderProduct_Service.GetAllByOrder(SelectedOrderId);
 
-            List<OrderProduct> bill_Views = Orders;
-            dataGridView2.DataSource = bill_Views;
+            List<OrderProductViewModel> orderProductViewModel = OrderProduct_Service.OrderProductsToViewModels(Orders);
+            dataGridView2.DataSource = orderProductViewModel;
         }
     }
 }
