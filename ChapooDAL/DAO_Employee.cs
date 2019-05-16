@@ -33,7 +33,7 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
 
-                new SqlParameter("username", username)
+                new SqlParameter("Username", username)
 
             };
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
@@ -41,7 +41,7 @@ namespace ChapooDAL
 
         public Employee GetWorkerById(int EmployeeId)
         {
-            string query = "SELECT EmployeeId, Name, Surname, TypeWorker FROM Employee where EmployeeId = @EmployeeId";
+            string query = "SELECT EmployeeId, Name, Surname, TypeWorker, Username, Password FROM Employee where EmployeeId = @EmployeeId";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("EmployeeId", EmployeeId)
