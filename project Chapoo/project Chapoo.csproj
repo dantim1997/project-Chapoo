@@ -76,6 +76,9 @@
     <Compile Include="TableOverview.Designer.cs">
       <DependentUpon>TableOverview.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BarOverview.resx">
+      <DependentUpon>BarOverview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KitchenOverview.resx">
       <DependentUpon>KitchenOverview.cs</DependentUpon>
     </EmbeddedResource>

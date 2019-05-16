@@ -11,14 +11,14 @@ namespace ChapooLogic
     public class OrderProduct_Service
     {
         DAO_OrderProduct DAO_OrderProduct = new DAO_OrderProduct();
-        public List<OrderProduct> GetAllByOrder(int OrderId)
+        public List<OrderProduct> GetAllByOrder(int OrderId, string type)
         {
-            return DAO_OrderProduct.GetAllByOrder(OrderId);
+            return DAO_OrderProduct.GetAllByOrder(OrderId, type);
         }
 
-        public void UpdateStatus(int orderProductId, bool status)
+        public void UpdateStatus(int orderProductId, bool status, int orderId)
         {
-            DAO_OrderProduct.UpdateOrderProductByIds(orderProductId, status);
+            DAO_OrderProduct.UpdateOrderProductByIds(orderProductId, status, orderId);
         }
 
         public List<OrderProductViewModel> OrderProductsToViewModels(List<OrderProduct> orderProducts)

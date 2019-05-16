@@ -36,7 +36,7 @@ namespace ChapooDAL
 
         public Employee GetWorkerById(int EmployeeId)
         {
-            string query = "SELECT EmployeeId, Name, Surname, TypeWorker FROM Worker where EmployeeId =" + EmployeeId;
+            string query = "SELECT EmployeeId, Name, Surname, TypeWorker, Username, Password FROM Employee where EmployeeId =" + EmployeeId;
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -47,7 +47,7 @@ namespace ChapooDAL
             //each row from the database is converted into the login class
             foreach (DataRow dr in dataTable.Rows)
             {
-                login.EmployeeId = (int)dr["WorkerId"];
+                login.EmployeeId = (int)dr["EmployeeId"];
                 login.Name = (string)dr["Name"];
                 login.Surname = (string)dr["Surname"];
                 login.TypeWorker = (string)dr["TypeWorker"];

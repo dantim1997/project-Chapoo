@@ -45,5 +45,15 @@ namespace ChapooDAL
 
             return allServed;
         }
+
+        public void UpdateStatus(string done, int orderId)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("UPDATE [Order] SET Status = @Status WHERE OrderId = @OrderId", dbConnection);
+            command.Parameters.AddWithValue("@Status", done);
+            command.Parameters.AddWithValue("@OrderId", orderId);
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
+        }
     }
 }

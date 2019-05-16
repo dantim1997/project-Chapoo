@@ -163,6 +163,8 @@ namespace project_Chapoo
         {
             KitchenOverview kitchenOverview1 = new KitchenOverview();
             kitchenOverview1.ShowDialog();
+            BarOverview bar = new BarOverview();
+            bar.ShowDialog();
             Employee employee = new Employee();
             employee = employeeService.GetWorkerLogin(txtUser.Text);
 
