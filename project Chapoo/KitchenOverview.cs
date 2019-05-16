@@ -17,6 +17,7 @@ namespace project_Chapoo
         Product_Service ProductService = new Product_Service();
         OrderProduct_Service OrderProduct_Service = new OrderProduct_Service();
         Order_Service Order_Service = new Order_Service();
+        Employee_Service employee_Service = new Employee_Service();
         int SelectedOrderId, SelectedProductId, SelectedOrderProductId;
 
         public KitchenOverview()
@@ -32,8 +33,7 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void KitchenOverview_Load(object sender, EventArgs e)
         {
-            List<ChapooModels.Order> serveds = Order_Service.GetOrders();
-            dataGridView1.DataSource = serveds;
+            ReloadOrderList();
         }
 
         /// <summary>
@@ -46,11 +46,10 @@ namespace project_Chapoo
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
                 SelectedOrderId = int.Parse(row.Cells[0].Value.ToString());
-                int value2 = int.Parse(row.Cells[1].Value.ToString());
+                int EmployeeId = int.Parse(row.Cells[1].Value.ToString());
                 int TableNumber = int.Parse(row.Cells[2].Value.ToString());
-                
-                //DAO_Worker worker = new DAO_Worker();
-                //LB_WorkerName.Text = worker.GetWorkerById(value2).Name;
+
+                LB_WorkerName.Text = employee_Service.GetEmployeeById(EmployeeId).Name;
                 LB_Table.Text = TableNumber.ToString();
                 ReloadOrderProductList();
             }
@@ -118,8 +117,9 @@ namespace project_Chapoo
         /// <param name="done"></param>
         private void UpdateOrderProduct(bool done)
         {
-            OrderProduct_Service.UpdateStatus(SelectedOrderProductId, done);
+            OrderProduct_Service.UpdateStatus(SelectedOrderProductId, done, SelectedOrderId);
             ReloadOrderProductList();
+            ReloadOrderList();
         }
 
 
@@ -128,10 +128,15 @@ namespace project_Chapoo
         /// </summary>
         private void ReloadOrderProductList()
         {
-            List<OrderProduct> Orders = OrderProduct_Service.GetAllByOrder(SelectedOrderId);
+            List<OrderProduct> Orders = OrderProduct_Service.GetAllByOrder(SelectedOrderId, "Food");
 
             List<OrderProductViewModel> orderProductViewModel = OrderProduct_Service.OrderProductsToViewModels(Orders);
             dataGridView2.DataSource = orderProductViewModel;
+        }
+
+        private void ReloadOrderList()
+        {
+            dataGridView1.DataSource = Order_Service.GetOrders();
         }
     }
 }

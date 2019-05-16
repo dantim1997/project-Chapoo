@@ -172,8 +172,11 @@ namespace project_Chapoo
 
         public void OpenForm()
         {
-            //KitchenOverview kitchenOverview1 = new KitchenOverview();
-            //kitchenOverview1.ShowDialog();
+            KitchenOverview kitchenOverview1 = new KitchenOverview();
+            kitchenOverview1.ShowDialog();
+            BarOverview bar = new BarOverview();
+            bar.ShowDialog();
+            Employee employee = new Employee();
             employee = employeeService.GetWorkerLogin(txtUser.Text);
 
             this.Hide();
