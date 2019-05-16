@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ChapooDAL
 {
-    public class DAO_Employee: Base
+    public class DAO_Employee : Base
     {
         private SqlConnection dbConnection;
 
@@ -29,25 +29,32 @@ namespace ChapooDAL
 
         public Employee GetWorkerLogin(string username)
         {
-            string query = "SELECT EmployeeId, Name, Surname, TypeWorker, Username, Password FROM Employee WHERE Username =" + username;
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = "SELECT EmployeeId, Name, Surname, TypeWorker, Username, Password FROM Employee WHERE Username = @username";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+
+                new SqlParameter("username", username)
+
+            };
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public Employee GetWorkerById(int EmployeeId)
         {
-            string query = "SELECT EmployeeId, Name, Surname, TypeWorker FROM Worker where EmployeeId =" + EmployeeId;
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = "SELECT EmployeeId, Name, Surname, TypeWorker FROM Employee where EmployeeId = @EmployeeId";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("EmployeeId", EmployeeId)
+            };
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
         private Employee ReadTable(DataTable dataTable)
         {
             Employee login = new Employee();
-            //each row from the database is converted into the login class
             foreach (DataRow dr in dataTable.Rows)
             {
-                login.EmployeeId = (int)dr["WorkerId"];
+                login.EmployeeId = (int)dr["EmployeeId"];
                 login.Name = (string)dr["Name"];
                 login.Surname = (string)dr["Surname"];
                 login.TypeWorker = (string)dr["TypeWorker"];

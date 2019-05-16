@@ -1,4 +1,5 @@
 ﻿using System;
+using ChapooModels;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,21 @@ namespace project_Chapoo
         public TableOverview()
         {
             InitializeComponent();
+        }
+
+        public void InfoEmployee(Employee e)
+        {
+            Employee employee = e;
+            lblServerInfo.Text = employee.Name + " " + employee.Surname;
+            lblServerIdInfo.Text = employee.EmployeeId.ToString();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+            this.Close();
         }
     }
 }

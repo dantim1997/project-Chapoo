@@ -24,6 +24,8 @@ namespace project_Chapoo
         private Label lblUser;
         private Label lblError;
         Employee_Service employeeService = new Employee_Service();
+        Login_Service loginService = new Login_Service();
+        Employee employee = new Employee();
 
         public Login()
         {
@@ -58,6 +60,7 @@ namespace project_Chapoo
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnLogin
             // 
@@ -126,11 +129,11 @@ namespace project_Chapoo
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Location = new System.Drawing.Point(30, 283);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 9);
+            this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 2;
             // 
             // Login
@@ -138,6 +141,7 @@ namespace project_Chapoo
             this.ClientSize = new System.Drawing.Size(459, 307);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -150,44 +154,52 @@ namespace project_Chapoo
         {
             if (txtUser.Text != "" && txtPassword.Text != "")
             {
-                CheckLogin();
+                if (loginService.CheckLogin(txtUser.Text, txtPassword.Text))
+                {
+                    OpenForm();
+                }
+                else
+                {
+                    lblError.Text = "Incorrect 'username' or 'password' entered. Please try again*";
+                }
             }
             else
             {
                 lblError.Text = "No 'username' or 'password' entered. Please try again*";
             }
-            
+
         }
 
-        public void CheckLogin()
+        public void OpenForm()
         {
-            KitchenOverview kitchenOverview1 = new KitchenOverview();
-            kitchenOverview1.ShowDialog();
-            Employee employee = new Employee();
+            //KitchenOverview kitchenOverview1 = new KitchenOverview();
+            //kitchenOverview1.ShowDialog();
             employee = employeeService.GetWorkerLogin(txtUser.Text);
 
-            if (employee.Password == txtPassword.Text)
+            this.Hide();
+            switch (employee.TypeWorker)
             {
-                switch (employee.TypeWorker)
-                {
-                    case "server":
-                        TableOverview tableOverview = new TableOverview();
-                        tableOverview.Show();
-                        break;
-                    case "cook":
-                        KitchenOverview kitchenOverview = new KitchenOverview();
-                        kitchenOverview.Show();
-                        break;
-                    case "bar":
-                        BarOverview barOverview = new BarOverview();
-                        barOverview.Show();
-                        break;
-                }
+                case "server":
+                    TableOverview tableOverview = new TableOverview();
+                    tableOverview.InfoEmployee(employee);
+                    tableOverview.ShowDialog();
+                    break;
+                case "cook":
+                    KitchenOverview kitchenOverview = new KitchenOverview();
+                    kitchenOverview.ShowDialog();
+                    break;
+                case "bar":
+                    BarOverview barOverview = new BarOverview();
+                    barOverview.ShowDialog();
+                    break;
             }
-            else
-            {
-                lblError.Text = "Incorrect 'username' or 'password' entered. Please try again*";
-            }
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
         }
     }
 }
