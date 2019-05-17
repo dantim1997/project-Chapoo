@@ -22,7 +22,7 @@ namespace ChapooDAL
 
         public List<Order> GetAllOrders()
         {
-            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order]";
+            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters));
         }
