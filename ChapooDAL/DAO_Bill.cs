@@ -57,8 +57,8 @@ namespace ChapooDAL
                 bill.BillId = (int)dr["BillId"];
                 bill.Date = (DateTime)dr["Date"];
                 bill.product = dao_product.GetAllByBill(bill.ProductId);
-                bill.product.Amount = (int)dr["Amount"];
-                bill.product.Done = (bool)dr["Done"];
+                bill.product.Supply = (int)dr["Amount"];
+
                 products.Add(bill);
             };
 

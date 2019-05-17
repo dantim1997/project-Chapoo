@@ -85,6 +85,9 @@
     <EmbeddedResource Include="KitchenOverview.resx">
       <DependentUpon>KitchenOverview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Order.resx">
+      <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -29,7 +29,7 @@ namespace ChapooDAL
 
         public List<Served> GetAllBills()
         {
-            string query = "SELECT BillId, TableNumber, WorkerId, StartDate, EndeDate, Done FROM Served";
+            string query = "SELECT TableNumber, WorkerId, StartDate, EndeDate, Done FROM Served";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters));
         }

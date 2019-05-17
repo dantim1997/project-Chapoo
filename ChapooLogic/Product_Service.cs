@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChapooDAL;
 
 namespace ChapooLogic
 {
@@ -35,8 +36,8 @@ namespace ChapooLogic
                 {
                     ProductId = product.ProductId,
                     ProductName = product.ProductName,
-                    Amount = product.Amount,
-                    Done = product.Done
+                    Amount = product.Supply
+           
                 };
                 bills.Add(bill);
             }

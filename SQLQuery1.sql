@@ -1,0 +1,1 @@
+﻿SELECT OrderID, EmployeeID, [Date], Done FROM [Order] Where OrderID = 1
