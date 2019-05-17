@@ -15,9 +15,10 @@ namespace project_Chapoo
     public partial class KitchenOverview : Form
     {
         Product_Service ProductService = new Product_Service();
-        Bill_Service Bill_Service = new Bill_Service();
-        Served_Service Served_Service = new Served_Service();
-        int selectedBillId, selectedProductId;
+        OrderProduct_Service OrderProduct_Service = new OrderProduct_Service();
+        Order_Service Order_Service = new Order_Service();
+        Employee_Service employee_Service = new Employee_Service();
+        int SelectedOrderId, SelectedProductId, SelectedOrderProductId;
 
         public KitchenOverview()
         {
@@ -32,8 +33,7 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void KitchenOverview_Load(object sender, EventArgs e)
         {
-            List<Served> serveds = Served_Service.GetAllBills();
-            dataGridView1.DataSource = serveds;
+            ReloadOrderList();
         }
 
         /// <summary>
@@ -45,15 +45,13 @@ namespace project_Chapoo
         {
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                int value1 = int.Parse(row.Cells[0].Value.ToString());
-                int value2 = int.Parse(row.Cells[1].Value.ToString());
-                int value3 = int.Parse(row.Cells[2].Value.ToString());
+                SelectedOrderId = int.Parse(row.Cells[0].Value.ToString());
+                int EmployeeId = int.Parse(row.Cells[1].Value.ToString());
+                int TableNumber = int.Parse(row.Cells[2].Value.ToString());
 
-                selectedBillId = value1;
-                //DAO_Worker worker = new DAO_Worker();
-                //LB_WorkerName.Text = worker.GetWorkerById(value2).Name;
-                LB_Table.Text = value3.ToString();
-                ReloadBillList();
+                LB_WorkerName.Text = employee_Service.GetEmployeeById(EmployeeId).Name;
+                LB_Table.Text = TableNumber.ToString();
+                ReloadOrderProductList();
             }
         }
 
@@ -66,12 +64,13 @@ namespace project_Chapoo
         {
             foreach (DataGridViewRow row in dataGridView2.SelectedRows)
             {
-                int productId = int.Parse(row.Cells[0].Value.ToString());
-                string productname = row.Cells[1].Value.ToString();
-                string amount = row.Cells[2].Value.ToString();
-                bool made = Convert.ToBoolean(row.Cells[3].Value);
+                SelectedOrderProductId= int.Parse(row.Cells[0].Value.ToString());
+                int productId = int.Parse(row.Cells[1].Value.ToString());
+                string productname = row.Cells[2].Value.ToString();
+                string amount = row.Cells[3].Value.ToString();
+                bool made = Convert.ToBoolean(row.Cells[5].Value);
 
-                selectedProductId = productId;
+                SelectedProductId = productId;
                 LB_ProductName.Text = productname;
                 LB_Amount.Text = amount;
                 if (made != false)
@@ -94,7 +93,10 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void btn_Done_Click(object sender, EventArgs e)
         {
-            UpdateBill(true);
+            UpdateOrderProduct(true);
+            btn_Done.Hide();
+            btn_NotDone.Show();
+            
         }
 
         /// <summary>
@@ -104,43 +106,37 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void btn_NotDone_Click(object sender, EventArgs e)
         {
-            UpdateBill(false);
+            UpdateOrderProduct(false);
+            btn_NotDone.Hide();
+            btn_Done.Show();
         }
 
         /// <summary>
         /// Update the checkbox in de database table Bill
         /// </summary>
         /// <param name="done"></param>
-        private void UpdateBill(bool done)
+        private void UpdateOrderProduct(bool done)
         {
-            Bill_Service.UpdateBillByIds(selectedBillId, selectedProductId, done);
-            if(dataGridView2.Rows.Count == Bill_Service.GetAllDoneByBill(1))
-            {
-                //if all records are made where wil be an question to remove the bill from the view
-                DialogResult dialogResult = MessageBox.Show("the whole order is made, remove from list?","warnig", MessageBoxButtons.YesNo);
-                if(dialogResult == DialogResult.Yes)
-                {
-                    Served_Service.UpdateStatus(selectedBillId);
-                }
-                else if(dialogResult == DialogResult.No)
-                {
-
-                }
-            }
-            dataGridView2.DataSource = null;
-            ReloadBillList();
+            OrderProduct_Service.UpdateStatus(SelectedOrderProductId, done, SelectedOrderId);
+            ReloadOrderProductList();
+            ReloadOrderList();
         }
 
 
         /// <summary>
         /// Reload the productlist
         /// </summary>
-        private void ReloadBillList()
+        private void ReloadOrderProductList()
         {
-            List<Bill> bills = Bill_Service.GetBillfromId(selectedBillId);
+            List<OrderProduct> Orders = OrderProduct_Service.GetAllByOrder(SelectedOrderId, "Food");
 
-            List<Bill_ViewModel> bill_Views = ProductService.FromProductToBill_ViewModel(ProductService.FromBillToProducts(bills));
-            dataGridView2.DataSource = bill_Views;
+            List<OrderProductViewModel> orderProductViewModel = OrderProduct_Service.OrderProductsToViewModels(Orders);
+            dataGridView2.DataSource = orderProductViewModel;
+        }
+
+        private void ReloadOrderList()
+        {
+            dataGridView1.DataSource = Order_Service.GetOrders();
         }
     }
 }

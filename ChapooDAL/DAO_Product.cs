@@ -34,9 +34,16 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public Product GetAllByBill(int productId)
+        public Product GetAllByBill(int productId, string type)
         {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductType = 'Food' and ProductId = "+productId;
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductType = '"+type+"' and ProductId = "+productId;
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadProduct(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public Product GetByProductId(int productId, string type)
+        {
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductType = '"+type+"' and ProductId = " + productId;
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadProduct(ExecuteSelectQuery(query, sqlParameters));
         }
