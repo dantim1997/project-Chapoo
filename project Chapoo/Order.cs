@@ -44,24 +44,22 @@ namespace project_Chapoo
                 //Open tafeloverzicht
             }
         }
-
-        private void btn_Lunch_Click(object sender, EventArgs e)
-        {
-            vulListView("Lunch");
-        }
-
-        private void btn_Diner_Click(object sender, EventArgs e)
-        {
-            vulListView("Diner");
-        }
+        
 
         private void btn_Dranken_Click(object sender, EventArgs e)
         {
-            vulListView("Dranken");
+            vulListView("Drink");
         }
 
-        private void listView__ItemActivate(object sender, EventArgs e)
+        private void btn_Eten_Click(object sender, EventArgs e)
         {
+            vulListView("Food");
+        }
+
+        private void listView_Products_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var firstSelectedItem = listView_Products.SelectedItems[0];
+            //listView_Order.Items.Add(firstSelectedItem);
 
         }
     }
