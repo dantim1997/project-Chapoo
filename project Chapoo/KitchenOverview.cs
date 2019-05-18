@@ -18,7 +18,7 @@ namespace project_Chapoo
         OrderProduct_Service OrderProduct_Service = new OrderProduct_Service();
         Order_Service Order_Service = new Order_Service();
         Employee_Service employee_Service = new Employee_Service();
-        int SelectedOrderId, SelectedProductId, SelectedOrderProductId;
+        private int SelectedOrderId, SelectedProductId, SelectedOrderProductId;
 
         public KitchenOverview()
         {
