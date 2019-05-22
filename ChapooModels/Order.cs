@@ -13,5 +13,7 @@ namespace ChapooModels
         public int TableNumber { get; set; }
         public DateTime Date { get; set; }
         public string Status { get; set; }
+
+        /// . list
     }
 }

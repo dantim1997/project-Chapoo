@@ -18,6 +18,11 @@ namespace project_Chapoo
             InitializeComponent();
         }
 
+        public void BestellingOverzicht()
+        {
+
+        }
+
         public void InfoEmployee(Employee e)
         {
             Employee employee = e;

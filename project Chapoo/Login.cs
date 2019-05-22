@@ -68,7 +68,7 @@ namespace project_Chapoo
             this.btnLogin.Location = new System.Drawing.Point(200, 180);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(180, 55);
-            this.btnLogin.TabIndex = 0;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
@@ -94,7 +94,7 @@ namespace project_Chapoo
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(200, 116);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(149, 23);
+            this.txtPassword.Size = new System.Drawing.Size(149, 26);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -103,8 +103,8 @@ namespace project_Chapoo
             this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.Location = new System.Drawing.Point(200, 71);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(149, 23);
-            this.txtUser.TabIndex = 2;
+            this.txtUser.Size = new System.Drawing.Size(149, 26);
+            this.txtUser.TabIndex = 1;
             // 
             // lblPassword
             // 
@@ -112,7 +112,7 @@ namespace project_Chapoo
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.Location = new System.Drawing.Point(36, 119);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(69, 17);
+            this.lblPassword.Size = new System.Drawing.Size(83, 20);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password";
             // 
@@ -122,7 +122,7 @@ namespace project_Chapoo
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.Location = new System.Drawing.Point(36, 74);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(73, 17);
+            this.lblUser.Size = new System.Drawing.Size(86, 20);
             this.lblUser.TabIndex = 1;
             this.lblUser.Text = "Username";
             // 
@@ -133,7 +133,7 @@ namespace project_Chapoo
             this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Location = new System.Drawing.Point(30, 283);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.Size = new System.Drawing.Size(0, 17);
             this.lblError.TabIndex = 2;
             // 
             // Login
@@ -172,11 +172,11 @@ namespace project_Chapoo
 
         public void OpenForm()
         {
-            KitchenOverview kitchenOverview1 = new KitchenOverview();
-            kitchenOverview1.ShowDialog();
-            BarOverview bar = new BarOverview();
-            bar.ShowDialog();
-            Employee employee = new Employee();
+            //KitchenOverview kitchenOverview1 = new KitchenOverview();
+            //kitchenOverview1.ShowDialog();
+            //BarOverview bar = new BarOverview();
+            //bar.ShowDialog();
+            //Employee employee = new Employee();
             employee = employeeService.GetWorkerLogin(txtUser.Text);
 
             this.Hide();
