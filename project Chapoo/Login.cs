@@ -34,7 +34,7 @@ namespace project_Chapoo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            KitchenOverview kitchenOverview = new KitchenOverview();
+            KitchenOverview kitchenOverview = new KitchenOverview("Drink");
             kitchenOverview.Show();
         }
 
@@ -188,7 +188,7 @@ namespace project_Chapoo
                     tableOverview.ShowDialog();
                     break;
                 case "cook":
-                    KitchenOverview kitchenOverview = new KitchenOverview();
+                    KitchenOverview kitchenOverview = new KitchenOverview("Drink");
                     kitchenOverview.ShowDialog();
                     break;
                 case "bar":

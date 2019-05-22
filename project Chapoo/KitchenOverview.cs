@@ -20,12 +20,13 @@ namespace project_Chapoo
         Employee_Service employee_Service = new Employee_Service();
         List<ChapooModels.Order> Orders = new List<ChapooModels.Order>();
         private int SelectedOrderId, SelectedProductId, SelectedOrderProductId;
+        string TypeOfView;
 
-        public KitchenOverview()
+        public KitchenOverview(string typeOfView)
         {
             InitializeComponent();
-
-            Orders = Order_Service.GetOrders("Food");
+            TypeOfView = typeOfView;
+            Orders = Order_Service.GetOrders(TypeOfView);
             foreach (ChapooModels.Order order in Orders)
             {
                 ListViewItem item = new ListViewItem(order.OrderId.ToString());
@@ -70,7 +71,9 @@ namespace project_Chapoo
             SelectedOrderId = Convert.ToInt32(e.Item.Text);
             ChapooModels.Order id = Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault();
             listView2.Items.Clear();
-            foreach (OrderProduct orderProduct in Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault().OrderProduct)
+            ChapooModels.Order chosenOrders = Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault();
+            LB_Table.Text = chosenOrders.TableNumber.ToString();
+            foreach (OrderProduct orderProduct in chosenOrders.OrderProduct)
             {
                 ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
                 item.SubItems.Add(orderProduct.Product.ProductName);
@@ -86,7 +89,6 @@ namespace project_Chapoo
             LB_Amount.Text = orderProduct.Amount.ToString();
             LB_ProductName.Text = orderProduct.Product.ProductName;
             SelectedOrderProductId = orderProduct.OrderProductId;
-            //LB_Table.Text = 
         }
 
 
@@ -95,7 +97,7 @@ namespace project_Chapoo
         /// </summary>
         private void ReloadOrderProductList()
         {
-            List<OrderProduct> Orders = OrderProduct_Service.GetAllByOrder(SelectedOrderId, "Food");
+            List<OrderProduct> Orders = OrderProduct_Service.GetAllByOrder(SelectedOrderId, TypeOfView);
 
             List<OrderProductViewModel> orderProductViewModel = OrderProduct_Service.OrderProductsToViewModels(Orders);
             //dataGridView2.DataSource = orderProductViewModel;
