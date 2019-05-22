@@ -62,14 +62,14 @@ namespace project_Chapoo
 
         private void btn_Done_Click(object sender, EventArgs e)
         {
-            UpdateOrderProduct(true);
+            UpdateOrderProduct(Statustype.Bereid);
             btn_Done.Hide();
             btn_NotDone.Show();
         }
 
         private void btn_NotDone_Click(object sender, EventArgs e)
         {
-            UpdateOrderProduct(false);
+            UpdateOrderProduct(Statustype.Bereid);
             btn_NotDone.Hide();
             btn_Done.Show();
         }
@@ -88,7 +88,7 @@ namespace project_Chapoo
         /// Update the checkbox in de database table Bill
         /// </summary>
         /// <param name="done"></param>
-        private void UpdateOrderProduct(bool done)
+        private void UpdateOrderProduct(Statustype done)
         {
             OrderProduct_Service.UpdateStatus(SelectedOrderProductId, done, SelectedOrderId);
             ReloadOrderProductList();
@@ -108,7 +108,7 @@ namespace project_Chapoo
 
         private void ReloadOrderList()
         {
-            dataGridView1.DataSource = Order_Service.GetOrders();
+            //dataGridView1.DataSource = Order_Service.GetOrders();
         }
     }
 }

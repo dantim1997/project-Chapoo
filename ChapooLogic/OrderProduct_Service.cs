@@ -16,7 +16,7 @@ namespace ChapooLogic
             return DAO_OrderProduct.GetAllByOrder(OrderId, type);
         }
 
-        public void UpdateStatus(int orderProductId, bool status, int orderId)
+        public void UpdateStatus(int orderProductId, Statustype status, int orderId)
         {
             DAO_OrderProduct.UpdateOrderProductByIds(orderProductId, status, orderId);
         }
@@ -37,9 +37,7 @@ namespace ChapooLogic
             {
                 Amount = orderProduct.Amount,
                 Name = orderProduct.Product.ProductName,
-                ProductId = orderProduct.ProductId,
                 Supply = orderProduct.Product.Supply,
-                Status = orderProduct.Status,
                 OrderProductId = orderProduct.OrderProductId
             };
             

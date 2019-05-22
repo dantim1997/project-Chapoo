@@ -23,7 +23,7 @@ namespace ChapooDAL
 
         public List<OrderProduct> GetAllByOrder(int orderId, string type)
         {
-            string query = "SELECT OrderId, o.ProductId, Amount, Status, Id FROM Order_Product as o join Product as p on o.ProductId = p.ProductId where OrderId = "+orderId+" and p.ProductType = '"+type+"'";
+            string query = "SELECT OrderId, o.ProductId, Amount, Status, Id FROM Order_Product as o join Product as p on o.ProductId = p.ProductId where OrderId = "+orderId+" and p.ProductType = '"+type+"' and o.Status = 1";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters), type);
         }
@@ -35,16 +35,16 @@ namespace ChapooDAL
             return ReadStatus(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public void UpdateOrderProductByIds(int OrderProductId, bool Status, int orderId)
+        public void UpdateOrderProductByIds(int OrderProductId, Statustype Status, int orderId)
         {
             dbConnection.Open();
             SqlCommand command = new SqlCommand("UPDATE Order_Product SET Status = @Status WHERE Id = @OrderProductId", dbConnection);
-            command.Parameters.AddWithValue("@Status", Status);
+            command.Parameters.AddWithValue("@Status", (int)Status);
             command.Parameters.AddWithValue("@OrderProductId", OrderProductId);
             SqlDataReader reader = command.ExecuteReader();
             dbConnection.Close();
             DAO_Order dAO_Order = new DAO_Order();
-            dAO_Order.UpdateStatus(CheckStatus(orderId), orderId);
+            //dAO_Order.UpdateStatus(CheckStatus(orderId), orderId);
         }
 
         private List<OrderProduct> ReadTable(DataTable dataTable, string type)
@@ -55,11 +55,11 @@ namespace ChapooDAL
             {
                 OrderProduct OrderProduct = new OrderProduct();
                 OrderProduct.OrderId = (int)dr["OrderID"];
-                OrderProduct.ProductId = (int)dr["ProductID"];
-                Product product = DAO_Product.GetByProductId(OrderProduct.ProductId, type);
+                int ProductId = (int)dr["ProductID"];
+                Product product = DAO_Product.GetByProductId(ProductId, type);
                 OrderProduct.Product = product;
                 OrderProduct.Amount = (int)dr["Amount"];
-                OrderProduct.Status= (bool)dr["Status"];
+                OrderProduct.Status= (Statustype)dr["Status"];
                 OrderProduct.OrderProductId= (int)dr["Id"];
                 OrderProducts.Add(OrderProduct);
             };

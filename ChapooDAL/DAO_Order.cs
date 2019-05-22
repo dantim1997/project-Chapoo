@@ -13,6 +13,7 @@ namespace ChapooDAL
     public class DAO_Order : Base
     {
         private SqlConnection dbConnection;
+        DAO_OrderProduct DAO_OrderProduct = new DAO_OrderProduct();
 
         public DAO_Order()
         {
@@ -20,14 +21,14 @@ namespace ChapooDAL
             dbConnection = new SqlConnection(connstring);
         }
 
-        public List<Order> GetAllOrders()
+        public List<Order> GetAllOrders(string type)
         {
             string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadAllTables(ExecuteSelectQuery(query, sqlParameters));
+            return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }
         
-        private List<Order> ReadAllTables(DataTable dataTable)
+        private List<Order> ReadAllTables(DataTable dataTable, string type)
         {
             List<Product> products = new List<Product>();
             //each row from the database is converted into the login class
@@ -40,6 +41,7 @@ namespace ChapooDAL
                 served.TableNumber = (int)dr["TableNumber"];
                 served.Date = (DateTime)dr["Date"];
                 served.Status= (string)dr["Status"];
+                served.OrderProduct = DAO_OrderProduct.GetAllByOrder(served.OrderId, type);
                 allServed.Add(served);
             };
 

@@ -18,11 +18,21 @@ namespace project_Chapoo
         OrderProduct_Service OrderProduct_Service = new OrderProduct_Service();
         Order_Service Order_Service = new Order_Service();
         Employee_Service employee_Service = new Employee_Service();
+        List<ChapooModels.Order> Orders = new List<ChapooModels.Order>();
         private int SelectedOrderId, SelectedProductId, SelectedOrderProductId;
 
         public KitchenOverview()
         {
             InitializeComponent();
+
+            Orders = Order_Service.GetOrders("Food");
+            foreach (ChapooModels.Order order in Orders)
+            {
+                ListViewItem item = new ListViewItem(order.OrderId.ToString());
+                item.SubItems.Add(order.TableNumber.ToString());
+                item.SubItems.Add(order.Status);
+                listView1.Items.Add(item);
+            }
         }
 
 
@@ -33,57 +43,6 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void KitchenOverview_Load(object sender, EventArgs e)
         {
-            ReloadOrderList();
-        }
-
-        /// <summary>
-        /// update the productlist by the connected bill
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-            {
-                SelectedOrderId = int.Parse(row.Cells[0].Value.ToString());
-                int EmployeeId = int.Parse(row.Cells[1].Value.ToString());
-                int TableNumber = int.Parse(row.Cells[2].Value.ToString());
-
-                LB_WorkerName.Text = employee_Service.GetEmployeeById(EmployeeId).Name;
-                LB_Table.Text = TableNumber.ToString();
-                ReloadOrderProductList();
-            }
-        }
-
-        /// <summary>
-        /// if an other product row is selected the data is displayed in the info
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dataGridView2.SelectedRows)
-            {
-                SelectedOrderProductId= int.Parse(row.Cells[0].Value.ToString());
-                int productId = int.Parse(row.Cells[1].Value.ToString());
-                string productname = row.Cells[2].Value.ToString();
-                string amount = row.Cells[3].Value.ToString();
-                bool made = Convert.ToBoolean(row.Cells[5].Value);
-
-                SelectedProductId = productId;
-                LB_ProductName.Text = productname;
-                LB_Amount.Text = amount;
-                if (made != false)
-                {
-                    btn_Done.Hide();
-                    btn_NotDone.Show();
-                }
-                else
-                {
-                    btn_NotDone.Hide();
-                    btn_Done.Show();
-                }
-            }
         }
 
         /// <summary>
@@ -93,33 +52,41 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void btn_Done_Click(object sender, EventArgs e)
         {
-            UpdateOrderProduct(true);
-            btn_Done.Hide();
-            btn_NotDone.Show();
-            
-        }
+            UpdateOrderProduct(Statustype.Bereid);
 
-        /// <summary>
-        /// btn click of not done
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_NotDone_Click(object sender, EventArgs e)
-        {
-            UpdateOrderProduct(false);
-            btn_NotDone.Hide();
-            btn_Done.Show();
         }
-
         /// <summary>
         /// Update the checkbox in de database table Bill
         /// </summary>
         /// <param name="done"></param>
-        private void UpdateOrderProduct(bool done)
+        private void UpdateOrderProduct(Statustype done)
         {
             OrderProduct_Service.UpdateStatus(SelectedOrderProductId, done, SelectedOrderId);
             ReloadOrderProductList();
-            ReloadOrderList();
+        }
+
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            SelectedOrderId = Convert.ToInt32(e.Item.Text);
+            ChapooModels.Order id = Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault();
+            listView2.Items.Clear();
+            foreach (OrderProduct orderProduct in Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault().OrderProduct)
+            {
+                ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
+                item.SubItems.Add(orderProduct.Product.ProductName);
+                item.SubItems.Add(orderProduct.Amount.ToString());
+                item.SubItems.Add((orderProduct.Status).ToString());
+                listView2.Items.Add(item);
+            }
+        }
+
+        private void listView2_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            OrderProduct orderProduct = Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault().OrderProduct.Where(a => a.OrderProductId == Convert.ToInt32( e.Item.Text)).FirstOrDefault();
+            LB_Amount.Text = orderProduct.Amount.ToString();
+            LB_ProductName.Text = orderProduct.Product.ProductName;
+            SelectedOrderProductId = orderProduct.OrderProductId;
+            //LB_Table.Text = 
         }
 
 
@@ -131,12 +98,7 @@ namespace project_Chapoo
             List<OrderProduct> Orders = OrderProduct_Service.GetAllByOrder(SelectedOrderId, "Food");
 
             List<OrderProductViewModel> orderProductViewModel = OrderProduct_Service.OrderProductsToViewModels(Orders);
-            dataGridView2.DataSource = orderProductViewModel;
-        }
-
-        private void ReloadOrderList()
-        {
-            dataGridView1.DataSource = Order_Service.GetOrders();
+            //dataGridView2.DataSource = orderProductViewModel;
         }
     }
 }

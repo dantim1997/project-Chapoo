@@ -12,9 +12,9 @@ namespace ChapooLogic
     {
         DAO_Order DAO_Order = new DAO_Order();
 
-        public List<Order> GetOrders()
+        public List<Order> GetOrders(string type)
         {
-            return DAO_Order.GetAllOrders();
+            return DAO_Order.GetAllOrders(type);
         }
     }
 }

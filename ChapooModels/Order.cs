@@ -14,6 +14,6 @@ namespace ChapooModels
         public DateTime Date { get; set; }
         public string Status { get; set; }
 
-        /// . list
+        public List<OrderProduct> OrderProduct { get; set; }
     }
 }
