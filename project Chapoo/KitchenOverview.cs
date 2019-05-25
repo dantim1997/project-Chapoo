@@ -119,6 +119,23 @@ namespace project_Chapoo
             SelectedOrderProductId = orderProduct.OrderProductId;
         }
 
+        private void btn_OrderProduct_Click(object sender, EventArgs e)
+        {
+            UpdateViewList();
+            ChapooModels.Order id = Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault();
+            listView2.Items.Clear();
+            ChapooModels.Order chosenOrders = Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault();
+            LB_Table.Text = chosenOrders.TableNumber.ToString();
+            foreach (OrderProduct orderProduct in chosenOrders.OrderProduct)
+            {
+                ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
+                item.SubItems.Add(orderProduct.Product.ProductName);
+                item.SubItems.Add(orderProduct.Amount.ToString());
+                item.SubItems.Add((orderProduct.Status).ToString());
+                listView2.Items.Add(item);
+            }
+        }
+
         private void UpdateViewList()
         {
             Orders = Order_Service.GetOrders(TypeOfView);

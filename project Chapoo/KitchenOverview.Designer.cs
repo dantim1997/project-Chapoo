@@ -34,9 +34,9 @@
             this.LB_Table = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_Done = new System.Windows.Forms.Button();
             this.LB_Amount = new System.Windows.Forms.Label();
             this.LB_ProductName = new System.Windows.Forms.Label();
+            this.btn_Done = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,8 +49,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Login = new System.Windows.Forms.Button();
             this.btn_Reload = new System.Windows.Forms.Button();
+            this.btn_OrderProduct = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.rtb_Note = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -114,17 +118,6 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Amount:";
             // 
-            // btn_Done
-            // 
-            this.btn_Done.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Done.Location = new System.Drawing.Point(1599, 143);
-            this.btn_Done.Name = "btn_Done";
-            this.btn_Done.Size = new System.Drawing.Size(225, 96);
-            this.btn_Done.TabIndex = 10;
-            this.btn_Done.Text = "Done";
-            this.btn_Done.UseVisualStyleBackColor = true;
-            this.btn_Done.Click += new System.EventHandler(this.btn_Done_Click);
-            // 
             // LB_Amount
             // 
             this.LB_Amount.AutoSize = true;
@@ -142,6 +135,17 @@
             this.LB_ProductName.Name = "LB_ProductName";
             this.LB_ProductName.Size = new System.Drawing.Size(0, 20);
             this.LB_ProductName.TabIndex = 9;
+            // 
+            // btn_Done
+            // 
+            this.btn_Done.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_Done.Location = new System.Drawing.Point(1599, 143);
+            this.btn_Done.Name = "btn_Done";
+            this.btn_Done.Size = new System.Drawing.Size(225, 96);
+            this.btn_Done.TabIndex = 10;
+            this.btn_Done.Text = "Done";
+            this.btn_Done.UseVisualStyleBackColor = true;
+            this.btn_Done.Click += new System.EventHandler(this.btn_Done_Click);
             // 
             // listView1
             // 
@@ -243,11 +247,41 @@
             this.btn_Reload.UseVisualStyleBackColor = true;
             this.btn_Reload.Click += new System.EventHandler(this.btn_Reload_Click);
             // 
+            // btn_OrderProduct
+            // 
+            this.btn_OrderProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_OrderProduct.Location = new System.Drawing.Point(1468, 143);
+            this.btn_OrderProduct.Name = "btn_OrderProduct";
+            this.btn_OrderProduct.Size = new System.Drawing.Size(99, 96);
+            this.btn_OrderProduct.TabIndex = 16;
+            this.btn_OrderProduct.Text = "Reload";
+            this.btn_OrderProduct.UseVisualStyleBackColor = true;
+            this.btn_OrderProduct.Click += new System.EventHandler(this.btn_OrderProduct_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.rtb_Note);
+            this.panel3.Location = new System.Drawing.Point(1468, 245);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(356, 430);
+            this.panel3.TabIndex = 17;
+            // 
+            // rtb_Note
+            // 
+            this.rtb_Note.Location = new System.Drawing.Point(3, 0);
+            this.rtb_Note.Name = "rtb_Note";
+            this.rtb_Note.Size = new System.Drawing.Size(353, 430);
+            this.rtb_Note.TabIndex = 18;
+            this.rtb_Note.Text = "";
+            // 
             // KitchenOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1836, 714);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.btn_OrderProduct);
             this.Controls.Add(this.btn_Reload);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.panel2);
@@ -264,6 +298,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -290,5 +325,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.Button btn_Reload;
+        private System.Windows.Forms.Button btn_OrderProduct;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.RichTextBox rtb_Note;
     }
 }
