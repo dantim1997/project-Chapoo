@@ -63,7 +63,27 @@ namespace project_Chapoo
         private void UpdateOrderProduct(Statustype done)
         {
             OrderProduct_Service.UpdateStatus(SelectedOrderProductId, done, SelectedOrderId);
-            ReloadOrderProductList();
+
+            ChapooModels.Order order = Orders.Where(t => t.OrderId == SelectedOrderId).FirstOrDefault();
+            order.OrderProduct.Remove(order.OrderProduct.Where(p => p.OrderProductId == SelectedOrderProductId).FirstOrDefault());
+            if (order.OrderProduct.Count == 0)
+            {
+                Orders.Remove(order);
+                listView2.Items.Clear();
+            }
+            else
+            {
+                ChapooModels.Order chosenOrder = Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault();
+                LB_Table.Text = chosenOrder.TableNumber.ToString();
+                foreach (OrderProduct orderProduct in chosenOrder.OrderProduct)
+                {
+                    ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
+                    item.SubItems.Add(orderProduct.Product.ProductName);
+                    item.SubItems.Add(orderProduct.Amount.ToString());
+                    item.SubItems.Add((orderProduct.Status).ToString());
+                    listView2.Items.Add(item);
+                }
+            }
         }
 
         private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -83,24 +103,38 @@ namespace project_Chapoo
             }
         }
 
+        private void btn_Login_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+            this.Close();
+        }
+
         private void listView2_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            OrderProduct orderProduct = Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault().OrderProduct.Where(a => a.OrderProductId == Convert.ToInt32( e.Item.Text)).FirstOrDefault();
+            OrderProduct orderProduct = Orders.Where(p => p.OrderId == SelectedOrderId).FirstOrDefault().OrderProduct.Where(a => a.OrderProductId == Convert.ToInt32(e.Item.Text)).FirstOrDefault();
             LB_Amount.Text = orderProduct.Amount.ToString();
             LB_ProductName.Text = orderProduct.Product.ProductName;
             SelectedOrderProductId = orderProduct.OrderProductId;
         }
 
-
-        /// <summary>
-        /// Reload the productlist
-        /// </summary>
-        private void ReloadOrderProductList()
+        private void UpdateViewList()
         {
-            List<OrderProduct> Orders = OrderProduct_Service.GetAllByOrder(SelectedOrderId, TypeOfView);
+            Orders = Order_Service.GetOrders(TypeOfView);
+            foreach (ChapooModels.Order order in Orders)
+            {
+                ListViewItem item = new ListViewItem(order.OrderId.ToString());
+                item.SubItems.Add(order.TableNumber.ToString());
+                item.SubItems.Add(order.Status);
+                listView1.Items.Add(item);
+            }
+        }
 
-            List<OrderProductViewModel> orderProductViewModel = OrderProduct_Service.OrderProductsToViewModels(Orders);
-            //dataGridView2.DataSource = orderProductViewModel;
+        private void btn_Reload_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            UpdateViewList();
         }
     }
 }

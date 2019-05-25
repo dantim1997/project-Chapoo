@@ -28,13 +28,6 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters), type);
         }
 
-        public string CheckStatus(int orderId)
-        {
-            string query = "select (select count(Id) from Order_Product) as Orders, (select count(Id) from Order_Product where Status = 'True') as Done from Order_Product group by OrderId having OrderId =" + orderId;
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadStatus(ExecuteSelectQuery(query, sqlParameters));
-        }
-
         public void UpdateOrderProductByIds(int OrderProductId, Statustype Status, int orderId)
         {
             dbConnection.Open();
@@ -43,8 +36,6 @@ namespace ChapooDAL
             command.Parameters.AddWithValue("@OrderProductId", OrderProductId);
             SqlDataReader reader = command.ExecuteReader();
             dbConnection.Close();
-            DAO_Order dAO_Order = new DAO_Order();
-            //dAO_Order.UpdateStatus(CheckStatus(orderId), orderId);
         }
 
         private List<OrderProduct> ReadTable(DataTable dataTable, string type)
@@ -64,25 +55,6 @@ namespace ChapooDAL
                 OrderProducts.Add(OrderProduct);
             };
             return OrderProducts;
-        }
-
-        private string ReadStatus(DataTable dataTable)
-        {
-            List<OrderProduct> OrderProducts = new List<OrderProduct>();
-            //each row from the database is converted into the login class
-            int Done = 0, Orders = 0;
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                OrderProduct OrderProduct = new OrderProduct();
-                Orders = (int)dr["Orders"];
-                Done = (int)dr["Done"];
-            };
-
-            if (Done == Orders && Orders!= 0)
-            {
-                return "Bereid";
-            }
-            return "Open";
         }
     }
 }

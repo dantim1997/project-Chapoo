@@ -27,7 +27,7 @@ namespace ChapooDAL
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }
-        
+
         private List<Order> ReadAllTables(DataTable dataTable, string type)
         {
             List<Product> products = new List<Product>();
@@ -40,11 +40,13 @@ namespace ChapooDAL
                 served.EmployeeId = (int)dr["EmployeeId"];
                 served.TableNumber = (int)dr["TableNumber"];
                 served.Date = (DateTime)dr["Date"];
-                served.Status= (string)dr["Status"];
+                served.Status = (string)dr["Status"];
                 served.OrderProduct = DAO_OrderProduct.GetAllByOrder(served.OrderId, type);
-                allServed.Add(served);
+                if (served.OrderProduct.Count != 0)
+                {
+                    allServed.Add(served);
+                }
             };
-
             return allServed;
         }
 
