@@ -16,5 +16,10 @@ namespace ChapooLogic
         {
             return DAO_Order.GetAllOrders(type);
         }
+
+        public void UpdateStatus(string status, int orderId)
+        {
+            DAO_Order.UpdateStatus(status, orderId);
+        }
     }
 }

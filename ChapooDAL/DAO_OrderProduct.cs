@@ -23,9 +23,22 @@ namespace ChapooDAL
 
         public List<OrderProduct> GetAllByOrder(int orderId, string type)
         {
-            string query = "SELECT OrderId, o.ProductId, Amount, Status, Id FROM Order_Product as o join Product as p on o.ProductId = p.ProductId where OrderId = "+orderId+" and p.ProductType = '"+type+"' and o.Status = 1";
+            string query = "SELECT OrderId, o.ProductId, Amount, Status, Id FROM Order_Product as o join Product as p on o.ProductId = p.ProductId where OrderId = " + orderId + " and p.ProductType = '" + type + "' and o.Status = 1";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters), type);
+        }
+
+        public void UpdateAllOrderProduct(List<OrderProduct> orderProducts, Statustype Status)
+        {
+            foreach (OrderProduct orderProduct in orderProducts)
+            {
+                dbConnection.Open();
+                SqlCommand command = new SqlCommand("UPDATE Order_Product SET Status = @Status WHERE Id = @OrderProductId", dbConnection);
+                command.Parameters.AddWithValue("@Status", (int)Status);
+                command.Parameters.AddWithValue("@OrderProductId", orderProduct.OrderProductId);
+                SqlDataReader reader = command.ExecuteReader();
+                dbConnection.Close();
+            }
         }
 
         public void UpdateOrderProductByIds(int OrderProductId, Statustype Status, int orderId)
@@ -50,8 +63,8 @@ namespace ChapooDAL
                 Product product = DAO_Product.GetByProductId(ProductId, type);
                 OrderProduct.Product = product;
                 OrderProduct.Amount = (int)dr["Amount"];
-                OrderProduct.Status= (Statustype)dr["Status"];
-                OrderProduct.OrderProductId= (int)dr["Id"];
+                OrderProduct.Status = (Statustype)dr["Status"];
+                OrderProduct.OrderProductId = (int)dr["Id"];
                 OrderProducts.Add(OrderProduct);
             };
             return OrderProducts;

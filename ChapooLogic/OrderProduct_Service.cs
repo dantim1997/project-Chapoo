@@ -21,6 +21,11 @@ namespace ChapooLogic
             DAO_OrderProduct.UpdateOrderProductByIds(orderProductId, status, orderId);
         }
 
+        public void UpdateAllStatus(List<OrderProduct> orderProduct, Statustype status)
+        {
+            DAO_OrderProduct.UpdateAllOrderProduct(orderProduct, status);
+        }
+
         public List<OrderProductViewModel> OrderProductsToViewModels(List<OrderProduct> orderProducts)
         {
             List<OrderProductViewModel> orderProductViewModels = new List<OrderProductViewModel>();
