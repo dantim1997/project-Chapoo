@@ -14,9 +14,12 @@ namespace project_Chapoo
 {
     public partial class Order : Form
     {
-        public Order()
+        Employee employee;
+
+        public Order(int tableNumber, Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
         }
 
         private void vulListView(string type)
@@ -61,6 +64,15 @@ namespace project_Chapoo
             var firstSelectedItem = listView_Products.SelectedItems[0];
             //listView_Order.Items.Add(firstSelectedItem);
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TableOverview tableOverview = new TableOverview();
+            tableOverview.InfoEmployee(employee);
+            this.Hide();
+            tableOverview.ShowDialog();
+            this.Close();
         }
     }
 }
