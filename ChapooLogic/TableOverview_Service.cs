@@ -23,13 +23,19 @@ namespace ChapooLogic
             return tableDAO.GetTableList();
         }
 
-        public bool CheckTableStatus(string id)
+        public Table GetTableById(string id)
         {
             Table table = new Table();
-
             table = tableDAO.GetTableByID(id);
 
-            if (table.Status == "free")
+            return table;
+        }
+
+
+
+        public bool CheckTableStatus(string id)
+        {
+            if (GetTableById(id).Status == "free")
             {
                 tableOccupied = true;
             }

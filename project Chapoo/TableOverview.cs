@@ -103,9 +103,13 @@ namespace project_Chapoo
                     tableList = service.GetTableList();
                 }
             }
+            //else if ()
+            //{
+
+            //}
             else
             {
-                Order order = new Order(tableList[1].TableNumber, employee);
+                Order order = new Order(/*tableList[1].TableNumber, employee*/);
                 this.Hide();
                 order.ShowDialog();
                 this.Close();
@@ -139,7 +143,7 @@ namespace project_Chapoo
             }
             else
             {
-                Order order = new Order(tableList[2].TableNumber, employee);
+                Order order = new Order(/*tableList[2].TableNumber, employee*/);
                 this.Hide();
                 order.ShowDialog();
                 this.Close();
