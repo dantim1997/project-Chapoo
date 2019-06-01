@@ -34,8 +34,6 @@ namespace project_Chapoo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            KitchenOverview kitchenOverview = new KitchenOverview("Drink");
-            kitchenOverview.Show();
         }
 
         private void InitializeComponent()
@@ -172,11 +170,6 @@ namespace project_Chapoo
 
         public void OpenForm()
         {
-            //KitchenOverview kitchenOverview1 = new KitchenOverview();
-            //kitchenOverview1.ShowDialog();
-            //BarOverview bar = new BarOverview();
-            //bar.ShowDialog();
-            //Employee employee = new Employee();
             employee = employeeService.GetWorkerLogin(txtUser.Text);
 
             this.Hide();
