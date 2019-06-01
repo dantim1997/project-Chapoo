@@ -14,5 +14,7 @@ namespace ChapooModels
         public string TypeWorker { get; set; }
         public string Username{ get; set; }
         public string Password { get; set; }
+
+        public string Fullname { get { return Name + " " + Surname; } }
     }
 }

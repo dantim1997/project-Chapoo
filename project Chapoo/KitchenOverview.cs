@@ -16,8 +16,11 @@ namespace project_Chapoo
     {
         Order_Service Order_Service = new Order_Service();
         OrderProduct_Service OrderProduct_Service = new OrderProduct_Service();
+        Employee_Service Employee_Service = new Employee_Service();
         List<ChapooModels.Order> Orders = new List<ChapooModels.Order>();
         ChapooModels.Order order1, order2, order3, order4;
+        List<Employee> employees = new List<Employee>();
+        Employee CurrentEmployee;
         Dictionary<string, Label> labels = new Dictionary<string, Label>();
         Dictionary<string, ListView> listviews = new Dictionary<string, ListView>();
         string TypeOfView;
@@ -47,6 +50,8 @@ namespace project_Chapoo
 
             Label label = labels["name" + 1];
 
+            employees = Employee_Service.GetAllEmployees();
+
             int i = 0;
             Orders = Order_Service.GetOrders(TypeOfView);
             foreach (ChapooModels.Order order in Orders)
@@ -70,10 +75,13 @@ namespace project_Chapoo
             Order(order4, 4);
         }
 
-        public KitchenOverview(string typeOfView)
+        public KitchenOverview(string typeOfView, Employee employee)
         {
             InitializeComponent();
             TypeOfView = typeOfView;
+            CurrentEmployee = employee;
+            lbl_Loginname.Text = employee.Fullname;
+            lbl_LoginID.Text = employee.EmployeeId.ToString();
 
         }
 
@@ -88,7 +96,7 @@ namespace project_Chapoo
                     case 3: order1 = order; break;
                     case 4: order1 = order; break;
                 }
-                labels["name" + ordernumber].Text = order.EmployeeId.ToString();
+                labels["name" + ordernumber].Text = employees.Where(p => p.EmployeeId == order.EmployeeId).FirstOrDefault().Fullname;
                 labels["table" + ordernumber].Text = order.TableNumber.ToString();
                 listviews["lv" + ordernumber].Items.Clear();
                 foreach (OrderProduct orderProduct in order.OrderProduct)

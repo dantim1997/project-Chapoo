@@ -181,11 +181,11 @@ namespace project_Chapoo
                     tableOverview.ShowDialog();
                     break;
                 case "cook":
-                    KitchenOverview kitchenOverview = new KitchenOverview("Food");
+                    KitchenOverview kitchenOverview = new KitchenOverview("Food", employee);
                     kitchenOverview.ShowDialog();
                     break;
                 case "bar":
-                    KitchenOverview barOverview = new KitchenOverview("Drink");
+                    KitchenOverview barOverview = new KitchenOverview("Drink",employee);
                     barOverview.ShowDialog();
                     break;
             }

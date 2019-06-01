@@ -16,6 +16,11 @@ namespace ChapooLogic
             return dAO_Employee.GetWorkerLogin(username);
         }
 
+        public List<Employee> GetAllEmployees()
+        {
+            return dAO_Employee.GetWorker();
+        }
+
         public Employee GetEmployeeById(int Id)
         {
             return dAO_Employee.GetWorkerById(Id);

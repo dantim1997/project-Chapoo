@@ -20,11 +20,11 @@ namespace ChapooDAL
             dbConnection = new SqlConnection(connstring);
         }
 
-        public Employee GetWorker()
+        public List<Employee> GetWorker()
         {
             string query = "SELECT EmployeeId, Name, Surname, TypeWorker FROM Employee";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTable(ExecuteSelectQuery(query, sqlParameters));
+            return ReadAllTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public Employee GetWorkerLogin(string username)
@@ -62,6 +62,20 @@ namespace ChapooDAL
                 login.Password = (string)dr["Password"];
             };
             return login;
+        }
+        private List<Employee> ReadAllTables(DataTable dataTable)
+        {
+            List<Employee> Employees = new List<Employee>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Employee employee = new Employee();
+                employee.EmployeeId = (int)dr["EmployeeId"];
+                employee.Name = (string)dr["Name"];
+                employee.Surname = (string)dr["Surname"];
+                employee.TypeWorker = (string)dr["TypeWorker"];
+                Employees.Add(employee);
+            };
+            return Employees;
         }
     }
 }

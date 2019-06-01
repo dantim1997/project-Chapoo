@@ -70,6 +70,10 @@
             this.lb_TableOrder4 = new System.Windows.Forms.Label();
             this.lb_NameOrder4 = new System.Windows.Forms.Label();
             this.btn_reload = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_Loginname = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_LoginID = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -466,11 +470,55 @@
             this.btn_reload.UseVisualStyleBackColor = true;
             this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(17, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Name:";
+            // 
+            // lbl_Loginname
+            // 
+            this.lbl_Loginname.AutoSize = true;
+            this.lbl_Loginname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_Loginname.Location = new System.Drawing.Point(78, 22);
+            this.lbl_Loginname.Name = "lbl_Loginname";
+            this.lbl_Loginname.Size = new System.Drawing.Size(55, 20);
+            this.lbl_Loginname.TabIndex = 27;
+            this.lbl_Loginname.Text = "Name:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label6.Location = new System.Drawing.Point(225, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 20);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "ID:";
+            // 
+            // lbl_LoginID
+            // 
+            this.lbl_LoginID.AutoSize = true;
+            this.lbl_LoginID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_LoginID.Location = new System.Drawing.Point(261, 22);
+            this.lbl_LoginID.Name = "lbl_LoginID";
+            this.lbl_LoginID.Size = new System.Drawing.Size(30, 20);
+            this.lbl_LoginID.TabIndex = 29;
+            this.lbl_LoginID.Text = "ID:";
+            // 
             // KitchenOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1836, 1052);
+            this.Controls.Add(this.lbl_LoginID);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lbl_Loginname);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_reload);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
@@ -499,6 +547,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -545,5 +594,9 @@
         private System.Windows.Forms.Label lb_TableOrder4;
         private System.Windows.Forms.Label lb_NameOrder4;
         private System.Windows.Forms.Button btn_reload;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_Loginname;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_LoginID;
     }
 }
