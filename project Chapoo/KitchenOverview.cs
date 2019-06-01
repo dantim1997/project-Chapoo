@@ -18,7 +18,10 @@ namespace project_Chapoo
         OrderProduct_Service OrderProduct_Service = new OrderProduct_Service();
         List<ChapooModels.Order> Orders = new List<ChapooModels.Order>();
         ChapooModels.Order order1, order2, order3, order4;
-        List<Label> LabelsName, LabelsTable;
+        Dictionary<string, Label> labels = new Dictionary<string, Label>();
+        Dictionary<string, ListView> listviews = new Dictionary<string, ListView>();
+        string TypeOfView;
+        int LastOrderId;
 
         /// <summary>
         /// when the program is opened
@@ -27,12 +30,24 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void KitchenOverview_Load(object sender, EventArgs e)
         {
-        }
+            labels.Add("name1", lb_NameOrder1);
+            labels.Add("name2", lb_NameOrder2);
+            labels.Add("name3", lb_NameOrder3);
+            labels.Add("name4", lb_NameOrder4);
 
-        public KitchenOverview(string TypeOfView)
-        {
+            labels.Add("table1", lb_TableOrder1);
+            labels.Add("table2", lb_TableOrder2);
+            labels.Add("table3", lb_TableOrder3);
+            labels.Add("table4", lb_TableOrder4);
+
+            listviews.Add("lv1", lv_Order1);
+            listviews.Add("lv2", lv_Order2);
+            listviews.Add("lv3", lv_Order3);
+            listviews.Add("lv4", lv_Order4);
+
+            Label label = labels["name" + 1];
+
             int i = 0;
-            InitializeComponent();
             Orders = Order_Service.GetOrders(TypeOfView);
             foreach (ChapooModels.Order order in Orders)
             {
@@ -49,10 +64,43 @@ namespace project_Chapoo
             Orders.Remove(order2);
             Orders.Remove(order3);
             Orders.Remove(order4);
-            Order1(order1);
-            Order2(order2);
-            Order3(order3);
-            Order4(order4);
+            Order(order1, 1);
+            Order(order2, 2);
+            Order(order3, 3);
+            Order(order4, 4);
+        }
+
+        public KitchenOverview(string typeOfView)
+        {
+            InitializeComponent();
+            TypeOfView = typeOfView;
+
+        }
+
+        private void Order(ChapooModels.Order order, int ordernumber)
+        {
+            if (order != null)
+            {
+                switch (ordernumber)
+                {
+                    case 1: order1 = order; break;
+                    case 2: order1 = order; break;
+                    case 3: order1 = order; break;
+                    case 4: order1 = order; break;
+                }
+                labels["name" + ordernumber].Text = order.EmployeeId.ToString();
+                labels["table" + ordernumber].Text = order.TableNumber.ToString();
+                listviews["lv" + ordernumber].Items.Clear();
+                foreach (OrderProduct orderProduct in order.OrderProduct)
+                {
+                    ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
+                    item.SubItems.Add(orderProduct.Product.ProductName);
+                    item.SubItems.Add(orderProduct.Amount.ToString());
+                    item.SubItems.Add((orderProduct.Status).ToString());
+                    listviews["lv" + ordernumber].Items.Add(item);
+                }
+                LastOrderId = order.OrderId;
+            }
         }
 
         private void btn_Order1_Click(object sender, EventArgs e)
@@ -62,6 +110,7 @@ namespace project_Chapoo
             lv_Order1.Items.Clear();
             lb_NameOrder1.Text = string.Empty;
             lb_TableOrder1.Text = string.Empty;
+            order1 = null;
             NewOrder(1);
         }
 
@@ -72,6 +121,7 @@ namespace project_Chapoo
             lv_Order2.Items.Clear();
             lb_NameOrder2.Text = string.Empty;
             lb_TableOrder2.Text = string.Empty;
+            order2 = null;
             NewOrder(2);
         }
 
@@ -82,6 +132,7 @@ namespace project_Chapoo
             lv_Order3.Items.Clear();
             lb_NameOrder3.Text = string.Empty;
             lb_TableOrder3.Text = string.Empty;
+            order3 = null;
             NewOrder(3);
         }
 
@@ -92,78 +143,32 @@ namespace project_Chapoo
             lv_Order4.Items.Clear();
             lb_NameOrder4.Text = string.Empty;
             lb_TableOrder4.Text = string.Empty;
+            order4 = null;
             NewOrder(4);
         }
 
-        private void Order1(ChapooModels.Order order)
+        private void btn_reload_Click(object sender, EventArgs e)
         {
-            if (order != null)
+            List<ChapooModels.Order> newOrders = Order_Service.GetOrdersAboveID(TypeOfView, Orders.Count-1);
+            foreach (ChapooModels.Order order in newOrders)
             {
-                lb_NameOrder1.Text = order.EmployeeId.ToString();
-                lb_TableOrder1.Text = order.TableNumber.ToString();
-                lv_Order1.Items.Clear();
-                foreach (OrderProduct orderProduct in order.OrderProduct)
-                {
-                    ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
-                    item.SubItems.Add(orderProduct.Product.ProductName);
-                    item.SubItems.Add(orderProduct.Amount.ToString());
-                    item.SubItems.Add((orderProduct.Status).ToString());
-                    lv_Order1.Items.Add(item);
-                }
+                Orders.Add(order);
             }
-        }
-
-        private void Order2(ChapooModels.Order order)
-        {
-            if (order != null)
+            if(order1 == null)
             {
-                lb_NameOrder2.Text = order.EmployeeId.ToString();
-                lb_TableOrder2.Text = order.TableNumber.ToString();
-                lv_Order2.Items.Clear();
-                foreach (OrderProduct orderProduct in order.OrderProduct)
-                {
-                    ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
-                    item.SubItems.Add(orderProduct.Product.ProductName);
-                    item.SubItems.Add(orderProduct.Amount.ToString());
-                    item.SubItems.Add((orderProduct.Status).ToString());
-                    lv_Order2.Items.Add(item);
-                }
+                NewOrder(1);
             }
-        }
-
-        private void Order3(ChapooModels.Order order)
-        {
-            if (order != null)
+            if (order2 == null)
             {
-                lb_NameOrder3.Text = order.EmployeeId.ToString();
-                lb_TableOrder3.Text = order.TableNumber.ToString();
-                lv_Order3.Items.Clear();
-                foreach (OrderProduct orderProduct in order.OrderProduct)
-                {
-                    ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
-                    item.SubItems.Add(orderProduct.Product.ProductName);
-                    item.SubItems.Add(orderProduct.Amount.ToString());
-                    item.SubItems.Add((orderProduct.Status).ToString());
-                    lv_Order3.Items.Add(item);
-                }
+                NewOrder(2);
             }
-        }
-
-        private void Order4(ChapooModels.Order order)
-        {
-            if (order != null)
+            if (order3 == null)
             {
-                lb_NameOrder4.Text = order.EmployeeId.ToString();
-                lb_TableOrder4.Text = order.TableNumber.ToString();
-                lv_Order4.Items.Clear();
-                foreach (OrderProduct orderProduct in order.OrderProduct)
-                {
-                    ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
-                    item.SubItems.Add(orderProduct.Product.ProductName);
-                    item.SubItems.Add(orderProduct.Amount.ToString());
-                    item.SubItems.Add((orderProduct.Status).ToString());
-                    lv_Order4.Items.Add(item);
-                }
+                NewOrder(3);
+            }
+            if (order4 == null)
+            {
+                NewOrder(4);
             }
         }
 
@@ -179,30 +184,9 @@ namespace project_Chapoo
         {
             if (Orders.Count != 0)
             {
-                if (orderNumber == 1)
-                {
-                    ChapooModels.Order order = Orders.FirstOrDefault();
-                    Order1(order);
-                    Orders.Remove(order);
-                }
-                if (orderNumber == 2)
-                {
-                    ChapooModels.Order order = Orders.FirstOrDefault();
-                    Order2(order);
-                    Orders.Remove(order);
-                }
-                if (orderNumber == 3)
-                {
-                    ChapooModels.Order order = Orders.FirstOrDefault();
-                    Order3(order);
-                    Orders.Remove(order);
-                }
-                if (orderNumber == 4)
-                {
-                    ChapooModels.Order order = Orders.FirstOrDefault();
-                    Order4(order);
-                    Orders.Remove(order);
-                }
+                ChapooModels.Order order = Orders.FirstOrDefault();
+                Order(order, orderNumber);
+                Orders.Remove(order);
             }
         }
     }

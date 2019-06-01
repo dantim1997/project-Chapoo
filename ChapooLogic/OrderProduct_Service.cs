@@ -18,7 +18,7 @@ namespace ChapooLogic
 
         public void UpdateStatus(int orderProductId, Statustype status, int orderId)
         {
-            DAO_OrderProduct.UpdateOrderProductByIds(orderProductId, status, orderId);
+           DAO_OrderProduct.UpdateOrderProductByIds(orderProductId, status, orderId);
         }
 
         public void UpdateAllStatus(List<OrderProduct> orderProduct, Statustype status)
