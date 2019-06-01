@@ -124,7 +124,7 @@
             this.lv_Order1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lv_Order1.Location = new System.Drawing.Point(12, 290);
             this.lv_Order1.Name = "lv_Order1";
-            this.lv_Order1.Size = new System.Drawing.Size(394, 646);
+            this.lv_Order1.Size = new System.Drawing.Size(394, 484);
             this.lv_Order1.TabIndex = 9;
             this.lv_Order1.UseCompatibleStateImageBehavior = false;
             this.lv_Order1.View = System.Windows.Forms.View.Details;
@@ -159,7 +159,7 @@
             // btn_Login
             // 
             this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Login.Location = new System.Drawing.Point(1715, 23);
+            this.btn_Login.Location = new System.Drawing.Point(1585, 22);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(109, 101);
             this.btn_Login.TabIndex = 14;
@@ -170,7 +170,7 @@
             // btn_Order1
             // 
             this.btn_Order1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order1.Location = new System.Drawing.Point(12, 944);
+            this.btn_Order1.Location = new System.Drawing.Point(12, 780);
             this.btn_Order1.Name = "btn_Order1";
             this.btn_Order1.Size = new System.Drawing.Size(394, 96);
             this.btn_Order1.TabIndex = 16;
@@ -181,7 +181,7 @@
             // btn_Order2
             // 
             this.btn_Order2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order2.Location = new System.Drawing.Point(484, 944);
+            this.btn_Order2.Location = new System.Drawing.Point(440, 780);
             this.btn_Order2.Name = "btn_Order2";
             this.btn_Order2.Size = new System.Drawing.Size(394, 96);
             this.btn_Order2.TabIndex = 19;
@@ -196,9 +196,9 @@
             this.columnHeader8,
             this.columnHeader9});
             this.lv_Order2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order2.Location = new System.Drawing.Point(484, 290);
+            this.lv_Order2.Location = new System.Drawing.Point(440, 290);
             this.lv_Order2.Name = "lv_Order2";
-            this.lv_Order2.Size = new System.Drawing.Size(394, 646);
+            this.lv_Order2.Size = new System.Drawing.Size(394, 484);
             this.lv_Order2.TabIndex = 17;
             this.lv_Order2.UseCompatibleStateImageBehavior = false;
             this.lv_Order2.View = System.Windows.Forms.View.Details;
@@ -221,7 +221,7 @@
             // btn_Order3
             // 
             this.btn_Order3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order3.Location = new System.Drawing.Point(963, 944);
+            this.btn_Order3.Location = new System.Drawing.Point(869, 780);
             this.btn_Order3.Name = "btn_Order3";
             this.btn_Order3.Size = new System.Drawing.Size(394, 96);
             this.btn_Order3.TabIndex = 22;
@@ -236,9 +236,9 @@
             this.columnHeader11,
             this.columnHeader12});
             this.lv_Order3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order3.Location = new System.Drawing.Point(963, 290);
+            this.lv_Order3.Location = new System.Drawing.Point(869, 290);
             this.lv_Order3.Name = "lv_Order3";
-            this.lv_Order3.Size = new System.Drawing.Size(394, 646);
+            this.lv_Order3.Size = new System.Drawing.Size(394, 484);
             this.lv_Order3.TabIndex = 20;
             this.lv_Order3.UseCompatibleStateImageBehavior = false;
             this.lv_Order3.View = System.Windows.Forms.View.Details;
@@ -261,7 +261,7 @@
             // btn_Order4
             // 
             this.btn_Order4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order4.Location = new System.Drawing.Point(1430, 944);
+            this.btn_Order4.Location = new System.Drawing.Point(1300, 780);
             this.btn_Order4.Name = "btn_Order4";
             this.btn_Order4.Size = new System.Drawing.Size(394, 96);
             this.btn_Order4.TabIndex = 25;
@@ -276,9 +276,9 @@
             this.columnHeader14,
             this.columnHeader15});
             this.lv_Order4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order4.Location = new System.Drawing.Point(1430, 290);
+            this.lv_Order4.Location = new System.Drawing.Point(1300, 290);
             this.lv_Order4.Name = "lv_Order4";
-            this.lv_Order4.Size = new System.Drawing.Size(394, 646);
+            this.lv_Order4.Size = new System.Drawing.Size(394, 484);
             this.lv_Order4.TabIndex = 23;
             this.lv_Order4.UseCompatibleStateImageBehavior = false;
             this.lv_Order4.View = System.Windows.Forms.View.Details;
@@ -305,7 +305,7 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.lb_TableOrder3);
             this.panel3.Controls.Add(this.lb_NameOrder3);
-            this.panel3.Location = new System.Drawing.Point(963, 171);
+            this.panel3.Location = new System.Drawing.Point(869, 171);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(394, 100);
             this.panel3.TabIndex = 14;
@@ -357,7 +357,7 @@
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.lb_TableOrder2);
             this.panel4.Controls.Add(this.lb_NameOrder2);
-            this.panel4.Location = new System.Drawing.Point(484, 170);
+            this.panel4.Location = new System.Drawing.Point(440, 170);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(394, 100);
             this.panel4.TabIndex = 15;
@@ -409,7 +409,7 @@
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.lb_TableOrder4);
             this.panel5.Controls.Add(this.lb_NameOrder4);
-            this.panel5.Location = new System.Drawing.Point(1430, 170);
+            this.panel5.Location = new System.Drawing.Point(1300, 170);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(394, 100);
             this.panel5.TabIndex = 14;
