@@ -118,6 +118,15 @@ namespace project_Chapoo
         {
             //Input vragen van gebruiker
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TableOverview tableOverview = new TableOverview();
+            tableOverview.InfoEmployee(employee);
+            this.Hide();
+            tableOverview.ShowDialog();
+            this.Close();
+        }
     }
 }
 
