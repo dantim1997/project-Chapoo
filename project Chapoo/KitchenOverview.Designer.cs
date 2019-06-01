@@ -69,6 +69,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.lb_TableOrder4 = new System.Windows.Forms.Label();
             this.lb_NameOrder4 = new System.Windows.Forms.Label();
+            this.btn_reload = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -454,11 +455,23 @@
             this.lb_NameOrder4.TabIndex = 5;
             this.lb_NameOrder4.Text = ".................";
             // 
+            // btn_reload
+            // 
+            this.btn_reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_reload.Location = new System.Drawing.Point(449, 22);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Size = new System.Drawing.Size(109, 101);
+            this.btn_reload.TabIndex = 26;
+            this.btn_reload.Text = "Reload";
+            this.btn_reload.UseVisualStyleBackColor = true;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
+            // 
             // KitchenOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1836, 1052);
+            this.Controls.Add(this.btn_reload);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
@@ -531,5 +544,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lb_TableOrder4;
         private System.Windows.Forms.Label lb_NameOrder4;
+        private System.Windows.Forms.Button btn_reload;
     }
 }

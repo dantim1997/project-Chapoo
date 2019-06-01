@@ -28,6 +28,13 @@ namespace ChapooDAL
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }
 
+        public List<Order> GetOrdersAboveID(string type, int Id)
+        {
+            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open' and OrderId >"+ Id;
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
+        }
+
         private List<Order> ReadAllTables(DataTable dataTable, string type)
         {
             List<Product> products = new List<Product>();
