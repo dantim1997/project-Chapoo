@@ -21,5 +21,8 @@ namespace ChapooLogic
         {
             DAO_Order.UpdateStatus(status, orderId);
         }
+
+        public void UpdateStock() { 
+}
     }
 }

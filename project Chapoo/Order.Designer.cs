@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.listView_Order = new System.Windows.Forms.ListView();
             this.lbl_OrderTable = new System.Windows.Forms.Label();
             this.btn_Back = new System.Windows.Forms.Button();
@@ -40,17 +40,23 @@
             this.btn_Pay = new System.Windows.Forms.Button();
             this.btn_Remove = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listView_Order
             // 
+            this.listView_Order.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
             this.listView_Order.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listView_Order.Location = new System.Drawing.Point(12, 52);
             this.listView_Order.Name = "listView_Order";
             this.listView_Order.Size = new System.Drawing.Size(237, 482);
             this.listView_Order.TabIndex = 6;
             this.listView_Order.UseCompatibleStateImageBehavior = false;
+            this.listView_Order.View = System.Windows.Forms.View.Details;
             this.listView_Order.SelectedIndexChanged += new System.EventHandler(this.listView_Order_SelectedIndexChanged);
             // 
             // lbl_OrderTable
@@ -59,7 +65,7 @@
             this.lbl_OrderTable.Font = new System.Drawing.Font("Arial", 11F);
             this.lbl_OrderTable.Location = new System.Drawing.Point(8, 18);
             this.lbl_OrderTable.Name = "lbl_OrderTable";
-            this.lbl_OrderTable.Size = new System.Drawing.Size(102, 19);
+            this.lbl_OrderTable.Size = new System.Drawing.Size(92, 17);
             this.lbl_OrderTable.TabIndex = 7;
             this.lbl_OrderTable.Text = "Order table x";
             // 
@@ -161,6 +167,14 @@
             this.btn_Reset.UseVisualStyleBackColor = false;
             this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Amount";
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,5 +210,7 @@
         private System.Windows.Forms.Button btn_Pay;
         private System.Windows.Forms.Button btn_Remove;
         private System.Windows.Forms.Button btn_Reset;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
