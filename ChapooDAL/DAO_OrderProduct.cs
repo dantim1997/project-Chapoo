@@ -51,6 +51,21 @@ namespace ChapooDAL
             dbConnection.Close();
         }
 
+        public void CreateOrderPruduct(OrderProduct orderProduct)
+        {
+            string query = "INSERT INTO [Order] (OrderId, ProductId, Amount, Status, Note) VALUES (@OrderId, @ProductId, @Amount, @Status, @Note)";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("OrderId", orderProduct.OrderId),
+                new SqlParameter("ProductId", orderProduct.Product.ProductId),
+                new SqlParameter("Amount", orderProduct.Amount),
+                new SqlParameter("Status", orderProduct.Status),
+                new SqlParameter("Note", orderProduct.Note)
+            };
+            ExecuteEditQuery(query, sqlParameters);
+            DAO_Product.UpdateProductStock(orderProduct.Amount, orderProduct.Product.ProductId);
+        }
+
         private List<OrderProduct> ReadTable(DataTable dataTable, string type)
         {
             List<OrderProduct> OrderProducts = new List<OrderProduct>();

@@ -102,5 +102,15 @@ namespace ChapooDAL
             };
             return products;
         }
+
+        public void UpdateProductStock(int Stock, int productId)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("UPDATE Product SET Supply = Supply - @Stock WHERE ProductId = @ProductId", dbConnection);
+            command.Parameters.AddWithValue("@Stock", (int)Stock);
+            command.Parameters.AddWithValue("@ProductId", productId);
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
+        }
     }
 }
