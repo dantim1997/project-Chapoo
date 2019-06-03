@@ -18,7 +18,7 @@ namespace project_Chapoo
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
             //Application.Run(new TableOverview());
-            Application.Run(new Login());
+            Application.Run(new Order());
         }
     }
 }

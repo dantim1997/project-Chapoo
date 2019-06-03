@@ -94,13 +94,33 @@ namespace project_Chapoo
             }
         }
 
+        void AddProduct(Product product, ListViewItem item)
+        {
+            if (product.Supply == 0) //Voorraad waarde nog niet opgehaald?
+            {
+                if (listView_Order.Items.Contains(item))
+                {
+                    MessageBox.Show("Item komt al voor");
+                }
+                else
+                {
+                    MessageBox.Show(product.ProductName + " toevoegen?"); //voor test, niet nodig voor final
+                    listView_Order.Items.Add(item);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Product niet op voorraad");
+            }
+        }
+
         void GeneratedButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
             int index = buttons.IndexOf(button);
             Product product = producten[index];
-            MessageBox.Show(product.ProductName+ " toevoegen?"); //voor test, niet nodig voor final
-            listView_Order.Items.Add(product.ProductName);
+            ListViewItem item = new ListViewItem(product.ProductName);
+            AddProduct(product, item);
         }
 
         private void btn_Submit_Click(object sender, EventArgs e)
@@ -126,6 +146,27 @@ namespace project_Chapoo
             this.Hide();
             tableOverview.ShowDialog();
             this.Close();
+        }
+
+        private void btn_Remove_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listView_Order.SelectedItems[0];
+            listView_Order.Items.Remove(selectedItem);
+        }
+
+        private void listView_Order_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btn_Remove.Enabled = true;
+        }
+
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+             DialogResult dr = MessageBox.Show("Weet je zeker dat je de order wilt resetten?", "Reset Order", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                listView_Order.Clear();
+                //order clear
+            }
         }
     }
 }
