@@ -17,11 +17,6 @@ namespace ChapooLogic
             return DAO_Order.GetAllOrders(type);
         }
 
-        public List<Order> GetOrdersAboveID(string type, int Id)
-        {
-            return DAO_Order.GetOrdersAboveID(type, Id);
-        }
-
         public void UpdateStatus(string status, int orderId)
         {
             DAO_Order.UpdateStatus(status, orderId);
