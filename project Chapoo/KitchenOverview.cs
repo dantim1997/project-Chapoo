@@ -24,7 +24,6 @@ namespace project_Chapoo
         Dictionary<string, Label> labels = new Dictionary<string, Label>();
         Dictionary<string, ListView> listviews = new Dictionary<string, ListView>();
         string TypeOfView;
-        int LastOrderId;
 
         /// <summary>
         /// when the program is opened
@@ -42,6 +41,11 @@ namespace project_Chapoo
             labels.Add("table2", lb_TableOrder2);
             labels.Add("table3", lb_TableOrder3);
             labels.Add("table4", lb_TableOrder4);
+
+            labels.Add("time1", lbl_TimeOrder1);
+            labels.Add("time2", lbl_TimeOrder2);
+            labels.Add("time3", lbl_TimeOrder3);
+            labels.Add("time4", lbl_TimeOrder4);
 
             listviews.Add("lv1", lv_Order1);
             listviews.Add("lv2", lv_Order2);
@@ -92,12 +96,13 @@ namespace project_Chapoo
                 switch (ordernumber)
                 {
                     case 1: order1 = order; break;
-                    case 2: order1 = order; break;
-                    case 3: order1 = order; break;
-                    case 4: order1 = order; break;
+                    case 2: order2 = order; break;
+                    case 3: order3 = order; break;
+                    case 4: order4 = order; break;
                 }
                 labels["name" + ordernumber].Text = employees.Where(p => p.EmployeeId == order.EmployeeId).FirstOrDefault().Fullname;
                 labels["table" + ordernumber].Text = order.TableNumber.ToString();
+                labels["time" + ordernumber].Text = order.Date.ToString("HH:mm"); ;
                 listviews["lv" + ordernumber].Items.Clear();
                 foreach (OrderProduct orderProduct in order.OrderProduct)
                 {
@@ -107,7 +112,6 @@ namespace project_Chapoo
                     item.SubItems.Add((orderProduct.Status).ToString());
                     listviews["lv" + ordernumber].Items.Add(item);
                 }
-                LastOrderId = order.OrderId;
             }
         }
 
@@ -157,12 +161,19 @@ namespace project_Chapoo
 
         private void btn_reload_Click(object sender, EventArgs e)
         {
-            List<ChapooModels.Order> newOrders = Order_Service.GetOrdersAboveID(TypeOfView, Orders.Count-1);
+            List<ChapooModels.Order> newOrders = Order_Service.GetOrders(TypeOfView);
             foreach (ChapooModels.Order order in newOrders)
             {
-                Orders.Add(order);
+                if (Orders.Exists(t => t.OrderId == order.OrderId) == false && 
+                    order1.OrderId != order.OrderId && 
+                    order2.OrderId != order.OrderId && 
+                    order3.OrderId != order.OrderId && 
+                    order4.OrderId != order.OrderId)
+                {
+                    Orders.Add(order);
+                }
             }
-            if(order1 == null)
+            if (order1 == null)
             {
                 NewOrder(1);
             }
