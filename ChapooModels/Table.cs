@@ -10,5 +10,6 @@ namespace ChapooModels
     {
         public int TableNumber { get; set; }
         public string Status { get; set; }
+        public int OrderId { get; set; }
     }
 }

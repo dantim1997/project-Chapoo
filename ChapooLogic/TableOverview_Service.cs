@@ -11,11 +11,14 @@ namespace ChapooLogic
     public class TableOverview_Service
     {
         bool tableOccupied = false;
+        int orderId;
         DAO_Table tableDAO;
+        Order_Service orderService;
 
         public TableOverview_Service()
         {
             tableDAO = new DAO_Table();
+            orderService = new Order_Service();
         }
 
         public List<Table> GetTableList()
@@ -31,7 +34,33 @@ namespace ChapooLogic
             return table;
         }
 
+        public int GetOrderId()
+        {
+            List<Order> orderList = orderService.GetAllOrders();
+            orderId = orderList.Count();
+            return orderId;
+        }
 
+        public void CreateOrder(int employeeId, int tableNumber)
+        {
+            orderService.CreateOrder(employeeId, tableNumber);
+        }
+
+        public List<Order> GetOrderList()
+        {
+            List<Order> orderList = orderService.GetOrders("open");
+            return orderList;
+        }
+
+        public List<Order> GetActiveOrderList()
+        {
+            return orderService.GetActiveOrderList();
+        }
+
+        public void CheckTableWaitingStatus()
+        {
+
+        }
 
         public bool CheckTableStatus(string id)
         {
@@ -48,6 +77,7 @@ namespace ChapooLogic
             tableDAO.SetTableStatus(id, status);
         }
 
-
     }
+
+
 }

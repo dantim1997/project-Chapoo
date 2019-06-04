@@ -12,9 +12,24 @@ namespace ChapooLogic
     {
         DAO_Order DAO_Order = new DAO_Order();
 
+        public void CreateOrder(int employeeId, int tableNumber)
+        {
+            DAO_Order.CreateNewOrder(employeeId, tableNumber);
+        }
+
         public List<Order> GetOrders(string type)
         {
             return DAO_Order.GetAllOrders(type);
+        }
+
+        public List<Order> GetAllOrders()
+        {
+            return DAO_Order.GetAllOrdersAnyStatus();
+        }
+
+        public List<Order> GetActiveOrderList()
+        {
+            return DAO_Order.GetActiveOrderList();
         }
 
         public List<Order> GetOrdersAboveID(string type, int Id)

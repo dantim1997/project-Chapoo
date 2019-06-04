@@ -21,6 +21,18 @@ namespace ChapooDAL
             dbConnection = new SqlConnection(connstring);
         }
 
+        public void CreateNewOrder(int employeeId, int tableNumber)
+        {
+            string query = "INSERT INTO [Order] (EmployeeID, TableNumber, Date) VALUES (@EmployeeId, @TableNumber, @Date)";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("EmployeeId", employeeId),
+                new SqlParameter("Tablenumber", tableNumber),
+                new SqlParameter("Date", DateTime.Now)
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         public List<Order> GetAllOrders(string type)
         {
             string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open'";
@@ -28,9 +40,23 @@ namespace ChapooDAL
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }
 
+        public List<Order> GetAllOrdersAnyStatus()
+        {
+            string query = "SELECT OrderId FROM [Order]";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadAllTablesAnyStatus(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        public List<Order> GetActiveOrderList()
+        {
+            string query = "SELECT TableNumber, Date, Status FROM [Order] WHERE Status NOT LIKE 'c%'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadAllTablesActive(ExecuteSelectQuery(query, sqlParameters));
+        }
+
         public List<Order> GetOrdersAboveID(string type, int Id)
         {
-            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open' and OrderId >"+ Id;
+            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open' and OrderId >" + Id;
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }
@@ -56,6 +82,32 @@ namespace ChapooDAL
             };
             return allServed;
         }
+
+        private List<Order> ReadAllTablesAnyStatus(DataTable dataTable)
+        {
+            List<Order> orders = new List<Order>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Order served = new Order();
+                served.OrderId = (int)dr["OrderId"];
+            };
+            return orders;
+        }
+
+        private List<Order> ReadAllTablesActive(DataTable dataTable)
+        {
+            List<Order> orders = new List<Order>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Order order = new Order();
+                order.TableNumber = (int)dr["TableNumber"];
+                order.Date = (DateTime)dr["Date"];
+                order.Status = (string)dr["Status"];
+                orders.Add(order);
+            };
+            return orders;
+        }
+        
 
         public void UpdateStatus(string done, int orderId)
         {
