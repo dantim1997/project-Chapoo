@@ -32,7 +32,7 @@ namespace ChapooLogic
             return DAO_Order.GetActiveOrderList();
         }
 
-        public List<Order> GetOrdersAboveID(string type, int Id)
+        public void UpdateStatus(string status, int orderId)
         {
             DAO_Order.UpdateStatus(status, orderId);
         }
