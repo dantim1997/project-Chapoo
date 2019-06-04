@@ -36,35 +36,35 @@ namespace ChapooDAL
 
         public List<Product> GetAllLunch()
         {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductID BETWEEN 3 AND 12";
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply FROM Product where ProductID BETWEEN 3 AND 12";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<Product> GetAllDiner()
         {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductID BETWEEN 13 AND 23";
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply FROM Product where ProductID BETWEEN 13 AND 23";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<Product> GetAllDrinks()
         {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductType = 'Drink'";
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply FROM Product where ProductType = 'Drink'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public Product GetAllByBill(int productId, string type)
         {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductType = '"+type+"' and ProductId = "+productId;
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply FROM Product where ProductType = '" + type+"' and ProductId = "+productId;
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadProduct(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public Product GetByProductId(int productId, string type)
         {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductType = '"+type+"' and ProductId = " + productId;
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply FROM Product where ProductType = '" + type+"' and ProductId = " + productId;
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadProduct(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -80,6 +80,7 @@ namespace ChapooDAL
                 product.ProductPrice = (double)dr["ProductPrice"];
                 product.ProductType = (string)dr["ProductType"];
                 product.BTW = (int)dr["BTW"];
+                product.Supply = (int)dr["supply"];
             };
             return product;
         }
@@ -96,9 +97,20 @@ namespace ChapooDAL
                 product.ProductPrice = (double)dr["ProductPrice"];
                 product.ProductType = (string)dr["ProductType"];
                 product.BTW = (int)dr["BTW"];
+                product.Supply = (int)dr["supply"];
                 products.Add(product);
             };
             return products;
+        }
+
+        public void UpdateProductStock(int Stock, int productId)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("UPDATE Product SET Supply = Supply - @Stock WHERE ProductId = @ProductId", dbConnection);
+            command.Parameters.AddWithValue("@Stock", (int)Stock);
+            command.Parameters.AddWithValue("@ProductId", productId);
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
         }
     }
 }

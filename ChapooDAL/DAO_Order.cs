@@ -35,7 +35,9 @@ namespace ChapooDAL
 
         public List<Order> GetAllOrders(string type)
         {
+            string test = DateTime.Now.ToString("dd/MM/yyyy");
             string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open'";
+            //string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open' and date = '"+DateTime.Now.ToString("MM/dd/yyyy") + "'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }
@@ -56,7 +58,7 @@ namespace ChapooDAL
 
         public List<Order> GetOrdersAboveID(string type, int Id)
         {
-            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open' and OrderId >" + Id;
+            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }

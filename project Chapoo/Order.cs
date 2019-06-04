@@ -15,6 +15,9 @@ namespace project_Chapoo
     public partial class Order : Form
     {
         public Product_Service ProdSer = new Product_Service();
+        public List<OrderProduct> orderProducts = new List<OrderProduct>();
+        List<Button> buttons = new List<Button>();
+        List<Product> producten = new List<Product>();
 
         public Order()
         {
@@ -57,26 +60,23 @@ namespace project_Chapoo
             CreateButtons(productsDrinks);
         }
 
-        List<Button> buttons = new List<Button>();
-        List<Product> producten = new List<Product>();
-
-        private void CreateButtons(List<Product>products)
+        private void CreateButtons(List<Product> products)
         {
             buttons.Clear();
             producten.Clear();
 
             int index = 0;
 
-            for(int i = 0; i<6; i++)
+            for (int i = 0; i < 6; i++)
             {
-                for (int j = 0; j < products.Count/6; j++)
+                for (int j = 0; j < products.Count / 6; j++)
                 {
                     Button newButton = new Button();
                     buttons.Add(newButton);
                     newButton.Height = 75;
                     newButton.Width = 74;
                     newButton.Text = products[index].ProductName;
-                    newButton.Location = new Point((80 * i) +266, (80 * j) + 132); //266 en 132 zijn de begin coordinaten
+                    newButton.Location = new Point((80 * i) + 266, (80 * j) + 132); //266 en 132 zijn de begin coordinaten
                     newButton.Name = "btn_" + products[index].ProductName;
                     newButton.Click += new EventHandler(GeneratedButton_Click);
                     this.Controls.Add(newButton);
@@ -88,9 +88,21 @@ namespace project_Chapoo
 
         private void RemoveButtons()
         {
-            foreach(Button button in buttons)
+            foreach (Button button in buttons)
             {
                 this.Controls.Remove(button);
+            }
+        }
+
+        void AddProduct()
+        {
+            listView_Order.Items.Clear();
+            foreach (OrderProduct product in orderProducts)
+            {
+                ListViewItem item = new ListViewItem(product.Product.ProductName);
+                item.SubItems.Add(product.Amount.ToString());
+                listView_Order.Items.Add(item);
+
             }
         }
 
@@ -98,9 +110,30 @@ namespace project_Chapoo
         {
             Button button = sender as Button;
             int index = buttons.IndexOf(button);
-            Product product = producten[index];
-            MessageBox.Show(product.ProductName+ " toevoegen?"); //voor test, niet nodig voor final
-            listView_Order.Items.Add(product.ProductName);
+            OrderProduct product = new OrderProduct();
+            product.Product = producten[index];
+
+            if (product.Product.Supply != 0) //Voorraad waarde nog niet opgehaald?
+            {
+                if (orderProducts.Where(t => t.Product.ProductId == product.Product.ProductId).FirstOrDefault() != null)
+                {
+                    orderProducts.Where(t => t.Product.ProductId == product.Product.ProductId).FirstOrDefault().Amount++;
+                    AddProduct();
+                }
+                else
+                {
+                    OrderProduct orderproduct = product;
+                    orderproduct.Product = product.Product;
+                    orderproduct.Amount = 1;
+                    orderProducts.Add(orderproduct);
+                    AddProduct();
+                }
+                producten[index].Supply--;
+            }
+            else
+            {
+                MessageBox.Show("Product niet op voorraad");
+            }
         }
 
         private void btn_Submit_Click(object sender, EventArgs e)
@@ -126,6 +159,30 @@ namespace project_Chapoo
             this.Hide();
             tableOverview.ShowDialog();
             this.Close();
+        }
+
+        private void btn_Remove_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listView_Order.SelectedItems[0];
+
+            orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Product.Supply =+ orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Amount;
+            orderProducts.Remove(orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault());
+            AddProduct();
+        }
+
+        private void listView_Order_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btn_Remove.Enabled = true;
+        }
+
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Weet je zeker dat je de order wilt resetten?", "Reset Order", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                listView_Order.Clear();
+                //order clear
+            }
         }
     }
 }

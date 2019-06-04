@@ -74,6 +74,14 @@
             this.lbl_Loginname = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_LoginID = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbl_TimeOrder1 = new System.Windows.Forms.Label();
+            this.lbl_TimeOrder2 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lbl_TimeOrder3 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lbl_TimeOrder4 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -152,6 +160,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.lbl_TimeOrder1);
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.lb_TableOrder1);
@@ -306,6 +316,8 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.lbl_TimeOrder3);
+            this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.lb_TableOrder3);
@@ -358,6 +370,8 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.lbl_TimeOrder2);
+            this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.lb_TableOrder2);
@@ -410,6 +424,8 @@
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.lbl_TimeOrder4);
+            this.panel5.Controls.Add(this.label18);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.lb_TableOrder4);
@@ -510,6 +526,86 @@
             this.lbl_LoginID.TabIndex = 29;
             this.lbl_LoginID.Text = "ID:";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(297, -1);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 20);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Time";
+            // 
+            // lbl_TimeOrder1
+            // 
+            this.lbl_TimeOrder1.AutoSize = true;
+            this.lbl_TimeOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_TimeOrder1.Location = new System.Drawing.Point(346, -1);
+            this.lbl_TimeOrder1.Name = "lbl_TimeOrder1";
+            this.lbl_TimeOrder1.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder1.TabIndex = 8;
+            this.lbl_TimeOrder1.Text = "Time";
+            // 
+            // lbl_TimeOrder2
+            // 
+            this.lbl_TimeOrder2.AutoSize = true;
+            this.lbl_TimeOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_TimeOrder2.Location = new System.Drawing.Point(346, 1);
+            this.lbl_TimeOrder2.Name = "lbl_TimeOrder2";
+            this.lbl_TimeOrder2.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder2.TabIndex = 10;
+            this.lbl_TimeOrder2.Text = "Time";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label14.Location = new System.Drawing.Point(297, 1);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(43, 20);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Time";
+            // 
+            // lbl_TimeOrder3
+            // 
+            this.lbl_TimeOrder3.AutoSize = true;
+            this.lbl_TimeOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_TimeOrder3.Location = new System.Drawing.Point(346, 0);
+            this.lbl_TimeOrder3.Name = "lbl_TimeOrder3";
+            this.lbl_TimeOrder3.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder3.TabIndex = 12;
+            this.lbl_TimeOrder3.Text = "Time";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label16.Location = new System.Drawing.Point(297, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(43, 20);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Time";
+            // 
+            // lbl_TimeOrder4
+            // 
+            this.lbl_TimeOrder4.AutoSize = true;
+            this.lbl_TimeOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_TimeOrder4.Location = new System.Drawing.Point(346, -1);
+            this.lbl_TimeOrder4.Name = "lbl_TimeOrder4";
+            this.lbl_TimeOrder4.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder4.TabIndex = 14;
+            this.lbl_TimeOrder4.Text = "Time";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label18.Location = new System.Drawing.Point(297, -1);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(43, 20);
+            this.label18.TabIndex = 13;
+            this.label18.Text = "Time";
+            // 
             // KitchenOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -598,5 +694,13 @@
         private System.Windows.Forms.Label lbl_Loginname;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl_LoginID;
+        private System.Windows.Forms.Label lbl_TimeOrder1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbl_TimeOrder3;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lbl_TimeOrder2;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lbl_TimeOrder4;
+        private System.Windows.Forms.Label label18;
     }
 }

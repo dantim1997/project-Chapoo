@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.listView_Order = new System.Windows.Forms.ListView();
             this.lbl_OrderTable = new System.Windows.Forms.Label();
             this.btn_Back = new System.Windows.Forms.Button();
@@ -37,15 +38,26 @@
             this.btn_Note = new System.Windows.Forms.Button();
             this.btn_Submit = new System.Windows.Forms.Button();
             this.btn_Pay = new System.Windows.Forms.Button();
+            this.btn_Remove = new System.Windows.Forms.Button();
+            this.btn_Reset = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listView_Order
             // 
+            this.listView_Order.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listView_Order.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
             this.listView_Order.Location = new System.Drawing.Point(12, 52);
             this.listView_Order.Name = "listView_Order";
             this.listView_Order.Size = new System.Drawing.Size(237, 482);
             this.listView_Order.TabIndex = 6;
             this.listView_Order.UseCompatibleStateImageBehavior = false;
+            this.listView_Order.View = System.Windows.Forms.View.Details;
+            this.listView_Order.SelectedIndexChanged += new System.EventHandler(this.listView_Order_SelectedIndexChanged);
             // 
             // lbl_OrderTable
             // 
@@ -53,7 +65,7 @@
             this.lbl_OrderTable.Font = new System.Drawing.Font("Arial", 11F);
             this.lbl_OrderTable.Location = new System.Drawing.Point(8, 18);
             this.lbl_OrderTable.Name = "lbl_OrderTable";
-            this.lbl_OrderTable.Size = new System.Drawing.Size(102, 19);
+            this.lbl_OrderTable.Size = new System.Drawing.Size(92, 17);
             this.lbl_OrderTable.TabIndex = 7;
             this.lbl_OrderTable.Text = "Order table x";
             // 
@@ -125,28 +137,51 @@
             // btn_Pay
             // 
             this.btn_Pay.BackColor = System.Drawing.Color.White;
-            this.btn_Pay.Location = new System.Drawing.Point(255, 460);
+            this.btn_Pay.Location = new System.Drawing.Point(428, 460);
             this.btn_Pay.Name = "btn_Pay";
             this.btn_Pay.Size = new System.Drawing.Size(156, 74);
             this.btn_Pay.TabIndex = 15;
             this.btn_Pay.Text = "Pay";
             this.btn_Pay.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btn_Remove
             // 
-            //this.button1.Location = new System.Drawing.Point(713, 13);
-            //this.button1.Name = "button1";
-            //this.button1.Size = new System.Drawing.Size(75, 23);
-            //this.button1.TabIndex = 9;
-            //this.button1.Text = "button1";
-            //this.button1.UseVisualStyleBackColor = true;
-            //this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Remove.BackColor = System.Drawing.Color.White;
+            this.btn_Remove.Enabled = false;
+            this.btn_Remove.Location = new System.Drawing.Point(266, 460);
+            this.btn_Remove.Name = "btn_Remove";
+            this.btn_Remove.Size = new System.Drawing.Size(75, 74);
+            this.btn_Remove.TabIndex = 16;
+            this.btn_Remove.Text = "Remove";
+            this.btn_Remove.UseVisualStyleBackColor = false;
+            this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click);
+            // 
+            // btn_Reset
+            // 
+            this.btn_Reset.BackColor = System.Drawing.Color.White;
+            this.btn_Reset.Location = new System.Drawing.Point(347, 460);
+            this.btn_Reset.Name = "btn_Reset";
+            this.btn_Reset.Size = new System.Drawing.Size(75, 74);
+            this.btn_Reset.TabIndex = 17;
+            this.btn_Reset.Text = "Reset";
+            this.btn_Reset.UseVisualStyleBackColor = false;
+            this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Name";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Amount";
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 546);
+            this.Controls.Add(this.btn_Reset);
+            this.Controls.Add(this.btn_Remove);
             this.Controls.Add(this.btn_Pay);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.btn_Note);
@@ -173,5 +208,9 @@
         private System.Windows.Forms.Button btn_Note;
         private System.Windows.Forms.Button btn_Submit;
         private System.Windows.Forms.Button btn_Pay;
+        private System.Windows.Forms.Button btn_Remove;
+        private System.Windows.Forms.Button btn_Reset;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
