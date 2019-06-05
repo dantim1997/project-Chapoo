@@ -21,14 +21,15 @@ namespace ChapooDAL
             dbConnection = new SqlConnection(connstring);
         }
 
-        public void CreateNewOrder(int employeeId, int tableNumber)
+        public void CreateNewOrder(int employeeId, string status, int tableNumber)
         {
-            string query = "INSERT INTO [Order] (EmployeeID, TableNumber, Date) VALUES (@EmployeeId, @TableNumber, @Date)";
+            string query = "INSERT INTO [Order] (EmployeeID, TableNumber, Date, Status) VALUES (@EmployeeId, @TableNumber, @Date, @Status)";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("EmployeeId", employeeId),
                 new SqlParameter("Tablenumber", tableNumber),
-                new SqlParameter("Date", DateTime.Now)
+                new SqlParameter("Date", DateTime.Now),
+                new SqlParameter("Status", status)
             };
             ExecuteEditQuery(query, sqlParameters);
         }

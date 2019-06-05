@@ -34,7 +34,7 @@ namespace ChapooDAL
             {
 
                 new SqlParameter("Username", username)
-
+                //ook pssword
             };
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }

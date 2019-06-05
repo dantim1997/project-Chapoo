@@ -19,14 +19,16 @@ namespace project_Chapoo
         public List<OrderProduct> orderProducts = new List<OrderProduct>();
         List<Button> buttons = new List<Button>();
         List<Product> producten = new List<Product>();
+        Employee employee;
 
         public int ID = 1;
      
         
 
-        public Order()
+        public Order(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
             //FormBorderStyle = FormBorderStyle.None;
             //WindowState = FormWindowState.Maximized;
         }
@@ -161,7 +163,7 @@ namespace project_Chapoo
 
                 //order doorgeven
 
-                TableOverview tableOverview = new TableOverview();
+                TableOverview tableOverview = new TableOverview(employee);
                 //tableOverview.InfoEmployee(employee);
                 this.Hide();
                 tableOverview.ShowDialog();
@@ -204,7 +206,7 @@ namespace project_Chapoo
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            TableOverview tableOverview = new TableOverview();
+            TableOverview tableOverview = new TableOverview(employee);
             //tableOverview.InfoEmployee(employee);
             this.Hide();
             tableOverview.ShowDialog();
