@@ -79,10 +79,11 @@ namespace project_Chapoo
             Order(order4, 4);
         }
 
-        public KitchenOverview(string typeOfView, Employee employee)
+        public KitchenOverview(Employee employee)
         {
             InitializeComponent();
-            TypeOfView = employee.TypeWorker;
+            if(employee.TypeWorker == "cook") { TypeOfView = "Food"; }
+            if(employee.TypeWorker == "bar") { TypeOfView = "Drink"; }
             CurrentEmployee = employee;
             lbl_Loginname.Text = employee.Fullname;
             lbl_LoginID.Text = employee.EmployeeId.ToString();
@@ -121,6 +122,7 @@ namespace project_Chapoo
             lv_Order1.Items.Clear();
             lb_NameOrder1.Text = string.Empty;
             lb_TableOrder1.Text = string.Empty;
+            lbl_TimeOrder1.Text = string.Empty;
             order1 = null;
             NewOrder(1);
         }
@@ -131,6 +133,7 @@ namespace project_Chapoo
             lv_Order2.Items.Clear();
             lb_NameOrder2.Text = string.Empty;
             lb_TableOrder2.Text = string.Empty;
+            lbl_TimeOrder2.Text = string.Empty;
             order2 = null;
             NewOrder(2);
         }
@@ -141,6 +144,7 @@ namespace project_Chapoo
             lv_Order3.Items.Clear();
             lb_NameOrder3.Text = string.Empty;
             lb_TableOrder3.Text = string.Empty;
+            lbl_TimeOrder3.Text = string.Empty;
             order3 = null;
             NewOrder(3);
         }
@@ -151,6 +155,7 @@ namespace project_Chapoo
             lv_Order4.Items.Clear();
             lb_NameOrder4.Text = string.Empty;
             lb_TableOrder4.Text = string.Empty;
+            lbl_TimeOrder4.Text = string.Empty;
             order4 = null;
             NewOrder(4);
         }
