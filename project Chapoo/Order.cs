@@ -9,47 +9,48 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapooLogic;
 using ChapooModels;
+using Microsoft.VisualBasic;
 
 namespace project_Chapoo
 {
+    
     public partial class Order : Form
     {
-        ChapooModels.Order huidigeOrder = new ChapooModels.Order();
-        public Product_Service ProdSer = new Product_Service();
-        public List<OrderProduct> orderProducts = new List<OrderProduct>();
-        List<Button> buttons = new List<Button>();
-        List<Product> producten = new List<Product>();
+        const int SIZE = 75;
 
-        public int ID = 1;
+       
+        public Product_Service ProdSer = new Product_Service();
+        public List<OrderProduct> orderProducts = new List<OrderProduct>(); //List voor de producten in de bestelling
+        List<Button> buttons = new List<Button>(); //List voor alle aangemaakte buttons
+        List<Product> producten = new List<Product>(); //List voor het maken van de buttons
+        public int ID;
+
+        Order_Service orderService = new Order_Service();
+        OrderProduct_Service orderProService = new OrderProduct_Service();
      
         
 
-        public Order()
+        public Order(int orderID)
         {
             InitializeComponent();
+            ID = orderID;
+
             //FormBorderStyle = FormBorderStyle.None;
             //WindowState = FormWindowState.Maximized;
+
         }
 
         
 
-        public ChapooModels.Order GetOrder(int tableNumber, int EmployeeID)
+        public ChapooModels.Order GetOrder(ChapooModels.Order order)
         {
-            ChapooModels.Order order = huidigeOrder;
-            order.Date = DateTime.Now;
-            order.OrderId = ID;
-            order.OrderProduct = orderProducts;
-            order.Status = "In progress...";
-            //order.TableNumber; 
-            //order.EmployeeId;
-            //Deze moeten worden verkregen vanuit tableOverview
             return order;
-          
         }
 
         public void SendOrder()
         {
-            //
+            orderService.UpdateOrder(ID, "In Progress...");
+            orderProService.CreateOrderProduct(orderProducts);
         }
 
         private void btn_Lunch_Click(object sender, EventArgs e)
@@ -76,7 +77,7 @@ namespace project_Chapoo
             CreateButtons(productsDrinks);
         }
 
-        private void CreateButtons(List<Product> products)
+        private void CreateButtons(List<Product> products) //Remaken zodat daadwerkelijk alles wordt weergegeven, indien nodig met "lege" buttons
         {
             buttons.Clear();
             producten.Clear();
@@ -89,14 +90,23 @@ namespace project_Chapoo
                 {
                     Button newButton = new Button();
                     buttons.Add(newButton);
-                    newButton.Height = 75;
-                    newButton.Width = 74;
+                    newButton.Height = SIZE;
+                    newButton.Width = SIZE;
                     newButton.Text = products[index].ProductName;
                     newButton.Location = new Point((80 * i) + 266, (80 * j) + 132); //266 en 132 zijn de begin coordinaten
                     newButton.Name = "btn_" + products[index].ProductName;
                     newButton.Click += new EventHandler(GeneratedButton_Click);
                     this.Controls.Add(newButton);
                     index++;
+                    if (products[index].MenuType == "Bier")
+                    {
+                        newButton.BackColor = Color.Yellow;
+                    }
+                    else if (products[index].MenuType == "Wijn" || products[index].MenuType == "Gedistelleerd")
+                    {
+                        newButton.BackColor = Color.Red;
+                    }
+                    
                 }
             }
             producten = products;
@@ -110,15 +120,15 @@ namespace project_Chapoo
             }
         }
 
-        void AddProduct()
+        void UpdateListView()
         {
             listView_Order.Items.Clear();
             foreach (OrderProduct product in orderProducts)
             {
                 ListViewItem item = new ListViewItem(product.Product.ProductName);
                 item.SubItems.Add(product.Amount.ToString());
+                item.SubItems.Add(product.Note);
                 listView_Order.Items.Add(item);
-
             }
         }
 
@@ -129,22 +139,25 @@ namespace project_Chapoo
             OrderProduct product = new OrderProduct();
             product.Product = producten[index];
 
-            if (product.Product.Supply != 0) //Voorraad waarde nog niet opgehaald?
+            if (product.Product.Supply != 0)
             {
                 if (orderProducts.Where(t => t.Product.ProductId == product.Product.ProductId).FirstOrDefault() != null)
                 {
                     orderProducts.Where(t => t.Product.ProductId == product.Product.ProductId).FirstOrDefault().Amount++;
-                    AddProduct();
+                    
                 }
                 else
                 {
                     OrderProduct orderproduct = product;
                     orderproduct.Product = product.Product;
                     orderproduct.Amount = 1;
+                    orderproduct.OrderId = ID;
+                    orderproduct.Note = string.Empty;
+                    orderproduct.Status = Statustype.Open;
                     orderProducts.Add(orderproduct);
-                    AddProduct();
                 }
                 producten[index].Supply--;
+                UpdateListView();
             }
             else
             {
@@ -154,12 +167,13 @@ namespace project_Chapoo
 
         private void btn_Submit_Click(object sender, EventArgs e)
         {
+
             DialogResult dr = MessageBox.Show("Wil je de order doorgeven naar de keuken?", "Order bevestigen", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
                 MessageBox.Show("Bestelling succesvol doorgegeven", "Order bevestigen");
 
-                //order doorgeven
+                SendOrder();
 
                 TableOverview tableOverview = new TableOverview();
                 //tableOverview.InfoEmployee(employee);
@@ -172,10 +186,11 @@ namespace project_Chapoo
         private void btn_Note_Click(object sender, EventArgs e)
         {
             var selectedItem = listView_Order.SelectedItems[0];
-            RemoveButtons();
-            TextBox box = new TextBox();
-            box.Show();
-            box.Location = new Point(266, 132);
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Prompt", "Title", "Default", 0, 0);
+            orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Note = input;
+            UpdateListView();
+            btn_Note.Enabled = false;
+                    
         }
 
         private void btn_Remove_Click(object sender, EventArgs e)
@@ -183,7 +198,8 @@ namespace project_Chapoo
             var selectedItem = listView_Order.SelectedItems[0];
             orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Product.Supply =+ orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Amount;
             orderProducts.Remove(orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault());
-            AddProduct();
+            UpdateListView();
+            btn_Remove.Enabled = false;
         }
 
         private void listView_Order_SelectedIndexChanged(object sender, EventArgs e)

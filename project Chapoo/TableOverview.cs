@@ -280,7 +280,7 @@ namespace project_Chapoo
             }
             else
             {
-                Order orderForm = new Order();
+                Order orderForm = new Order(20);
                 this.Hide();
                 orderForm.ShowDialog();
                 this.Close();
@@ -318,7 +318,7 @@ namespace project_Chapoo
             }
             else
             {
-                Order orderForm = new Order();
+                Order orderForm = new Order(20);
                 this.Hide();
                 orderForm.ShowDialog();
                 this.Close();

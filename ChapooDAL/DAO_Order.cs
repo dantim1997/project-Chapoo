@@ -120,5 +120,19 @@ namespace ChapooDAL
             SqlDataReader reader = command.ExecuteReader();
             dbConnection.Close();
         }
+
+        public void UpdateOrder(int orderID, string status)
+        {
+            dbConnection.Open();
+            SqlCommand command = new SqlCommand("UPDATE [Order] SET Status = @Status , Date = @Date WHERE OrderId = @OrderId", dbConnection);
+            DateTime dateNow = DateTime.Now; 
+            command.Parameters.AddWithValue("@Status", status);
+            command.Parameters.AddWithValue("@OrderId", orderID);
+            command.Parameters.AddWithValue("@Date", dateNow);
+            SqlDataReader reader = command.ExecuteReader();
+            dbConnection.Close();
+        }
+
+
     }
 }

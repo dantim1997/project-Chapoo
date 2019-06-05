@@ -11,6 +11,7 @@ namespace ChapooLogic
     public class Order_Service
     {
         DAO_Order DAO_Order = new DAO_Order();
+        
 
         public void CreateOrder(int employeeId, int tableNumber)
         {
@@ -35,6 +36,12 @@ namespace ChapooLogic
         public void UpdateStatus(string status, int orderId)
         {
             DAO_Order.UpdateStatus(status, orderId);
+        }
+
+        public void UpdateOrder(int OrderID, string status)
+        {
+            DAO_Order.UpdateOrder(OrderID, status);
+            
         }
 
         public void UpdateStock() { 
