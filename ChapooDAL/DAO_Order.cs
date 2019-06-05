@@ -21,14 +21,15 @@ namespace ChapooDAL
             dbConnection = new SqlConnection(connstring);
         }
 
-        public void CreateNewOrder(int employeeId, int tableNumber)
+        public void CreateNewOrder(int employeeId, string status, int tableNumber)
         {
-            string query = "INSERT INTO [Order] (EmployeeID, TableNumber, Date) VALUES (@EmployeeId, @TableNumber, @Date)";
+            string query = "INSERT INTO [Order] (EmployeeID, TableNumber, Date, Status) VALUES (@EmployeeId, @TableNumber, @Date, @Status)";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("EmployeeId", employeeId),
                 new SqlParameter("Tablenumber", tableNumber),
-                new SqlParameter("Date", DateTime.Now)
+                new SqlParameter("Date", DateTime.Now),
+                new SqlParameter("Status", status)
             };
             ExecuteEditQuery(query, sqlParameters);
         }
@@ -36,8 +37,8 @@ namespace ChapooDAL
         public List<Order> GetAllOrders(string type)
         {
             string test = DateTime.Now.ToString("dd/MM/yyyy");
-            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open'";
-            //string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open' and date = '"+DateTime.Now.ToString("MM/dd/yyyy") + "'";
+            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order]";
+            //string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where date = '"+DateTime.Now.ToString("MM/dd/yyyy") + "'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }

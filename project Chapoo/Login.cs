@@ -147,7 +147,7 @@ namespace project_Chapoo
             this.PerformLayout();
 
         }
-
+        //1 x database.
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
             if (txtUser.Text != "" && txtPassword.Text != "")
@@ -176,16 +176,15 @@ namespace project_Chapoo
             switch (employee.TypeWorker)
             {
                 case "server":
-                    TableOverview tableOverview = new TableOverview();
-                    tableOverview.InfoEmployee(employee);
+                    TableOverview tableOverview = new TableOverview(employee);
                     tableOverview.ShowDialog();
                     break;
                 case "cook":
-                    KitchenOverview kitchenOverview = new KitchenOverview("Food", employee);
+                    KitchenOverview kitchenOverview = new KitchenOverview(employee);
                     kitchenOverview.ShowDialog();
                     break;
                 case "bar":
-                    KitchenOverview barOverview = new KitchenOverview("Drink",employee);
+                    KitchenOverview barOverview = new KitchenOverview(employee);
                     barOverview.ShowDialog();
                     break;
             }

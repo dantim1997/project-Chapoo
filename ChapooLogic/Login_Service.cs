@@ -22,6 +22,7 @@ namespace ChapooLogic
             }
 
             return loginCorrect;
+            // if null dan incorrect.
         }
     }
 }
