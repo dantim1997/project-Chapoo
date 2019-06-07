@@ -36,21 +36,21 @@ namespace ChapooDAL
 
         public List<Product> GetAllLunch()
         {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply FROM Product where ProductID BETWEEN 3 AND 12";
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply, MenuType FROM Product where ProductID BETWEEN 3 AND 12";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<Product> GetAllDiner()
         {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply FROM Product where ProductID BETWEEN 13 AND 23";
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply, MenuType FROM Product where ProductID BETWEEN 13 AND 23";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<Product> GetAllDrinks()
         {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply FROM Product where ProductType = 'Drink'";
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply, MenuType FROM Product where ProductType = 'Drink'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -81,6 +81,7 @@ namespace ChapooDAL
                 product.ProductType = (string)dr["ProductType"];
                 product.BTW = (int)dr["BTW"];
                 product.Supply = (int)dr["supply"];
+                product.MenuType = (string)dr["MenuType"];
             };
             return product;
         }
@@ -98,6 +99,7 @@ namespace ChapooDAL
                 product.ProductType = (string)dr["ProductType"];
                 product.BTW = (int)dr["BTW"];
                 product.Supply = (int)dr["supply"];
+                product.MenuType = (string)dr["MenuType"];
                 products.Add(product);
             };
             return products;

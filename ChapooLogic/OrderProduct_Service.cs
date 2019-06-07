@@ -48,5 +48,10 @@ namespace ChapooLogic
             
             return orderProductViewModel;
         }
+
+        public void CreateOrderProduct(List<OrderProduct> orderProducts)
+        {
+            DAO_OrderProduct.CreateOrderPruduct(orderProducts);
+        }
     }
 }

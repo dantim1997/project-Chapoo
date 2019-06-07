@@ -41,9 +41,9 @@ namespace ChapooLogic
             return orderId;
         }
 
-        public void CreateOrder(int employeeId, int tableNumber)
+        public void CreateOrder(int employeeId, string status, int tableNumber)
         {
-            orderService.CreateOrder(employeeId, tableNumber);
+            orderService.CreateOrder(employeeId, status, tableNumber);
         }
 
         public List<Order> GetOrderList()

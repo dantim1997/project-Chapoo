@@ -14,5 +14,6 @@ namespace ChapooModels
         public string ProductType { get; set; }
         public int BTW { get; set; }
         public int Supply { get; set; }
+        public string MenuType { get; set; }
     }
 }
