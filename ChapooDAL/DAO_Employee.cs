@@ -27,14 +27,13 @@ namespace ChapooDAL
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public Employee GetWorkerLogin(string username)
+        public Employee GetWorkerLogin(string username, string password)
         {
-            string query = "SELECT EmployeeId, Name, Surname, TypeWorker, Username, Password FROM Employee WHERE Username = @username";
+            string query = "SELECT EmployeeId, Name, Surname, TypeWorker, Username, Password FROM Employee WHERE Username = @username AND Password = @password";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
-
-                new SqlParameter("Username", username)
-                //ook pssword
+                new SqlParameter("Username", username),
+                new SqlParameter("Password", password)
             };
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -52,16 +51,24 @@ namespace ChapooDAL
         private Employee ReadTable(DataTable dataTable)
         {
             Employee login = new Employee();
-            foreach (DataRow dr in dataTable.Rows)
+            try
             {
-                login.EmployeeId = (int)dr["EmployeeId"];
-                login.Name = (string)dr["Name"];
-                login.Surname = (string)dr["Surname"];
-                login.TypeWorker = (string)dr["TypeWorker"];
-                login.Username = (string)dr["Username"];
-                login.Password = (string)dr["Password"];
-            };
-            return login;
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    login.EmployeeId = (int)dr["EmployeeId"];
+                    login.Name = (string)dr["Name"];
+                    login.Surname = (string)dr["Surname"];
+                    login.TypeWorker = (string)dr["TypeWorker"];
+                    login.Username = (string)dr["Username"];
+                    login.Password = (string)dr["Password"];
+                };
+                return login;
+            }
+            catch (Exception)
+            {
+                return login;
+            }
+
         }
         private List<Employee> ReadAllTables(DataTable dataTable)
         {

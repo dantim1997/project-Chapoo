@@ -14,11 +14,13 @@ namespace ChapooLogic
         int orderId;
         DAO_Table tableDAO;
         Order_Service orderService;
+        OrderProduct_Service orderProductService;
 
         public TableOverview_Service()
         {
             tableDAO = new DAO_Table();
             orderService = new Order_Service();
+            orderProductService = new OrderProduct_Service();
         }
 
         public List<Table> GetTableList()
@@ -57,9 +59,9 @@ namespace ChapooLogic
             return orderService.GetActiveOrderList();
         }
 
-        public void CheckTableWaitingStatus()
+        public List<OrderProduct> GetActiveOrderProductList(string type)
         {
-
+            return orderProductService.GetActiveOrderProductList(type);
         }
 
         public bool CheckTableStatus(string id)
@@ -77,6 +79,10 @@ namespace ChapooLogic
             tableDAO.SetTableStatus(id, status);
         }
 
+        public void UpdateOrderProductStatus(int TableNumber, Statustype Status, string type)
+        {
+            orderProductService.UpdateOrderProductStatus(TableNumber, Status, type);
+        }
     }
 
 

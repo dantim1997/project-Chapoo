@@ -24,7 +24,6 @@ namespace project_Chapoo
         private Label lblUser;
         private Label lblError;
         Employee_Service employeeService = new Employee_Service();
-        Login_Service loginService = new Login_Service();
         Employee employee = new Employee();
 
         public Login()
@@ -147,31 +146,30 @@ namespace project_Chapoo
             this.PerformLayout();
 
         }
-        //1 x database.
+        
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
             if (txtUser.Text != "" && txtPassword.Text != "")
             {
-                if (loginService.CheckLogin(txtUser.Text, txtPassword.Text))
+                employee = employeeService.GetWorkerLogin(txtUser.Text, txtPassword.Text);
+
+                if (employee.Username == null)
                 {
-                    OpenForm();
+                    lblError.Text = "Incorrect 'username' or 'password' entered. Please try again*";
                 }
                 else
                 {
-                    lblError.Text = "Incorrect 'username' or 'password' entered. Please try again*";
+                    OpenForm();
                 }
             }
             else
             {
-                lblError.Text = "No 'username' or 'password' entered. Please try again*";
+                lblError.Text = "No 'username' and/or 'password' entered. Please try again*";
             }
-
         }
 
         public void OpenForm()
         {
-            employee = employeeService.GetWorkerLogin(txtUser.Text);
-
             this.Hide();
             switch (employee.TypeWorker)
             {

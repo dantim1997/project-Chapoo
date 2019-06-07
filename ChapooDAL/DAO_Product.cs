@@ -81,7 +81,7 @@ namespace ChapooDAL
                 product.ProductType = (string)dr["ProductType"];
                 product.BTW = (int)dr["BTW"];
                 product.Supply = (int)dr["supply"];
-                product.MenuType = (string)dr["MenuType"];
+                //product.MenuType = (string)dr["MenuType"];
             };
             return product;
         }

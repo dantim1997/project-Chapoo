@@ -53,5 +53,15 @@ namespace ChapooLogic
         {
             DAO_OrderProduct.CreateOrderPruduct(orderProducts);
         }
+
+        public List<OrderProduct> GetActiveOrderProductList(string type)
+        {
+            return DAO_OrderProduct.GetAllByActiveOrder(type);
+        }
+
+        public void UpdateOrderProductStatus(int TableNumber, Statustype Status, string type)
+        {
+            DAO_OrderProduct.UpdateOrderProductStatusByTablenumber(TableNumber, Status, type);
+        }
     }
 }

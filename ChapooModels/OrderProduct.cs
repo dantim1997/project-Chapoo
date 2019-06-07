@@ -16,5 +16,5 @@ namespace ChapooModels
         public Product Product { get; set; }
 
     }
-    public enum Statustype { Bereid, Open};
+    public enum Statustype { Bereid, Open, Afgehandeld};
 }

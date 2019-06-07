@@ -140,5 +140,17 @@
   <ItemGroup>
     <None Include="Rescources\table-05.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Rescources\btnBestelling_btnBestellingGeel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rescources\btnBestelling_btnBestellingGrijs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rescources\btnBestelling_btnBestellingGroen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rescources\btnBestelling_btnBestellingRood.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,30 +17,34 @@ namespace project_Chapoo
         TableOverview_Service service;
         List<Table> tableList;
         List<ChapooModels.Order> orders;
+        List<ChapooModels.Order> activeOrderlist;
         Employee employee;
         static Timer timer;
-        Button[] btnList;
+        Button[] btnListTable;
+        Button[] btnListBar;
+        Button[] btnListKitchen;
 
         public TableOverview(Employee employee) // employee
         {
             InitializeComponent();
             this.employee = employee;
             service = new TableOverview_Service();
-            btnList = new Button[10] { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
+            btnListTable = new Button[10] { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
+            btnListBar = new Button[10] { btnBar1, btnBar2, btnBar3, btnBar4, btnBar5, btnBar6, btnBar7, btnBar8, btnBar9, btnBar10 };
+            btnListKitchen = new Button[10] { btnKitchen1, btnKitchen2, btnKitchen3, btnKitchen4, btnKitchen5, btnKitchen6, btnKitchen7, btnKitchen8, btnKitchen9, btnKitchen10 };
             orders = service.GetOrderList();
             tableList = service.GetTableList();
             UpdateTableStatus();
-            //UpdateServiceStatus();
-            //all buttons.
+            ServiceBtnUpdate("Drink");
+            ServiceBtnUpdate("Food");
+            InfoEmployee();
             timer = new Timer();
             InitializeTimer();
-
-            // ...
         }
 
         private void InitializeTimer()
         {
-            timer.Interval = 15000;
+            timer.Interval = 30000;
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Enabled = true;
         }
@@ -49,7 +53,8 @@ namespace project_Chapoo
         {
             orders = service.GetOrderList();
             UpdateTableStatus();
-            //UpdateServiceStatus();
+            ServiceBtnUpdate("Drink");
+            ServiceBtnUpdate("Food");
         }
 
         public void InfoEmployee()
@@ -103,21 +108,67 @@ namespace project_Chapoo
 
         private void UpdateTableStatus()
         {
-            List<ChapooModels.Order> activeOrderlist = service.GetActiveOrderList();
+            activeOrderlist = service.GetActiveOrderList();
 
             foreach (ChapooModels.Order order in activeOrderlist)
             {
                 if (DateTime.Now.AddMinutes(-20) > order.Date)
                 {
-                    btnList[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\table-03.png");
+                    btnListTable[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\table-03.png");
                 }
                 else if (DateTime.Now.AddMinutes(-10) > order.Date)
                 {
-                    btnList[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\table-04.png");
+                    btnListTable[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\table-04.png");
                 }
                 else
                 {
-                    btnList[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\table-05.png");
+                    btnListTable[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\table-05.png");
+                }
+            }
+        }
+
+        private void ServiceBtnUpdate(string type)
+        {
+            List<OrderProduct> activeOrderProductList = service.GetActiveOrderProductList(type);
+
+            foreach (ChapooModels.Order order in activeOrderlist)
+            {
+                foreach (OrderProduct orderProduct in activeOrderProductList)
+                {
+                    if (order.OrderId == orderProduct.OrderId)
+                    {
+                        if (type == "Drink")
+                        {
+                            switch (orderProduct.Status)
+                            {
+                                case Statustype.Bereid:
+                                    btnListBar[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGroen.png");
+                                    break;
+                                case Statustype.Open:
+                                    btnListBar[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGeel.png");
+                                    break;
+                                case Statustype.Afgehandeld:
+                                    btnListBar[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            switch (orderProduct.Status)
+                            {
+                                case Statustype.Bereid:
+                                    btnListKitchen[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGroen.png");
+                                    break;
+                                case Statustype.Open:
+                                    btnListKitchen[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGeel.png");
+                                    break;
+                                case Statustype.Afgehandeld:
+                                    btnListKitchen[order.TableNumber - 1].Image = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
+                                    break;
+                            }
+                        }
+
+                    }
                 }
             }
         }
@@ -163,20 +214,36 @@ namespace project_Chapoo
 
         private void btnBar1_Click(object sender, EventArgs e)
         {
-            if (true)
-            {
-                string message = "Set drinks delivered?";
-                string title = "Update servings";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show(message, title, buttons);
-                if (result == DialogResult.Yes)
-                {
+            Button btn = (Button)sender;
+            int tafelIndex = int.Parse(btn.Tag.ToString());
 
-                }
+
+            string message = "Set drinks delivered?";
+            string title = "Update servings";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                service.UpdateOrderProductStatus(tafelIndex, Statustype.Bereid, ">=");
+                btnListBar[tafelIndex - 1].Image = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
             }
+
         }
         private void btnKitchen1_Click(object sender, EventArgs e)
         {
+            Button btn = (Button)sender;
+            int tafelIndex = int.Parse(btn.Tag.ToString());
+
+
+            string message = "Set food delivered?";
+            string title = "Update servings";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                service.UpdateOrderProductStatus(tafelIndex, Statustype.Bereid, "<=");
+                btnListKitchen[tafelIndex - 1].Image = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
+            }
 
         }
 

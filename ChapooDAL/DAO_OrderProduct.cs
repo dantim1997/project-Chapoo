@@ -28,6 +28,13 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters), type);
         }
 
+        public List<OrderProduct> GetAllByActiveOrder(string type)
+        {
+            string query = "SELECT P.OrderId, P.ProductId, P.Status FROM [Order_Product] AS P JOIN [Order] AS O ON O.OrderId = P.OrderId WHERE O.Status NOT LIKE 'c%'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadTableActive(ExecuteSelectQuery(query, sqlParameters), type);
+        }
+
         public void UpdateAllOrderProduct(List<OrderProduct> orderProducts, Statustype Status)
         {
             foreach (OrderProduct orderProduct in orderProducts)
@@ -49,6 +56,19 @@ namespace ChapooDAL
             command.Parameters.AddWithValue("@OrderProductId", OrderProductId);
             SqlDataReader reader = command.ExecuteReader();
             dbConnection.Close();
+        }
+
+        public void UpdateOrderProductStatusByTablenumber(int Tablenumber, Statustype Status, string type)
+        {
+            string query = "UPDATE [OrderProduct] SET OrderProduct.Status = @Status FROM [OrderProduct] AS P JOIN [Order] AS O ON P.OrderId = O.OrderId WHERE O.TableNumber = @TableNumber AND P.ProductId @type 22";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("Status", Status),
+                new SqlParameter("TableNumber", Tablenumber),
+                new SqlParameter("Type", type)
+
+            };
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         public void CreateOrderPruduct(List<OrderProduct> orderProducts)
@@ -84,6 +104,31 @@ namespace ChapooDAL
                 OrderProduct.Status = (Statustype)dr["Status"];
                 OrderProduct.OrderProductId = (int)dr["Id"];
                 OrderProducts.Add(OrderProduct);
+            };
+            return OrderProducts;
+        }
+
+        private List<OrderProduct> ReadTableActive(DataTable dataTable, string type)
+        {
+            List<OrderProduct> OrderProducts = new List<OrderProduct>();
+            //each row from the database is converted into the login class
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                OrderProduct OrderProduct = new OrderProduct();
+                OrderProduct.OrderId = (int)dr["OrderID"];
+                int ProductId = (int)dr["ProductID"];
+                OrderProduct.Status = (Statustype)dr["Status"];
+                if (type == "Drink")
+                {
+                    if (ProductId >= 22)
+                    {
+                        OrderProducts.Add(OrderProduct);
+                    }
+                }
+                else
+                {
+                    OrderProducts.Add(OrderProduct);
+                }
             };
             return OrderProducts;
         }

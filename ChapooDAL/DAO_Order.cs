@@ -52,7 +52,7 @@ namespace ChapooDAL
 
         public List<Order> GetActiveOrderList()
         {
-            string query = "SELECT TableNumber, Date, Status FROM [Order] WHERE Status NOT LIKE 'c%'";
+            string query = "SELECT OrderId, TableNumber, Date, Status FROM [Order] WHERE Status NOT LIKE 'c%'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadAllTablesActive(ExecuteSelectQuery(query, sqlParameters));
         }
@@ -103,6 +103,7 @@ namespace ChapooDAL
             foreach (DataRow dr in dataTable.Rows)
             {
                 Order order = new Order();
+                order.OrderId = (int)dr["OrderId"];
                 order.TableNumber = (int)dr["TableNumber"];
                 order.Date = (DateTime)dr["Date"];
                 order.Status = (string)dr["Status"];
