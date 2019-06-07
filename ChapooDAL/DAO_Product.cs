@@ -22,7 +22,7 @@ namespace ChapooDAL
 
         public List<Product> GetProducts()
         {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product";
+            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW,supply,MenuType FROM Product";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }

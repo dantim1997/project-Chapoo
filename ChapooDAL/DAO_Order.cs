@@ -127,7 +127,7 @@ namespace ChapooDAL
         {
             dbConnection.Open();
             SqlCommand command = new SqlCommand("UPDATE [Order] SET Status = @Status , Date = @Date WHERE OrderId = @OrderId", dbConnection);
-            DateTime dateNow = DateTime.Now; 
+            DateTime dateNow = DateTime.Now;
             command.Parameters.AddWithValue("@Status", status);
             command.Parameters.AddWithValue("@OrderId", orderID);
             command.Parameters.AddWithValue("@Date", dateNow);

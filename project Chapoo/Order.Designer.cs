@@ -32,6 +32,7 @@
             this.listView_Order = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbl_OrderTable = new System.Windows.Forms.Label();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Diner = new System.Windows.Forms.Button();
@@ -40,9 +41,8 @@
             this.btn_Note = new System.Windows.Forms.Button();
             this.btn_Submit = new System.Windows.Forms.Button();
             this.btn_Pay = new System.Windows.Forms.Button();
-            this.btn_Remove = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_Remove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView_Order
@@ -68,6 +68,10 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Amount";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Note";
             // 
             // lbl_OrderTable
             // 
@@ -138,7 +142,7 @@
             // btn_Submit
             // 
             this.btn_Submit.BackColor = System.Drawing.Color.White;
-            this.btn_Submit.Location = new System.Drawing.Point(590, 460);
+            this.btn_Submit.Location = new System.Drawing.Point(590, 540);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(156, 74);
             this.btn_Submit.TabIndex = 14;
@@ -149,29 +153,17 @@
             // btn_Pay
             // 
             this.btn_Pay.BackColor = System.Drawing.Color.White;
-            this.btn_Pay.Location = new System.Drawing.Point(428, 460);
+            this.btn_Pay.Location = new System.Drawing.Point(428, 540);
             this.btn_Pay.Name = "btn_Pay";
             this.btn_Pay.Size = new System.Drawing.Size(156, 74);
             this.btn_Pay.TabIndex = 15;
             this.btn_Pay.Text = "Pay";
             this.btn_Pay.UseVisualStyleBackColor = false;
             // 
-            // btn_Remove
-            // 
-            this.btn_Remove.BackColor = System.Drawing.Color.White;
-            this.btn_Remove.Enabled = false;
-            this.btn_Remove.Location = new System.Drawing.Point(266, 460);
-            this.btn_Remove.Name = "btn_Remove";
-            this.btn_Remove.Size = new System.Drawing.Size(75, 74);
-            this.btn_Remove.TabIndex = 16;
-            this.btn_Remove.Text = "Remove";
-            this.btn_Remove.UseVisualStyleBackColor = false;
-            this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click);
-            // 
             // btn_Reset
             // 
             this.btn_Reset.BackColor = System.Drawing.Color.White;
-            this.btn_Reset.Location = new System.Drawing.Point(347, 460);
+            this.btn_Reset.Location = new System.Drawing.Point(347, 540);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(75, 74);
             this.btn_Reset.TabIndex = 17;
@@ -179,17 +171,24 @@
             this.btn_Reset.UseVisualStyleBackColor = false;
             this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
             // 
-            // columnHeader3
+            // btn_Remove
             // 
-            this.columnHeader3.Text = "Note";
+            this.btn_Remove.BackColor = System.Drawing.Color.White;
+            this.btn_Remove.Enabled = false;
+            this.btn_Remove.Location = new System.Drawing.Point(266, 540);
+            this.btn_Remove.Name = "btn_Remove";
+            this.btn_Remove.Size = new System.Drawing.Size(75, 74);
+            this.btn_Remove.TabIndex = 18;
+            this.btn_Remove.Text = "Remove";
+            this.btn_Remove.UseVisualStyleBackColor = false;
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 546);
-            this.Controls.Add(this.btn_Reset);
+            this.ClientSize = new System.Drawing.Size(800, 608);
             this.Controls.Add(this.btn_Remove);
+            this.Controls.Add(this.btn_Reset);
             this.Controls.Add(this.btn_Pay);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.btn_Note);
@@ -216,10 +215,10 @@
         private System.Windows.Forms.Button btn_Note;
         private System.Windows.Forms.Button btn_Submit;
         private System.Windows.Forms.Button btn_Pay;
-        private System.Windows.Forms.Button btn_Remove;
         private System.Windows.Forms.Button btn_Reset;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Button btn_Remove;
     }
 }
