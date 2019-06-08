@@ -612,33 +612,33 @@
             // 
             // lb_NoteOrder1
             // 
-            this.lb_NoteOrder1.Location = new System.Drawing.Point(12, 730);
+            this.lb_NoteOrder1.Location = new System.Drawing.Point(60, 686);
             this.lb_NoteOrder1.Name = "lb_NoteOrder1";
-            this.lb_NoteOrder1.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder1.Size = new System.Drawing.Size(429, 104);
             this.lb_NoteOrder1.TabIndex = 30;
             this.lb_NoteOrder1.Text = "label10";
             // 
             // lb_NoteOrder2
             // 
-            this.lb_NoteOrder2.Location = new System.Drawing.Point(440, 730);
+            this.lb_NoteOrder2.Location = new System.Drawing.Point(518, 686);
             this.lb_NoteOrder2.Name = "lb_NoteOrder2";
-            this.lb_NoteOrder2.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder2.Size = new System.Drawing.Size(429, 104);
             this.lb_NoteOrder2.TabIndex = 31;
             this.lb_NoteOrder2.Text = "label11";
             // 
             // lb_NoteOrder3
             // 
-            this.lb_NoteOrder3.Location = new System.Drawing.Point(869, 730);
+            this.lb_NoteOrder3.Location = new System.Drawing.Point(977, 686);
             this.lb_NoteOrder3.Name = "lb_NoteOrder3";
-            this.lb_NoteOrder3.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder3.Size = new System.Drawing.Size(429, 104);
             this.lb_NoteOrder3.TabIndex = 32;
             this.lb_NoteOrder3.Text = "label15";
             // 
             // lb_NoteOrder4
             // 
-            this.lb_NoteOrder4.Location = new System.Drawing.Point(1300, 730);
+            this.lb_NoteOrder4.Location = new System.Drawing.Point(1438, 686);
             this.lb_NoteOrder4.Name = "lb_NoteOrder4";
-            this.lb_NoteOrder4.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder4.Size = new System.Drawing.Size(428, 104);
             this.lb_NoteOrder4.TabIndex = 33;
             this.lb_NoteOrder4.Text = "label17";
             // 
@@ -646,12 +646,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1836, 1052);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.lb_NoteOrder4);
             this.Controls.Add(this.lb_NoteOrder3);
             this.Controls.Add(this.lb_NoteOrder2);
             this.Controls.Add(this.lb_NoteOrder1);
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.lbl_LoginID);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lbl_Loginname);
