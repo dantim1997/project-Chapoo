@@ -157,10 +157,8 @@ namespace project_Chapoo
             DialogResult dr = MessageBox.Show("Wil je de order doorgeven naar de keuken?", "Order bevestigen", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                MessageBox.Show("Bestelling succesvol doorgegeven", "Order bevestigen");
                 SendOrder();
                 TableOverview tableOverview = new TableOverview(employee);
-                //tableOverview.InfoEmployee(employee);
                 this.Hide();
                 tableOverview.ShowDialog();
                 this.Close();
@@ -170,7 +168,7 @@ namespace project_Chapoo
         private void btn_Note_Click(object sender, EventArgs e)
         {
             var selectedItem = listView_Order.SelectedItems[0];
-            string input = Microsoft.VisualBasic.Interaction.InputBox("Prompt", "Title", "Default", 0, 0);
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Prompt", "Title", "Default", 0, 0);// betere note
             orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Note = input;
             UpdateListView();
             btn_Note.Enabled = false;
@@ -218,7 +216,6 @@ namespace project_Chapoo
         private void btn_Back_Click(object sender, EventArgs e)
         {
             TableOverview tableOverview = new TableOverview(employee);
-            //tableOverview.InfoEmployee(employee);
             this.Hide();
             tableOverview.ShowDialog();
             this.Close();
@@ -238,8 +235,16 @@ namespace project_Chapoo
 
         private void btn_Pay_Click(object sender, EventArgs e)
         {
-            orderService.UpdateStatus("closed", Table.OrderId);
-            tableService.UpdateTableStatus(Table.TableNumber, "free");
+            DialogResult dr = MessageBox.Show("Do you want to finish the order?", "Confirm finishing order", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                orderService.UpdateStatus("closed", Table.OrderId);
+                tableService.UpdateTableStatus(Table.TableNumber, "free");
+                TableOverview tableOverview = new TableOverview(employee);
+                this.Hide();
+                tableOverview.ShowDialog();
+                this.Close();
+            }
         }
     }
 }
