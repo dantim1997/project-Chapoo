@@ -24,11 +24,6 @@ namespace ChapooLogic
             return DAO_Order.GetAllOrders(type);
         }
 
-        public List<Order> GetAllOrders()
-        {
-            return DAO_Order.GetAllOrdersAnyStatus();
-        }
-
         public List<Order> GetActiveOrderList()
         {
             return DAO_Order.GetActiveOrderList();
@@ -51,8 +46,9 @@ namespace ChapooLogic
             DAO_Order.UpdateOrderTime(TableNumber);
         }
 
-        public void UpdateStock()
+        public int GetOrderByTableNumber(int tableNumber)
         {
+            return DAO_Order.GetOrderByTableNumber(tableNumber);
         }
     }
 }

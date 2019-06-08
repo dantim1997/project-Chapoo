@@ -43,11 +43,14 @@ namespace ChapooDAL
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }
 
-        public List<Order> GetAllOrdersAnyStatus()
+        public int GetOrderByTableNumber(int tableNumber)
         {
-            string query = "SELECT OrderId FROM [Order]";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadAllTablesAnyStatus(ExecuteSelectQuery(query, sqlParameters));
+            string query = "SELECT OrderId FROM [Order] WHERE TableNumber = @tableNumber";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("TableNumber", tableNumber)
+            };
+            return ReadTableByTableNumber(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public List<Order> GetActiveOrderList()
@@ -87,15 +90,14 @@ namespace ChapooDAL
             return allServed;
         }
 
-        private List<Order> ReadAllTablesAnyStatus(DataTable dataTable)
+        private int ReadTableByTableNumber(DataTable dataTable)
         {
-            List<Order> orders = new List<Order>();
+            int orderId = 0;
             foreach (DataRow dr in dataTable.Rows)
             {
-                Order served = new Order();
-                served.OrderId = (int)dr["OrderId"];
+                orderId = (int)dr["OrderId"];
             };
-            return orders;
+            return orderId;
         }
 
         private List<Order> ReadAllTablesActive(DataTable dataTable)

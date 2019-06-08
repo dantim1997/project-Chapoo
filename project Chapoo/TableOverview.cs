@@ -208,14 +208,14 @@ namespace project_Chapoo
                 {
                     order = new ChapooModels.Order();
                     service.CreateOrder(employee.EmployeeId, "new", tableList[tafelIndex].TableNumber);
-                    tableList[tafelIndex].OrderId = service.GetOrderId();
+                    tableList[tafelIndex].OrderId = service.GetOrderId(tafelIndex + 1);
                     btn.BackgroundImage = Image.FromFile(@"../../Rescources\table-05.png");
-                    service.UpdateTableStatusOccupied((tafelIndex + 1).ToString(), "occupied");
+                    service.UpdateTableStatus((tafelIndex + 1), "occupied");
                 }
             }
             else
             {
-                Order orderForm = new Order(employee, tableList[tafelIndex].OrderId);
+                Order orderForm = new Order(employee, tableList[tafelIndex + 1]);
                 this.Hide();
                 orderForm.ShowDialog();
                 this.Close();

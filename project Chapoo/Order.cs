@@ -18,19 +18,21 @@ namespace project_Chapoo
         public List<OrderProduct> orderProducts = new List<OrderProduct>(); //List voor de producten in de bestelling
         List<Button> buttons = new List<Button>(); //List voor alle aangemaakte buttons
         List<Product> producten = new List<Product>(); //List voor het maken van de buttons
-        public int OrderId;
+        public Table Table = new Table();
 
         Order_Service orderService = new Order_Service();
         OrderProduct_Service orderProService = new OrderProduct_Service();
+        TableOverview_Service tableService = new TableOverview_Service();
 
         Employee employee;
 
-        public Order(Employee employee, int orderId)
+        public Order(Employee employee, Table table)
         {
             InitializeComponent();
-            OrderId = orderId;
+            Table = table;
             producten = ProdSer.GetProducts();
             this.employee = employee;
+            lbl_OrderTableInfo.Text = Table.TableNumber.ToString();
             InitButtons();
 
             FormBorderStyle = FormBorderStyle.None;
@@ -45,7 +47,7 @@ namespace project_Chapoo
 
         public void SendOrder()
         {
-            orderService.UpdateOrder(OrderId, "In Progress...");
+            orderService.UpdateOrder(Table.OrderId, "In Progress...");
             orderProService.CreateOrderProduct(orderProducts);
         }
 
@@ -136,7 +138,7 @@ namespace project_Chapoo
                     OrderProduct orderproduct = product;
                     orderproduct.Product = product.Product;
                     orderproduct.Amount = 1;
-                    orderproduct.OrderId = OrderId;
+                    orderproduct.OrderId = Table.OrderId;
                     orderproduct.Note = string.Empty;
                     orderproduct.Status = Statustype.Open;
                     orderProducts.Add(orderproduct);
@@ -232,6 +234,12 @@ namespace project_Chapoo
                 item.SubItems.Add(product.Note);
                 listView_Order.Items.Add(item);
             }
+        }
+
+        private void btn_Pay_Click(object sender, EventArgs e)
+        {
+            orderService.UpdateStatus("closed", Table.OrderId);
+            tableService.UpdateTableStatus(Table.TableNumber, "free");
         }
     }
 }

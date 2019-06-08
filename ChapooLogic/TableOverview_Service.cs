@@ -28,7 +28,7 @@ namespace ChapooLogic
             return tableDAO.GetTableList();
         }
 
-        public Table GetTableById(string id)
+        public Table GetTableById(int id)
         {
             Table table = new Table();
             table = tableDAO.GetTableByID(id);
@@ -36,11 +36,9 @@ namespace ChapooLogic
             return table;
         }
 
-        public int GetOrderId()
+        public int GetOrderId(int tableNumber)
         {
-            List<Order> orderList = orderService.GetAllOrders();
-            orderId = orderList.Count();
-            return orderId;
+            return orderService.GetOrderByTableNumber(tableNumber);
         }
 
         public void CreateOrder(int employeeId, string status, int tableNumber)
@@ -64,7 +62,7 @@ namespace ChapooLogic
             return orderProductService.GetActiveOrderProductList();
         }
 
-        public bool CheckTableStatus(string id)
+        public bool CheckTableStatus(int id)
         {
             if (GetTableById(id).Status == "free")
             {
@@ -72,12 +70,12 @@ namespace ChapooLogic
             }
 
             return tableOccupied;
-        }
+        }// check int
 
-        public void UpdateTableStatusOccupied(string id, string status)
+        public void UpdateTableStatus(int id, string status)
         {
             tableDAO.SetTableStatus(id, status);
-        }
+        }// check int
 
         public void UpdateOrderProductStatus(int TableNumber, Statustype Status, string type)
         {

@@ -43,6 +43,7 @@
             this.btn_Pay = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
             this.btn_Remove = new System.Windows.Forms.Button();
+            this.lbl_OrderTableInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listView_Order
@@ -82,9 +83,9 @@
             this.lbl_OrderTable.Font = new System.Drawing.Font("Arial", 11F);
             this.lbl_OrderTable.Location = new System.Drawing.Point(8, 18);
             this.lbl_OrderTable.Name = "lbl_OrderTable";
-            this.lbl_OrderTable.Size = new System.Drawing.Size(102, 19);
+            this.lbl_OrderTable.Size = new System.Drawing.Size(81, 17);
             this.lbl_OrderTable.TabIndex = 7;
-            this.lbl_OrderTable.Text = "Order table x";
+            this.lbl_OrderTable.Text = "Order table";
             // 
             // btn_Back
             // 
@@ -162,6 +163,7 @@
             this.btn_Pay.TabIndex = 15;
             this.btn_Pay.Text = "Pay";
             this.btn_Pay.UseVisualStyleBackColor = false;
+            this.btn_Pay.Click += new System.EventHandler(this.btn_Pay_Click);
             // 
             // btn_Reset
             // 
@@ -186,6 +188,16 @@
             this.btn_Remove.UseVisualStyleBackColor = false;
             this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click_1);
             // 
+            // lbl_OrderTableInfo
+            // 
+            this.lbl_OrderTableInfo.AutoSize = true;
+            this.lbl_OrderTableInfo.Font = new System.Drawing.Font("Arial", 11F);
+            this.lbl_OrderTableInfo.Location = new System.Drawing.Point(106, 18);
+            this.lbl_OrderTableInfo.Name = "lbl_OrderTableInfo";
+            this.lbl_OrderTableInfo.Size = new System.Drawing.Size(20, 17);
+            this.lbl_OrderTableInfo.TabIndex = 7;
+            this.lbl_OrderTableInfo.Text = "...";
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,6 +212,7 @@
             this.Controls.Add(this.btn_Lunch);
             this.Controls.Add(this.btn_Diner);
             this.Controls.Add(this.btn_Back);
+            this.Controls.Add(this.lbl_OrderTableInfo);
             this.Controls.Add(this.lbl_OrderTable);
             this.Controls.Add(this.listView_Order);
             this.Name = "Order";
@@ -224,5 +237,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button btn_Remove;
+        private System.Windows.Forms.Label lbl_OrderTableInfo;
     }
 }

@@ -29,7 +29,7 @@ namespace ChapooDAL
             return ReadTableList(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public void SetTableStatus(string Tablenumber, string status)
+        public void SetTableStatus(int Tablenumber, string status)
         {
             string query = "UPDATE [Table] SET Status = @status WHERE Tablenumber = @Tablenumber";
 
@@ -42,7 +42,7 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
-        public Table GetTableByID(string TableNumber)
+        public Table GetTableByID(int TableNumber)
         {
             string query = "SELECT TableNumber, Status FROM [Table] WHERE TableNumber = @TableNumber";
             SqlParameter[] sqlParameters = new SqlParameter[]
