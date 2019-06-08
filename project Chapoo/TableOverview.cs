@@ -209,13 +209,13 @@ namespace project_Chapoo
                     order = new ChapooModels.Order();
                     service.CreateOrder(employee.EmployeeId, "new", tableList[tafelIndex].TableNumber);
                     tableList[tafelIndex].OrderId = service.GetOrderId();
-                    btn.Image = Image.FromFile(@"../../Rescources\table-05.png");
+                    btn.BackgroundImage = Image.FromFile(@"../../Rescources\table-05.png");
                     service.UpdateTableStatusOccupied((tafelIndex + 1).ToString(), "occupied");
                 }
             }
             else
             {
-                Order orderForm = new Order(employee);
+                Order orderForm = new Order(employee, tableList[tafelIndex].OrderId);
                 this.Hide();
                 orderForm.ShowDialog();
                 this.Close();

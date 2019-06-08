@@ -18,16 +18,17 @@ namespace project_Chapoo
         public List<OrderProduct> orderProducts = new List<OrderProduct>(); //List voor de producten in de bestelling
         List<Button> buttons = new List<Button>(); //List voor alle aangemaakte buttons
         List<Product> producten = new List<Product>(); //List voor het maken van de buttons
-        public int ID;
+        public int OrderId;
 
         Order_Service orderService = new Order_Service();
         OrderProduct_Service orderProService = new OrderProduct_Service();
 
         Employee employee;
 
-        public Order(Employee employee)
+        public Order(Employee employee, int orderId)
         {
             InitializeComponent();
+            OrderId = orderId;
             producten = ProdSer.GetProducts();
             this.employee = employee;
             InitButtons();
@@ -44,7 +45,7 @@ namespace project_Chapoo
 
         public void SendOrder()
         {
-            orderService.UpdateOrder(ID, "In Progress...");
+            orderService.UpdateOrder(OrderId, "In Progress...");
             orderProService.CreateOrderProduct(orderProducts);
         }
 
@@ -135,7 +136,7 @@ namespace project_Chapoo
                     OrderProduct orderproduct = product;
                     orderproduct.Product = product.Product;
                     orderproduct.Amount = 1;
-                    orderproduct.OrderId = ID;
+                    orderproduct.OrderId = OrderId;
                     orderproduct.Note = string.Empty;
                     orderproduct.Status = Statustype.Open;
                     orderProducts.Add(orderproduct);

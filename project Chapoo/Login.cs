@@ -189,7 +189,7 @@ namespace project_Chapoo
             {
                 employee = employeeService.GetWorkerLogin(txtUser.Text, txtPassword.Text);
 
-                if (employee.Username == null)
+                if (employee.Fullname == null)
                 {
                     lblError.Text = "Incorrect 'username' or 'password' entered. Please try again*";
                 }
