@@ -15,12 +15,21 @@ namespace ChapooDAL
         private SqlConnection dbConnection;
         DAO_OrderProduct DAO_OrderProduct = new DAO_OrderProduct();
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         public DAO_Order()
         {
             string connstring = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             dbConnection = new SqlConnection(connstring);
         }
 
+        /// <summary>
+        /// creates an new order
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <param name="status"></param>
+        /// <param name="tableNumber"></param>
         public void CreateNewOrder(int employeeId, string status, int tableNumber)
         {
             string query = "INSERT INTO [Order] (EmployeeID, TableNumber, Date, Status) VALUES (@EmployeeId, @TableNumber, @Date, @Status)";
@@ -34,6 +43,11 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        /// <summary>
+        /// gets all orders
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public List<Order> GetAllOrders(string type)
         {
             string test = DateTime.Now.ToString("dd/MM/yyyy");
@@ -43,6 +57,11 @@ namespace ChapooDAL
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }
 
+        /// <summary>
+        /// get all orders by tablenumber
+        /// </summary>
+        /// <param name="tableNumber"></param>
+        /// <returns></returns>
         public int GetOrderByTableNumber(int tableNumber)
         {
             string query = "SELECT OrderId FROM [Order] WHERE TableNumber = @tableNumber";
@@ -53,6 +72,10 @@ namespace ChapooDAL
             return ReadTableByTableNumber(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        /// <summary>
+        /// get all active orders
+        /// </summary>
+        /// <returns></returns>
         public List<Order> GetActiveOrderList()
         {
             string query = "SELECT OrderId, TableNumber, Date, Status FROM [Order] WHERE Status NOT LIKE 'c%'";
@@ -60,14 +83,12 @@ namespace ChapooDAL
             return ReadAllTablesActive(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public List<Order> GetOrdersAboveID(string type, int Id)
-        {
-            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where Status = 'Open'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
-        }
-
-
+        /// <summary>
+        /// read all database items
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         private List<Order> ReadAllTables(DataTable dataTable, string type)
         {
             List<Product> products = new List<Product>();
@@ -90,6 +111,11 @@ namespace ChapooDAL
             return allServed;
         }
 
+        /// <summary>
+        /// read all database items only the orderid
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <returns></returns>
         private int ReadTableByTableNumber(DataTable dataTable)
         {
             int orderId = 0;
@@ -100,6 +126,11 @@ namespace ChapooDAL
             return orderId;
         }
 
+        /// <summary>
+        /// read all active tables
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <returns></returns>
         private List<Order> ReadAllTablesActive(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
@@ -115,7 +146,11 @@ namespace ChapooDAL
             return orders;
         }
         
-
+        /// <summary>
+        /// update the status of an order
+        /// </summary>
+        /// <param name="done"></param>
+        /// <param name="orderId"></param>
         public void UpdateStatus(string done, int orderId)
         {
             dbConnection.Open();
@@ -126,6 +161,11 @@ namespace ChapooDAL
             dbConnection.Close();
         }
 
+        /// <summary>
+        /// updates the status of an order and the date
+        /// </summary>
+        /// <param name="orderID"></param>
+        /// <param name="status"></param>
         public void UpdateOrder(int orderID, string status)
         {
             dbConnection.Open();
@@ -138,7 +178,10 @@ namespace ChapooDAL
             dbConnection.Close();
         }
 
-
+        /// <summary>
+        /// update the ordertime of an order
+        /// </summary>
+        /// <param name="TableNumber"></param>
         public void UpdateOrderTime(int TableNumber)
         {
             string query = "UPDATE [Order] SET Date = @Date WHERE TableNumber = @TableNumber";

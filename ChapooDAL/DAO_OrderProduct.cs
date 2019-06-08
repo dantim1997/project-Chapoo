@@ -15,12 +15,21 @@ namespace ChapooDAL
         private SqlConnection dbConnection;
         DAO_Product DAO_Product = new DAO_Product();
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         public DAO_OrderProduct()
         {
             string connstring = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             dbConnection = new SqlConnection(connstring);
         }
 
+        /// <summary>
+        /// gets all orders
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public List<OrderProduct> GetAllByOrder(int orderId, string type)
         {
             string query = "SELECT OrderId, o.ProductId, Amount, Status, Id, Note FROM Order_Product as o join Product as p on o.ProductId = p.ProductId where OrderId = " + orderId + " and p.ProductType = '" + type + "' and o.Status = 1";
@@ -28,6 +37,10 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters), type);
         }
 
+        /// <summary>
+        /// get all active orders
+        /// </summary>
+        /// <returns></returns>
         public List<OrderProduct> GetAllByActiveOrder()
         {
             string query = "SELECT P.OrderId, P.ProductId, P.Status FROM [Order_Product] AS P JOIN [Order] AS O ON O.OrderId = P.OrderId WHERE O.Status NOT LIKE 'c%'";
@@ -35,6 +48,11 @@ namespace ChapooDAL
             return ReadTableActive(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        /// <summary>
+        /// update all orderproduct with an status
+        /// </summary>
+        /// <param name="orderProducts"></param>
+        /// <param name="Status"></param>
         public void UpdateAllOrderProduct(List<OrderProduct> orderProducts, Statustype Status)
         {
             foreach (OrderProduct orderProduct in orderProducts)
@@ -48,16 +66,12 @@ namespace ChapooDAL
             }
         }
 
-        public void UpdateOrderProductByIds(int OrderProductId, Statustype Status, int orderId)
-        {
-            dbConnection.Open();
-            SqlCommand command = new SqlCommand("UPDATE Order_Product SET Status = @Status WHERE Id = @OrderProductId", dbConnection);
-            command.Parameters.AddWithValue("@Status", (int)Status);
-            command.Parameters.AddWithValue("@OrderProductId", OrderProductId);
-            SqlDataReader reader = command.ExecuteReader();
-            dbConnection.Close();
-        }
-
+        /// <summary>
+        /// update status by orderproduct with the tablenumber
+        /// </summary>
+        /// <param name="Tablenumber"></param>
+        /// <param name="Status"></param>
+        /// <param name="type"></param>
         public void UpdateOrderProductStatusByTablenumber(int Tablenumber, Statustype Status, string type)
         {
             string query = "UPDATE [Order_Product] SET Order_Product.Status = @Status FROM [Order_Product] AS P JOIN [Order] AS O ON P.OrderId = O.OrderId WHERE O.TableNumber = @Tablenumber AND P.ProductId " + type + " 22";
@@ -71,6 +85,10 @@ namespace ChapooDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        /// <summary>
+        /// create an orderproduct
+        /// </summary>
+        /// <param name="orderProducts"></param>
         public void CreateOrderPruduct(List<OrderProduct> orderProducts)
         {
             foreach (OrderProduct orderProduct in orderProducts)
@@ -89,6 +107,12 @@ namespace ChapooDAL
             }
         }
 
+        /// <summary>
+        /// reads the datatable
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         private List<OrderProduct> ReadTable(DataTable dataTable, string type)
         {
             List<OrderProduct> OrderProducts = new List<OrderProduct>();
@@ -109,6 +133,11 @@ namespace ChapooDAL
             return OrderProducts;
         }
 
+        /// <summary>
+        /// read all the active datatable
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <returns></returns>
         private List<OrderProduct> ReadTableActive(DataTable dataTable)
         {
             List<OrderProduct> OrderProducts = new List<OrderProduct>();
