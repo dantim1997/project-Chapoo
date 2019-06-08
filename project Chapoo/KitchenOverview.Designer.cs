@@ -95,40 +95,40 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 20);
+            this.label1.Size = new System.Drawing.Size(140, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Server name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(4, 50);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(4, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 20);
+            this.label2.Size = new System.Drawing.Size(138, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Tablenumber";
             // 
             // lb_NameOrder1
             // 
             this.lb_NameOrder1.AutoSize = true;
-            this.lb_NameOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lb_NameOrder1.Location = new System.Drawing.Point(112, 0);
+            this.lb_NameOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NameOrder1.Location = new System.Drawing.Point(112, 11);
             this.lb_NameOrder1.Name = "lb_NameOrder1";
-            this.lb_NameOrder1.Size = new System.Drawing.Size(77, 20);
+            this.lb_NameOrder1.Size = new System.Drawing.Size(114, 25);
             this.lb_NameOrder1.TabIndex = 5;
             this.lb_NameOrder1.Text = ".................";
             // 
             // lb_TableOrder1
             // 
             this.lb_TableOrder1.AutoSize = true;
-            this.lb_TableOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lb_TableOrder1.Location = new System.Drawing.Point(112, 50);
+            this.lb_TableOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TableOrder1.Location = new System.Drawing.Point(112, 61);
             this.lb_TableOrder1.Name = "lb_TableOrder1";
-            this.lb_TableOrder1.Size = new System.Drawing.Size(77, 20);
+            this.lb_TableOrder1.Size = new System.Drawing.Size(114, 25);
             this.lb_TableOrder1.TabIndex = 6;
             this.lb_TableOrder1.Text = ".................";
             // 
@@ -139,9 +139,9 @@
             this.columnHeader1,
             this.columnHeader2});
             this.lv_Order1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order1.Location = new System.Drawing.Point(12, 290);
+            this.lv_Order1.Location = new System.Drawing.Point(59, 307);
             this.lv_Order1.Name = "lv_Order1";
-            this.lv_Order1.Size = new System.Drawing.Size(394, 437);
+            this.lv_Order1.Size = new System.Drawing.Size(430, 512);
             this.lv_Order1.TabIndex = 9;
             this.lv_Order1.UseCompatibleStateImageBehavior = false;
             this.lv_Order1.View = System.Windows.Forms.View.Details;
@@ -170,35 +170,35 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.lb_TableOrder1);
             this.panel2.Controls.Add(this.lb_NameOrder1);
-            this.panel2.Location = new System.Drawing.Point(12, 170);
+            this.panel2.Location = new System.Drawing.Point(59, 187);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(394, 100);
+            this.panel2.Size = new System.Drawing.Size(430, 100);
             this.panel2.TabIndex = 13;
             // 
             // lbl_TimeOrder1
             // 
             this.lbl_TimeOrder1.AutoSize = true;
-            this.lbl_TimeOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_TimeOrder1.Location = new System.Drawing.Point(346, -1);
+            this.lbl_TimeOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TimeOrder1.Location = new System.Drawing.Point(345, 11);
             this.lbl_TimeOrder1.Name = "lbl_TimeOrder1";
-            this.lbl_TimeOrder1.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder1.Size = new System.Drawing.Size(59, 25);
             this.lbl_TimeOrder1.TabIndex = 8;
             this.lbl_TimeOrder1.Text = "Time";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(297, -1);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(281, 11);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 20);
+            this.label7.Size = new System.Drawing.Size(59, 25);
             this.label7.TabIndex = 7;
             this.label7.Text = "Time";
             // 
             // btn_Login
             // 
-            this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Login.Location = new System.Drawing.Point(1585, 22);
+            this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Login.Location = new System.Drawing.Point(1757, 39);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(109, 101);
             this.btn_Login.TabIndex = 14;
@@ -209,9 +209,9 @@
             // btn_Order1
             // 
             this.btn_Order1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order1.Location = new System.Drawing.Point(12, 837);
+            this.btn_Order1.Location = new System.Drawing.Point(59, 948);
             this.btn_Order1.Name = "btn_Order1";
-            this.btn_Order1.Size = new System.Drawing.Size(394, 96);
+            this.btn_Order1.Size = new System.Drawing.Size(430, 96);
             this.btn_Order1.TabIndex = 16;
             this.btn_Order1.Text = "Done";
             this.btn_Order1.UseVisualStyleBackColor = true;
@@ -220,9 +220,9 @@
             // btn_Order2
             // 
             this.btn_Order2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order2.Location = new System.Drawing.Point(440, 837);
+            this.btn_Order2.Location = new System.Drawing.Point(517, 948);
             this.btn_Order2.Name = "btn_Order2";
-            this.btn_Order2.Size = new System.Drawing.Size(394, 96);
+            this.btn_Order2.Size = new System.Drawing.Size(430, 96);
             this.btn_Order2.TabIndex = 19;
             this.btn_Order2.Text = "Done";
             this.btn_Order2.UseVisualStyleBackColor = true;
@@ -235,9 +235,9 @@
             this.columnHeader8,
             this.columnHeader9});
             this.lv_Order2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order2.Location = new System.Drawing.Point(440, 290);
+            this.lv_Order2.Location = new System.Drawing.Point(517, 307);
             this.lv_Order2.Name = "lv_Order2";
-            this.lv_Order2.Size = new System.Drawing.Size(394, 437);
+            this.lv_Order2.Size = new System.Drawing.Size(430, 512);
             this.lv_Order2.TabIndex = 17;
             this.lv_Order2.UseCompatibleStateImageBehavior = false;
             this.lv_Order2.View = System.Windows.Forms.View.Details;
@@ -260,9 +260,9 @@
             // btn_Order3
             // 
             this.btn_Order3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order3.Location = new System.Drawing.Point(869, 837);
+            this.btn_Order3.Location = new System.Drawing.Point(976, 948);
             this.btn_Order3.Name = "btn_Order3";
-            this.btn_Order3.Size = new System.Drawing.Size(394, 96);
+            this.btn_Order3.Size = new System.Drawing.Size(430, 96);
             this.btn_Order3.TabIndex = 22;
             this.btn_Order3.Text = "Done";
             this.btn_Order3.UseVisualStyleBackColor = true;
@@ -275,9 +275,9 @@
             this.columnHeader11,
             this.columnHeader12});
             this.lv_Order3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order3.Location = new System.Drawing.Point(869, 290);
+            this.lv_Order3.Location = new System.Drawing.Point(976, 307);
             this.lv_Order3.Name = "lv_Order3";
-            this.lv_Order3.Size = new System.Drawing.Size(394, 437);
+            this.lv_Order3.Size = new System.Drawing.Size(430, 512);
             this.lv_Order3.TabIndex = 20;
             this.lv_Order3.UseCompatibleStateImageBehavior = false;
             this.lv_Order3.View = System.Windows.Forms.View.Details;
@@ -300,9 +300,9 @@
             // btn_Order4
             // 
             this.btn_Order4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order4.Location = new System.Drawing.Point(1300, 837);
+            this.btn_Order4.Location = new System.Drawing.Point(1436, 948);
             this.btn_Order4.Name = "btn_Order4";
-            this.btn_Order4.Size = new System.Drawing.Size(394, 96);
+            this.btn_Order4.Size = new System.Drawing.Size(430, 96);
             this.btn_Order4.TabIndex = 25;
             this.btn_Order4.Text = "Done";
             this.btn_Order4.UseVisualStyleBackColor = true;
@@ -315,9 +315,9 @@
             this.columnHeader14,
             this.columnHeader15});
             this.lv_Order4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order4.Location = new System.Drawing.Point(1300, 290);
+            this.lv_Order4.Location = new System.Drawing.Point(1436, 307);
             this.lv_Order4.Name = "lv_Order4";
-            this.lv_Order4.Size = new System.Drawing.Size(394, 437);
+            this.lv_Order4.Size = new System.Drawing.Size(430, 512);
             this.lv_Order4.TabIndex = 23;
             this.lv_Order4.UseCompatibleStateImageBehavior = false;
             this.lv_Order4.View = System.Windows.Forms.View.Details;
@@ -346,68 +346,68 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.lb_TableOrder3);
             this.panel3.Controls.Add(this.lb_NameOrder3);
-            this.panel3.Location = new System.Drawing.Point(869, 171);
+            this.panel3.Location = new System.Drawing.Point(976, 187);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(394, 100);
+            this.panel3.Size = new System.Drawing.Size(430, 100);
             this.panel3.TabIndex = 14;
             // 
             // lbl_TimeOrder3
             // 
             this.lbl_TimeOrder3.AutoSize = true;
-            this.lbl_TimeOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_TimeOrder3.Location = new System.Drawing.Point(346, 0);
+            this.lbl_TimeOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TimeOrder3.Location = new System.Drawing.Point(346, 11);
             this.lbl_TimeOrder3.Name = "lbl_TimeOrder3";
-            this.lbl_TimeOrder3.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder3.Size = new System.Drawing.Size(59, 25);
             this.lbl_TimeOrder3.TabIndex = 12;
             this.lbl_TimeOrder3.Text = "Time";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label16.Location = new System.Drawing.Point(297, 0);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(282, 11);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 20);
+            this.label16.Size = new System.Drawing.Size(59, 25);
             this.label16.TabIndex = 11;
             this.label16.Text = "Time";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 20);
+            this.label4.Size = new System.Drawing.Size(140, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Server name:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(4, 50);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(4, 61);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 20);
+            this.label5.Size = new System.Drawing.Size(138, 25);
             this.label5.TabIndex = 4;
             this.label5.Text = "Tablenumber";
             // 
             // lb_TableOrder3
             // 
             this.lb_TableOrder3.AutoSize = true;
-            this.lb_TableOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lb_TableOrder3.Location = new System.Drawing.Point(112, 50);
+            this.lb_TableOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TableOrder3.Location = new System.Drawing.Point(112, 61);
             this.lb_TableOrder3.Name = "lb_TableOrder3";
-            this.lb_TableOrder3.Size = new System.Drawing.Size(77, 20);
+            this.lb_TableOrder3.Size = new System.Drawing.Size(114, 25);
             this.lb_TableOrder3.TabIndex = 6;
             this.lb_TableOrder3.Text = ".................";
             // 
             // lb_NameOrder3
             // 
             this.lb_NameOrder3.AutoSize = true;
-            this.lb_NameOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lb_NameOrder3.Location = new System.Drawing.Point(112, 0);
+            this.lb_NameOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NameOrder3.Location = new System.Drawing.Point(112, 11);
             this.lb_NameOrder3.Name = "lb_NameOrder3";
-            this.lb_NameOrder3.Size = new System.Drawing.Size(77, 20);
+            this.lb_NameOrder3.Size = new System.Drawing.Size(114, 25);
             this.lb_NameOrder3.TabIndex = 5;
             this.lb_NameOrder3.Text = ".................";
             // 
@@ -420,68 +420,68 @@
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.lb_TableOrder2);
             this.panel4.Controls.Add(this.lb_NameOrder2);
-            this.panel4.Location = new System.Drawing.Point(440, 170);
+            this.panel4.Location = new System.Drawing.Point(517, 187);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(394, 100);
+            this.panel4.Size = new System.Drawing.Size(430, 100);
             this.panel4.TabIndex = 15;
             // 
             // lbl_TimeOrder2
             // 
             this.lbl_TimeOrder2.AutoSize = true;
-            this.lbl_TimeOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_TimeOrder2.Location = new System.Drawing.Point(346, 1);
+            this.lbl_TimeOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TimeOrder2.Location = new System.Drawing.Point(347, 11);
             this.lbl_TimeOrder2.Name = "lbl_TimeOrder2";
-            this.lbl_TimeOrder2.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder2.Size = new System.Drawing.Size(59, 25);
             this.lbl_TimeOrder2.TabIndex = 10;
             this.lbl_TimeOrder2.Text = "Time";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label14.Location = new System.Drawing.Point(297, 1);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(283, 11);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(43, 20);
+            this.label14.Size = new System.Drawing.Size(59, 25);
             this.label14.TabIndex = 9;
             this.label14.Text = "Time";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 11);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 20);
+            this.label8.Size = new System.Drawing.Size(140, 25);
             this.label8.TabIndex = 3;
             this.label8.Text = "Server name:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label9.Location = new System.Drawing.Point(4, 50);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(4, 61);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(102, 20);
+            this.label9.Size = new System.Drawing.Size(138, 25);
             this.label9.TabIndex = 4;
             this.label9.Text = "Tablenumber";
             // 
             // lb_TableOrder2
             // 
             this.lb_TableOrder2.AutoSize = true;
-            this.lb_TableOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lb_TableOrder2.Location = new System.Drawing.Point(112, 50);
+            this.lb_TableOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TableOrder2.Location = new System.Drawing.Point(112, 61);
             this.lb_TableOrder2.Name = "lb_TableOrder2";
-            this.lb_TableOrder2.Size = new System.Drawing.Size(77, 20);
+            this.lb_TableOrder2.Size = new System.Drawing.Size(114, 25);
             this.lb_TableOrder2.TabIndex = 6;
             this.lb_TableOrder2.Text = ".................";
             // 
             // lb_NameOrder2
             // 
             this.lb_NameOrder2.AutoSize = true;
-            this.lb_NameOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lb_NameOrder2.Location = new System.Drawing.Point(112, 0);
+            this.lb_NameOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NameOrder2.Location = new System.Drawing.Point(112, 11);
             this.lb_NameOrder2.Name = "lb_NameOrder2";
-            this.lb_NameOrder2.Size = new System.Drawing.Size(77, 20);
+            this.lb_NameOrder2.Size = new System.Drawing.Size(114, 25);
             this.lb_NameOrder2.TabIndex = 5;
             this.lb_NameOrder2.Text = ".................";
             // 
@@ -494,75 +494,75 @@
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.lb_TableOrder4);
             this.panel5.Controls.Add(this.lb_NameOrder4);
-            this.panel5.Location = new System.Drawing.Point(1300, 170);
+            this.panel5.Location = new System.Drawing.Point(1436, 187);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(394, 100);
+            this.panel5.Size = new System.Drawing.Size(430, 100);
             this.panel5.TabIndex = 14;
             // 
             // lbl_TimeOrder4
             // 
             this.lbl_TimeOrder4.AutoSize = true;
-            this.lbl_TimeOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_TimeOrder4.Location = new System.Drawing.Point(346, -1);
+            this.lbl_TimeOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TimeOrder4.Location = new System.Drawing.Point(346, 12);
             this.lbl_TimeOrder4.Name = "lbl_TimeOrder4";
-            this.lbl_TimeOrder4.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder4.Size = new System.Drawing.Size(59, 25);
             this.lbl_TimeOrder4.TabIndex = 14;
             this.lbl_TimeOrder4.Text = "Time";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label18.Location = new System.Drawing.Point(297, -1);
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(282, 12);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(43, 20);
+            this.label18.Size = new System.Drawing.Size(59, 25);
             this.label18.TabIndex = 13;
             this.label18.Text = "Time";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 11);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(103, 20);
+            this.label12.Size = new System.Drawing.Size(140, 25);
             this.label12.TabIndex = 3;
             this.label12.Text = "Server name:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label13.Location = new System.Drawing.Point(4, 50);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(4, 61);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(102, 20);
+            this.label13.Size = new System.Drawing.Size(138, 25);
             this.label13.TabIndex = 4;
             this.label13.Text = "Tablenumber";
             // 
             // lb_TableOrder4
             // 
             this.lb_TableOrder4.AutoSize = true;
-            this.lb_TableOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lb_TableOrder4.Location = new System.Drawing.Point(112, 50);
+            this.lb_TableOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TableOrder4.Location = new System.Drawing.Point(112, 61);
             this.lb_TableOrder4.Name = "lb_TableOrder4";
-            this.lb_TableOrder4.Size = new System.Drawing.Size(77, 20);
+            this.lb_TableOrder4.Size = new System.Drawing.Size(114, 25);
             this.lb_TableOrder4.TabIndex = 6;
             this.lb_TableOrder4.Text = ".................";
             // 
             // lb_NameOrder4
             // 
             this.lb_NameOrder4.AutoSize = true;
-            this.lb_NameOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lb_NameOrder4.Location = new System.Drawing.Point(112, 0);
+            this.lb_NameOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NameOrder4.Location = new System.Drawing.Point(112, 11);
             this.lb_NameOrder4.Name = "lb_NameOrder4";
-            this.lb_NameOrder4.Size = new System.Drawing.Size(77, 20);
+            this.lb_NameOrder4.Size = new System.Drawing.Size(114, 25);
             this.lb_NameOrder4.TabIndex = 5;
             this.lb_NameOrder4.Text = ".................";
             // 
             // btn_reload
             // 
-            this.btn_reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_reload.Location = new System.Drawing.Point(449, 22);
+            this.btn_reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_reload.Location = new System.Drawing.Point(517, 39);
             this.btn_reload.Name = "btn_reload";
             this.btn_reload.Size = new System.Drawing.Size(109, 101);
             this.btn_reload.TabIndex = 26;
@@ -573,80 +573,88 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(17, 22);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(59, 39);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 20);
+            this.label3.Size = new System.Drawing.Size(74, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Name:";
             // 
             // lbl_Loginname
             // 
             this.lbl_Loginname.AutoSize = true;
-            this.lbl_Loginname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_Loginname.Location = new System.Drawing.Point(78, 22);
+            this.lbl_Loginname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Loginname.Location = new System.Drawing.Point(129, 39);
             this.lbl_Loginname.Name = "lbl_Loginname";
-            this.lbl_Loginname.Size = new System.Drawing.Size(55, 20);
+            this.lbl_Loginname.Size = new System.Drawing.Size(74, 25);
             this.lbl_Loginname.TabIndex = 27;
             this.lbl_Loginname.Text = "Name:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(225, 22);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(318, 39);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 20);
+            this.label6.Size = new System.Drawing.Size(38, 25);
             this.label6.TabIndex = 28;
             this.label6.Text = "ID:";
             // 
             // lbl_LoginID
             // 
             this.lbl_LoginID.AutoSize = true;
-            this.lbl_LoginID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_LoginID.Location = new System.Drawing.Point(261, 22);
+            this.lbl_LoginID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_LoginID.Location = new System.Drawing.Point(362, 39);
             this.lbl_LoginID.Name = "lbl_LoginID";
-            this.lbl_LoginID.Size = new System.Drawing.Size(30, 20);
+            this.lbl_LoginID.Size = new System.Drawing.Size(38, 25);
             this.lbl_LoginID.TabIndex = 29;
             this.lbl_LoginID.Text = "ID:";
             // 
             // lb_NoteOrder1
             // 
-            this.lb_NoteOrder1.Location = new System.Drawing.Point(12, 730);
+            this.lb_NoteOrder1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_NoteOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NoteOrder1.Location = new System.Drawing.Point(59, 818);
             this.lb_NoteOrder1.Name = "lb_NoteOrder1";
-            this.lb_NoteOrder1.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder1.Size = new System.Drawing.Size(430, 104);
             this.lb_NoteOrder1.TabIndex = 30;
-            this.lb_NoteOrder1.Text = "label10";
+            this.lb_NoteOrder1.Text = "No Notes";
             // 
             // lb_NoteOrder2
             // 
-            this.lb_NoteOrder2.Location = new System.Drawing.Point(440, 730);
+            this.lb_NoteOrder2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_NoteOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NoteOrder2.Location = new System.Drawing.Point(517, 818);
             this.lb_NoteOrder2.Name = "lb_NoteOrder2";
-            this.lb_NoteOrder2.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder2.Size = new System.Drawing.Size(429, 104);
             this.lb_NoteOrder2.TabIndex = 31;
-            this.lb_NoteOrder2.Text = "label11";
+            this.lb_NoteOrder2.Text = "No Notes";
             // 
             // lb_NoteOrder3
             // 
-            this.lb_NoteOrder3.Location = new System.Drawing.Point(869, 730);
+            this.lb_NoteOrder3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_NoteOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NoteOrder3.Location = new System.Drawing.Point(976, 818);
             this.lb_NoteOrder3.Name = "lb_NoteOrder3";
-            this.lb_NoteOrder3.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder3.Size = new System.Drawing.Size(430, 104);
             this.lb_NoteOrder3.TabIndex = 32;
-            this.lb_NoteOrder3.Text = "label15";
+            this.lb_NoteOrder3.Text = "No Notes";
             // 
             // lb_NoteOrder4
             // 
-            this.lb_NoteOrder4.Location = new System.Drawing.Point(1300, 730);
+            this.lb_NoteOrder4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lb_NoteOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NoteOrder4.Location = new System.Drawing.Point(1436, 818);
             this.lb_NoteOrder4.Name = "lb_NoteOrder4";
-            this.lb_NoteOrder4.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder4.Size = new System.Drawing.Size(430, 104);
             this.lb_NoteOrder4.TabIndex = 33;
-            this.lb_NoteOrder4.Text = "label17";
+            this.lb_NoteOrder4.Text = "No Notes";
             // 
             // KitchenOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1836, 1052);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.lb_NoteOrder4);
             this.Controls.Add(this.lb_NoteOrder3);
             this.Controls.Add(this.lb_NoteOrder2);
