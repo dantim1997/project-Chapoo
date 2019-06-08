@@ -35,6 +35,21 @@
             this.lblServerId = new System.Windows.Forms.Label();
             this.lblServerIdInfo = new System.Windows.Forms.Label();
             this.pnlTableOverview = new System.Windows.Forms.Panel();
+            this.lblLegendGrey = new System.Windows.Forms.Label();
+            this.lblLegendGreen = new System.Windows.Forms.Label();
+            this.lblLegendYellow = new System.Windows.Forms.Label();
+            this.lblLegendRed = new System.Windows.Forms.Label();
+            this.LabelBtnLegendGrey = new System.Windows.Forms.Label();
+            this.LabelBtnLegendGreen = new System.Windows.Forms.Label();
+            this.LabelBtnLegendYellow = new System.Windows.Forms.Label();
+            this.picBtnLegenYellow = new System.Windows.Forms.PictureBox();
+            this.picBtnLegenGreen = new System.Windows.Forms.PictureBox();
+            this.picBtnLegenGrey = new System.Windows.Forms.PictureBox();
+            this.picLegendRed = new System.Windows.Forms.PictureBox();
+            this.picLegendYellow = new System.Windows.Forms.PictureBox();
+            this.picLegendGreen = new System.Windows.Forms.PictureBox();
+            this.picLegendGrey = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnKitchen9 = new System.Windows.Forms.Button();
             this.btnKitchen10 = new System.Windows.Forms.Button();
             this.btnKitchen7 = new System.Windows.Forms.Button();
@@ -65,30 +80,15 @@
             this.btnTable4 = new System.Windows.Forms.Button();
             this.btnTable8 = new System.Windows.Forms.Button();
             this.btnTable6 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.picLegendGrey = new System.Windows.Forms.PictureBox();
-            this.picBtnLegenGrey = new System.Windows.Forms.PictureBox();
-            this.picLegendGreen = new System.Windows.Forms.PictureBox();
-            this.picLegendYellow = new System.Windows.Forms.PictureBox();
-            this.picLegendRed = new System.Windows.Forms.PictureBox();
-            this.picBtnLegenGreen = new System.Windows.Forms.PictureBox();
-            this.picBtnLegenYellow = new System.Windows.Forms.PictureBox();
-            this.lblLegendGrey = new System.Windows.Forms.Label();
-            this.lblLegendGreen = new System.Windows.Forms.Label();
-            this.lblLegendYellow = new System.Windows.Forms.Label();
-            this.lblLegendRed = new System.Windows.Forms.Label();
-            this.LabelBtnLegendGrey = new System.Windows.Forms.Label();
-            this.LabelBtnLegendGreen = new System.Windows.Forms.Label();
-            this.LabelBtnLegendYellow = new System.Windows.Forms.Label();
             this.pnlTableOverview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLegendGrey)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtnLegenGrey)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLegendGreen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLegendYellow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLegendRed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtnLegenGreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtnLegenYellow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtnLegenGreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtnLegenGrey)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLegendRed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLegendYellow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLegendGreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLegendGrey)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblServer
@@ -179,6 +179,156 @@
             this.pnlTableOverview.Name = "pnlTableOverview";
             this.pnlTableOverview.Size = new System.Drawing.Size(1553, 551);
             this.pnlTableOverview.TabIndex = 1;
+            // 
+            // lblLegendGrey
+            // 
+            this.lblLegendGrey.AutoSize = true;
+            this.lblLegendGrey.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLegendGrey.Location = new System.Drawing.Point(225, 1015);
+            this.lblLegendGrey.Name = "lblLegendGrey";
+            this.lblLegendGrey.Size = new System.Drawing.Size(84, 13);
+            this.lblLegendGrey.TabIndex = 7;
+            this.lblLegendGrey.Text = "= Empty table";
+            // 
+            // lblLegendGreen
+            // 
+            this.lblLegendGreen.AutoSize = true;
+            this.lblLegendGreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLegendGreen.Location = new System.Drawing.Point(393, 1015);
+            this.lblLegendGreen.Name = "lblLegendGreen";
+            this.lblLegendGreen.Size = new System.Drawing.Size(90, 13);
+            this.lblLegendGreen.TabIndex = 7;
+            this.lblLegendGreen.Text = "= Served table";
+            // 
+            // lblLegendYellow
+            // 
+            this.lblLegendYellow.AutoSize = true;
+            this.lblLegendYellow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLegendYellow.Location = new System.Drawing.Point(570, 1015);
+            this.lblLegendYellow.Name = "lblLegendYellow";
+            this.lblLegendYellow.Size = new System.Drawing.Size(142, 13);
+            this.lblLegendYellow.TabIndex = 7;
+            this.lblLegendYellow.Text = "= Table waiting 15+ min";
+            // 
+            // lblLegendRed
+            // 
+            this.lblLegendRed.AutoSize = true;
+            this.lblLegendRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLegendRed.Location = new System.Drawing.Point(804, 1015);
+            this.lblLegendRed.Name = "lblLegendRed";
+            this.lblLegendRed.Size = new System.Drawing.Size(142, 13);
+            this.lblLegendRed.TabIndex = 7;
+            this.lblLegendRed.Text = "= Table waiting 30+ min";
+            // 
+            // LabelBtnLegendGrey
+            // 
+            this.LabelBtnLegendGrey.AutoSize = true;
+            this.LabelBtnLegendGrey.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelBtnLegendGrey.Location = new System.Drawing.Point(1255, 1016);
+            this.LabelBtnLegendGrey.Name = "LabelBtnLegendGrey";
+            this.LabelBtnLegendGrey.Size = new System.Drawing.Size(67, 13);
+            this.LabelBtnLegendGrey.TabIndex = 7;
+            this.LabelBtnLegendGrey.Text = "= No order";
+            // 
+            // LabelBtnLegendGreen
+            // 
+            this.LabelBtnLegendGreen.AutoSize = true;
+            this.LabelBtnLegendGreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelBtnLegendGreen.Location = new System.Drawing.Point(1376, 1016);
+            this.LabelBtnLegendGreen.Name = "LabelBtnLegendGreen";
+            this.LabelBtnLegendGreen.Size = new System.Drawing.Size(134, 13);
+            this.LabelBtnLegendGreen.TabIndex = 7;
+            this.LabelBtnLegendGreen.Text = "= Order ready to serve";
+            // 
+            // LabelBtnLegendYellow
+            // 
+            this.LabelBtnLegendYellow.AutoSize = true;
+            this.LabelBtnLegendYellow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelBtnLegendYellow.Location = new System.Drawing.Point(1571, 1016);
+            this.LabelBtnLegendYellow.Name = "LabelBtnLegendYellow";
+            this.LabelBtnLegendYellow.Size = new System.Drawing.Size(138, 13);
+            this.LabelBtnLegendYellow.TabIndex = 7;
+            this.LabelBtnLegendYellow.Text = "= Order being prepared";
+            // 
+            // picBtnLegenYellow
+            // 
+            this.picBtnLegenYellow.BackgroundImage = global::project_Chapoo.Properties.Resources.btnBestelling_btnBestellingGeel;
+            this.picBtnLegenYellow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtnLegenYellow.Location = new System.Drawing.Point(1533, 1008);
+            this.picBtnLegenYellow.Name = "picBtnLegenYellow";
+            this.picBtnLegenYellow.Size = new System.Drawing.Size(40, 31);
+            this.picBtnLegenYellow.TabIndex = 6;
+            this.picBtnLegenYellow.TabStop = false;
+            // 
+            // picBtnLegenGreen
+            // 
+            this.picBtnLegenGreen.BackgroundImage = global::project_Chapoo.Properties.Resources.btnBestelling_btnBestellingGroen;
+            this.picBtnLegenGreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtnLegenGreen.Location = new System.Drawing.Point(1338, 1008);
+            this.picBtnLegenGreen.Name = "picBtnLegenGreen";
+            this.picBtnLegenGreen.Size = new System.Drawing.Size(40, 31);
+            this.picBtnLegenGreen.TabIndex = 6;
+            this.picBtnLegenGreen.TabStop = false;
+            // 
+            // picBtnLegenGrey
+            // 
+            this.picBtnLegenGrey.BackgroundImage = global::project_Chapoo.Properties.Resources.btnBestelling_btnBestellingGrijs;
+            this.picBtnLegenGrey.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtnLegenGrey.Location = new System.Drawing.Point(1217, 1008);
+            this.picBtnLegenGrey.Name = "picBtnLegenGrey";
+            this.picBtnLegenGrey.Size = new System.Drawing.Size(40, 31);
+            this.picBtnLegenGrey.TabIndex = 6;
+            this.picBtnLegenGrey.TabStop = false;
+            // 
+            // picLegendRed
+            // 
+            this.picLegendRed.BackgroundImage = global::project_Chapoo.Properties.Resources.table_03;
+            this.picLegendRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picLegendRed.Location = new System.Drawing.Point(736, 985);
+            this.picLegendRed.Name = "picLegendRed";
+            this.picLegendRed.Size = new System.Drawing.Size(62, 75);
+            this.picLegendRed.TabIndex = 5;
+            this.picLegendRed.TabStop = false;
+            // 
+            // picLegendYellow
+            // 
+            this.picLegendYellow.BackgroundImage = global::project_Chapoo.Properties.Resources.table_04;
+            this.picLegendYellow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picLegendYellow.Location = new System.Drawing.Point(502, 985);
+            this.picLegendYellow.Name = "picLegendYellow";
+            this.picLegendYellow.Size = new System.Drawing.Size(62, 75);
+            this.picLegendYellow.TabIndex = 5;
+            this.picLegendYellow.TabStop = false;
+            // 
+            // picLegendGreen
+            // 
+            this.picLegendGreen.BackgroundImage = global::project_Chapoo.Properties.Resources.table_05;
+            this.picLegendGreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picLegendGreen.Location = new System.Drawing.Point(325, 985);
+            this.picLegendGreen.Name = "picLegendGreen";
+            this.picLegendGreen.Size = new System.Drawing.Size(62, 75);
+            this.picLegendGreen.TabIndex = 5;
+            this.picLegendGreen.TabStop = false;
+            // 
+            // picLegendGrey
+            // 
+            this.picLegendGrey.BackgroundImage = global::project_Chapoo.Properties.Resources.table_02;
+            this.picLegendGrey.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picLegendGrey.Location = new System.Drawing.Point(157, 985);
+            this.picLegendGrey.Name = "picLegendGrey";
+            this.picLegendGrey.Size = new System.Drawing.Size(62, 75);
+            this.picLegendGrey.TabIndex = 5;
+            this.picLegendGrey.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::project_Chapoo.Properties.Resources.Laag_2;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(783, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(281, 166);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // btnKitchen9
             // 
@@ -708,156 +858,6 @@
             this.btnTable6.UseVisualStyleBackColor = false;
             this.btnTable6.Click += new System.EventHandler(this.btnTable1_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::project_Chapoo.Properties.Resources.Laag_2;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(783, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(281, 166);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // picLegendGrey
-            // 
-            this.picLegendGrey.BackgroundImage = global::project_Chapoo.Properties.Resources.table_02;
-            this.picLegendGrey.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLegendGrey.Location = new System.Drawing.Point(157, 985);
-            this.picLegendGrey.Name = "picLegendGrey";
-            this.picLegendGrey.Size = new System.Drawing.Size(62, 75);
-            this.picLegendGrey.TabIndex = 5;
-            this.picLegendGrey.TabStop = false;
-            // 
-            // picBtnLegenGrey
-            // 
-            this.picBtnLegenGrey.BackgroundImage = global::project_Chapoo.Properties.Resources.btnBestelling_btnBestellingGrijs;
-            this.picBtnLegenGrey.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtnLegenGrey.Location = new System.Drawing.Point(1217, 1008);
-            this.picBtnLegenGrey.Name = "picBtnLegenGrey";
-            this.picBtnLegenGrey.Size = new System.Drawing.Size(40, 31);
-            this.picBtnLegenGrey.TabIndex = 6;
-            this.picBtnLegenGrey.TabStop = false;
-            // 
-            // picLegendGreen
-            // 
-            this.picLegendGreen.BackgroundImage = global::project_Chapoo.Properties.Resources.table_05;
-            this.picLegendGreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLegendGreen.Location = new System.Drawing.Point(325, 985);
-            this.picLegendGreen.Name = "picLegendGreen";
-            this.picLegendGreen.Size = new System.Drawing.Size(62, 75);
-            this.picLegendGreen.TabIndex = 5;
-            this.picLegendGreen.TabStop = false;
-            // 
-            // picLegendYellow
-            // 
-            this.picLegendYellow.BackgroundImage = global::project_Chapoo.Properties.Resources.table_04;
-            this.picLegendYellow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLegendYellow.Location = new System.Drawing.Point(502, 985);
-            this.picLegendYellow.Name = "picLegendYellow";
-            this.picLegendYellow.Size = new System.Drawing.Size(62, 75);
-            this.picLegendYellow.TabIndex = 5;
-            this.picLegendYellow.TabStop = false;
-            // 
-            // picLegendRed
-            // 
-            this.picLegendRed.BackgroundImage = global::project_Chapoo.Properties.Resources.table_03;
-            this.picLegendRed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picLegendRed.Location = new System.Drawing.Point(736, 985);
-            this.picLegendRed.Name = "picLegendRed";
-            this.picLegendRed.Size = new System.Drawing.Size(62, 75);
-            this.picLegendRed.TabIndex = 5;
-            this.picLegendRed.TabStop = false;
-            // 
-            // picBtnLegenGreen
-            // 
-            this.picBtnLegenGreen.BackgroundImage = global::project_Chapoo.Properties.Resources.btnBestelling_btnBestellingGroen;
-            this.picBtnLegenGreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtnLegenGreen.Location = new System.Drawing.Point(1338, 1008);
-            this.picBtnLegenGreen.Name = "picBtnLegenGreen";
-            this.picBtnLegenGreen.Size = new System.Drawing.Size(40, 31);
-            this.picBtnLegenGreen.TabIndex = 6;
-            this.picBtnLegenGreen.TabStop = false;
-            // 
-            // picBtnLegenYellow
-            // 
-            this.picBtnLegenYellow.BackgroundImage = global::project_Chapoo.Properties.Resources.btnBestelling_btnBestellingGeel;
-            this.picBtnLegenYellow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtnLegenYellow.Location = new System.Drawing.Point(1533, 1008);
-            this.picBtnLegenYellow.Name = "picBtnLegenYellow";
-            this.picBtnLegenYellow.Size = new System.Drawing.Size(40, 31);
-            this.picBtnLegenYellow.TabIndex = 6;
-            this.picBtnLegenYellow.TabStop = false;
-            // 
-            // lblLegendGrey
-            // 
-            this.lblLegendGrey.AutoSize = true;
-            this.lblLegendGrey.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegendGrey.Location = new System.Drawing.Point(225, 1015);
-            this.lblLegendGrey.Name = "lblLegendGrey";
-            this.lblLegendGrey.Size = new System.Drawing.Size(84, 13);
-            this.lblLegendGrey.TabIndex = 7;
-            this.lblLegendGrey.Text = "= Empty table";
-            // 
-            // lblLegendGreen
-            // 
-            this.lblLegendGreen.AutoSize = true;
-            this.lblLegendGreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegendGreen.Location = new System.Drawing.Point(393, 1015);
-            this.lblLegendGreen.Name = "lblLegendGreen";
-            this.lblLegendGreen.Size = new System.Drawing.Size(90, 13);
-            this.lblLegendGreen.TabIndex = 7;
-            this.lblLegendGreen.Text = "= Served table";
-            // 
-            // lblLegendYellow
-            // 
-            this.lblLegendYellow.AutoSize = true;
-            this.lblLegendYellow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegendYellow.Location = new System.Drawing.Point(570, 1015);
-            this.lblLegendYellow.Name = "lblLegendYellow";
-            this.lblLegendYellow.Size = new System.Drawing.Size(142, 13);
-            this.lblLegendYellow.TabIndex = 7;
-            this.lblLegendYellow.Text = "= Table waiting 10+ min";
-            // 
-            // lblLegendRed
-            // 
-            this.lblLegendRed.AutoSize = true;
-            this.lblLegendRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegendRed.Location = new System.Drawing.Point(804, 1015);
-            this.lblLegendRed.Name = "lblLegendRed";
-            this.lblLegendRed.Size = new System.Drawing.Size(142, 13);
-            this.lblLegendRed.TabIndex = 7;
-            this.lblLegendRed.Text = "= Table waiting 20+ min";
-            // 
-            // LabelBtnLegendGrey
-            // 
-            this.LabelBtnLegendGrey.AutoSize = true;
-            this.LabelBtnLegendGrey.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelBtnLegendGrey.Location = new System.Drawing.Point(1255, 1016);
-            this.LabelBtnLegendGrey.Name = "LabelBtnLegendGrey";
-            this.LabelBtnLegendGrey.Size = new System.Drawing.Size(67, 13);
-            this.LabelBtnLegendGrey.TabIndex = 7;
-            this.LabelBtnLegendGrey.Text = "= No order";
-            // 
-            // LabelBtnLegendGreen
-            // 
-            this.LabelBtnLegendGreen.AutoSize = true;
-            this.LabelBtnLegendGreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelBtnLegendGreen.Location = new System.Drawing.Point(1376, 1016);
-            this.LabelBtnLegendGreen.Name = "LabelBtnLegendGreen";
-            this.LabelBtnLegendGreen.Size = new System.Drawing.Size(134, 13);
-            this.LabelBtnLegendGreen.TabIndex = 7;
-            this.LabelBtnLegendGreen.Text = "= Order ready to serve";
-            // 
-            // LabelBtnLegendYellow
-            // 
-            this.LabelBtnLegendYellow.AutoSize = true;
-            this.LabelBtnLegendYellow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelBtnLegendYellow.Location = new System.Drawing.Point(1571, 1016);
-            this.LabelBtnLegendYellow.Name = "LabelBtnLegendYellow";
-            this.LabelBtnLegendYellow.Size = new System.Drawing.Size(138, 13);
-            this.LabelBtnLegendYellow.TabIndex = 7;
-            this.LabelBtnLegendYellow.Text = "= Order being prepared";
-            // 
             // TableOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -890,14 +890,14 @@
             this.Text = "TableOverview";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlTableOverview.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLegendGrey)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtnLegenGrey)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLegendGreen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLegendYellow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLegendRed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtnLegenGreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtnLegenYellow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtnLegenGreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtnLegenGrey)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLegendRed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLegendYellow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLegendGreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLegendGrey)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
