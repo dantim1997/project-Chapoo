@@ -25,10 +25,6 @@ namespace project_Chapoo
 
         Employee employee;
 
-        //TODO: Bij orderreset supply ook resetten
-
-
-
         public Order(Employee employee)
         {
             InitializeComponent();
@@ -40,8 +36,6 @@ namespace project_Chapoo
             //WindowState = FormWindowState.Maximized;
 
         }
-
-
 
         public ChapooModels.Order GetOrder(ChapooModels.Order order)
         {
@@ -161,9 +155,7 @@ namespace project_Chapoo
             if (dr == DialogResult.Yes)
             {
                 MessageBox.Show("Bestelling succesvol doorgegeven", "Order bevestigen");
-
                 SendOrder();
-
                 TableOverview tableOverview = new TableOverview(employee);
                 //tableOverview.InfoEmployee(employee);
                 this.Hide();
@@ -195,7 +187,6 @@ namespace project_Chapoo
             {
                 orderProducts.Remove(orderProduct);
             }
-
             UpdateListView();
             btn_Remove.Enabled = false;
             btn_Note.Enabled = false;
@@ -212,6 +203,10 @@ namespace project_Chapoo
             DialogResult dr = MessageBox.Show("Weet je zeker dat je de order wilt resetten?", "Reset Order", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
+                foreach(OrderProduct orderProduct in orderProducts)
+                {
+                    orderProduct.Product.Supply += orderProducts.Where(t => t.Product.ProductId == orderProduct.Product.ProductId).FirstOrDefault().Amount;
+                }
                 listView_Order.Items.Clear();
                 orderProducts.Clear();
             }
@@ -237,7 +232,5 @@ namespace project_Chapoo
                 listView_Order.Items.Add(item);
             }
         }
-
-       
     }
 }
