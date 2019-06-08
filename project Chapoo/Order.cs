@@ -14,113 +14,112 @@ namespace project_Chapoo
 {
     public partial class Order : Form
     {
-        ChapooModels.Order huidigeOrder = new ChapooModels.Order();
         public Product_Service ProdSer = new Product_Service();
-        public List<OrderProduct> orderProducts = new List<OrderProduct>();
-        List<Button> buttons = new List<Button>();
-        List<Product> producten = new List<Product>();
+        public List<OrderProduct> orderProducts = new List<OrderProduct>(); //List voor de producten in de bestelling
+        List<Button> buttons = new List<Button>(); //List voor alle aangemaakte buttons
+        List<Product> producten = new List<Product>(); //List voor het maken van de buttons
+        public int ID;
+
+        Order_Service orderService = new Order_Service();
+        OrderProduct_Service orderProService = new OrderProduct_Service();
+
         Employee employee;
 
-        public int ID = 1;
-     
-        
+        //TODO: Bij orderreset supply ook resetten
+
+
 
         public Order(Employee employee)
         {
             InitializeComponent();
+            producten = ProdSer.GetProducts();
             this.employee = employee;
+            InitButtons();
+
             //FormBorderStyle = FormBorderStyle.None;
             //WindowState = FormWindowState.Maximized;
+
         }
 
-        
 
-        public ChapooModels.Order GetOrder(int tableNumber, int EmployeeID)
+
+        public ChapooModels.Order GetOrder(ChapooModels.Order order)
         {
-            ChapooModels.Order order = huidigeOrder;
-            order.Date = DateTime.Now;
-            order.OrderId = ID;
-            order.OrderProduct = orderProducts;
-            order.Status = "In progress...";
-            //order.TableNumber; 
-            //order.EmployeeId;
-            //Deze moeten worden verkregen vanuit tableOverview
             return order;
-          
         }
 
         public void SendOrder()
         {
-            //
+            orderService.UpdateOrder(ID, "In Progress...");
+            orderProService.CreateOrderProduct(orderProducts);
         }
+
 
         private void btn_Lunch_Click(object sender, EventArgs e)
         {
-            RemoveButtons();
-            Product_Service prodSer = new Product_Service();
-            List<Product> productsLunch = ProdSer.GetLunch();
-            CreateButtons(productsLunch);
+            producten.Clear();
+            List<Product> LunchItem = new List<Product>();
+            LunchItem = ProdSer.GetLunch();
+            producten = LunchItem;
+            FillButtons();
         }
 
         private void btn_Diner_Click(object sender, EventArgs e)
         {
-            RemoveButtons();
-            Product_Service prodSer = new Product_Service();
-            List<Product> productsDiner = ProdSer.GetDiner();
-            CreateButtons(productsDiner);
+            producten.Clear();
+            List<Product> DinerItem = new List<Product>();
+            DinerItem = ProdSer.GetDiner();
+            producten = DinerItem;
+            FillButtons();
         }
 
         private void btn_Drinks_Click(object sender, EventArgs e)
         {
-            RemoveButtons();
-            Product_Service prodSer = new Product_Service();
-            List<Product> productsDrinks = ProdSer.GetDrinks();
-            CreateButtons(productsDrinks);
+            producten.Clear();
+            List<Product> Drinks = new List<Product>();
+            Drinks = ProdSer.GetDrinks();
+            producten = Drinks;
+            InitButtons();
+            FillButtons();
         }
 
-        private void CreateButtons(List<Product> products)
+        private void ResetButtons()
         {
-            buttons.Clear();
-            producten.Clear();
-
-            int index = 0;
-
-            for (int i = 0; i < 6; i++)
+            foreach(Button button in buttons)
             {
-                for (int j = 0; j < products.Count / 6; j++)
+                button.Text = string.Empty;
+                button.Enabled = false; 
+                button.Click -= new EventHandler(GeneratedButton_Click);
+            }
+        }
+
+        private void InitButtons()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 6; j++)
                 {
                     Button newButton = new Button();
-                    buttons.Add(newButton);
                     newButton.Height = 75;
-                    newButton.Width = 74;
-                    newButton.Text = products[index].ProductName;
-                    newButton.Location = new Point((80 * i) + 266, (80 * j) + 132); //266 en 132 zijn de begin coordinaten
-                    newButton.Name = "btn_" + products[index].ProductName;
-                    newButton.Click += new EventHandler(GeneratedButton_Click);
+                    newButton.Width = 75;
+                    newButton.Location = new Point((80 * j) + 266, (80 * i) + 132); //266 en 132 zijn de begin coordinaten
                     this.Controls.Add(newButton);
-                    index++;
+                    buttons.Add(newButton);
+                    newButton.Enabled = false;
                 }
             }
-            producten = products;
         }
 
-        private void RemoveButtons()
+        private void FillButtons()
         {
-            foreach (Button button in buttons)
+            ResetButtons();
+            int index = -1;
+            foreach(Product p in producten)
             {
-                this.Controls.Remove(button);
-            }
-        }
-
-        void AddProduct()
-        {
-            listView_Order.Items.Clear();
-            foreach (OrderProduct product in orderProducts)
-            {
-                ListViewItem item = new ListViewItem(product.Product.ProductName);
-                item.SubItems.Add(product.Amount.ToString());
-                listView_Order.Items.Add(item);
-
+                index++;
+                buttons[index].Text = p.ProductName;
+                buttons[index].Enabled = true;
+                buttons[index].Click += new EventHandler(GeneratedButton_Click);
             }
         }
 
@@ -131,22 +130,24 @@ namespace project_Chapoo
             OrderProduct product = new OrderProduct();
             product.Product = producten[index];
 
-            if (product.Product.Supply != 0) //Voorraad waarde nog niet opgehaald?
+            if (product.Product.Supply != 0)
             {
                 if (orderProducts.Where(t => t.Product.ProductId == product.Product.ProductId).FirstOrDefault() != null)
                 {
                     orderProducts.Where(t => t.Product.ProductId == product.Product.ProductId).FirstOrDefault().Amount++;
-                    AddProduct();
                 }
                 else
                 {
                     OrderProduct orderproduct = product;
                     orderproduct.Product = product.Product;
                     orderproduct.Amount = 1;
+                    orderproduct.OrderId = ID;
+                    orderproduct.Note = string.Empty;
+                    orderproduct.Status = Statustype.Open;
                     orderProducts.Add(orderproduct);
-                    AddProduct();
                 }
                 producten[index].Supply--;
+                UpdateListView();
             }
             else
             {
@@ -161,7 +162,7 @@ namespace project_Chapoo
             {
                 MessageBox.Show("Bestelling succesvol doorgegeven", "Order bevestigen");
 
-                //order doorgeven
+                SendOrder();
 
                 TableOverview tableOverview = new TableOverview(employee);
                 //tableOverview.InfoEmployee(employee);
@@ -174,18 +175,30 @@ namespace project_Chapoo
         private void btn_Note_Click(object sender, EventArgs e)
         {
             var selectedItem = listView_Order.SelectedItems[0];
-            RemoveButtons();
-            TextBox box = new TextBox();
-            box.Show();
-            box.Location = new Point(266, 132);
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Prompt", "Title", "Default", 0, 0);
+            orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Note = input;
+            UpdateListView();
+            btn_Note.Enabled = false;
+            btn_Remove.Enabled = false;
         }
 
-        private void btn_Remove_Click(object sender, EventArgs e)
+        private void btn_Remove_Click_1(object sender, EventArgs e)
         {
             var selectedItem = listView_Order.SelectedItems[0];
-            orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Product.Supply =+ orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Amount;
-            orderProducts.Remove(orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault());
-            AddProduct();
+            OrderProduct orderProduct = orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault();
+            if (orderProduct.Amount > 1)
+            {
+                orderProduct.Product.Supply++;
+                orderProduct.Amount--;
+            }
+            else
+            {
+                orderProducts.Remove(orderProduct);
+            }
+
+            UpdateListView();
+            btn_Remove.Enabled = false;
+            btn_Note.Enabled = false;
         }
 
         private void listView_Order_SelectedIndexChanged(object sender, EventArgs e)
@@ -212,5 +225,19 @@ namespace project_Chapoo
             tableOverview.ShowDialog();
             this.Close();
         }
+
+        void UpdateListView()
+        {
+            listView_Order.Items.Clear();
+            foreach (OrderProduct product in orderProducts)
+            {
+                ListViewItem item = new ListViewItem(product.Product.ProductName);
+                item.SubItems.Add(product.Amount.ToString());
+                item.SubItems.Add(product.Note);
+                listView_Order.Items.Add(item);
+            }
+        }
+
+       
     }
 }
