@@ -124,11 +124,11 @@ namespace project_Chapoo
         {
             foreach (ChapooModels.Order order in activeOrderlist)
             {
-                if (DateTime.Now.AddMinutes(-20) > order.Date)
+                if (DateTime.Now.AddMinutes(-30) > order.Date)
                 {
                     btnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-03.png");
                 }
-                else if (DateTime.Now.AddMinutes(-10) > order.Date)
+                else if (DateTime.Now.AddMinutes(-15) > order.Date)
                 {
                     btnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-04.png");
                 }
