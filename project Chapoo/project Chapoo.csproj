@@ -152,5 +152,14 @@
   <ItemGroup>
     <None Include="Rescources\btnBestelling_btnBestellingRood.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Rescources\Laag 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rescources\oog_oogDicht.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rescources\oog_oogOpen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

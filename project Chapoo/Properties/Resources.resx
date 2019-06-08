@@ -118,11 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Laag 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rescources\Laag 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="table" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Rescources\table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="table-05" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Rescources\table-05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnBestelling_btnBestellingGroen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rescources\btnBestelling_btnBestellingGroen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="table-03" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Rescources\table-03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,11 +136,8 @@
   <data name="table-021" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Rescources\table-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="table-04" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Rescources\table-04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="table-02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Rescources\table-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnBestelling_btnBestellingRood" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rescources\btnBestelling_btnBestellingRood.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnBestelling_btnBestellingGeel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Rescources\btnBestelling_btnBestellingGeel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,10 +145,16 @@
   <data name="btnBestelling_btnBestellingGrijs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Rescources\btnBestelling_btnBestellingGrijs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnBestelling_btnBestellingGroen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Rescources\btnBestelling_btnBestellingGroen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="table-02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rescources\table-02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnBestelling_btnBestellingRood" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Rescources\btnBestelling_btnBestellingRood.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="table-04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rescources\table-04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="oog_oogDicht" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rescources\oog_oogDicht.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="oog_oogOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rescources\oog_oogOpen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

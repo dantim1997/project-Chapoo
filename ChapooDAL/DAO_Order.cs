@@ -64,6 +64,7 @@ namespace ChapooDAL
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }
 
+
         private List<Order> ReadAllTables(DataTable dataTable, string type)
         {
             List<Product> products = new List<Product>();
@@ -133,6 +134,18 @@ namespace ChapooDAL
             command.Parameters.AddWithValue("@Date", dateNow);
             SqlDataReader reader = command.ExecuteReader();
             dbConnection.Close();
+        }
+
+
+        public void UpdateOrderTime(int TableNumber)
+        {
+            string query = "UPDATE [Order] SET Date = @Date WHERE TableNumber = @TableNumber";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("Date", DateTime.Now),
+                new SqlParameter("TableNumber", TableNumber)
+            };
+            ExecuteEditQuery(query, sqlParameters);
         }
 
 

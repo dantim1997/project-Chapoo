@@ -24,6 +24,8 @@ namespace project_Chapoo
         private Label lblUser;
         private Label lblError;
         Employee_Service employeeService = new Employee_Service();
+        private PictureBox pictureBox1;
+        private CheckBox checkBoxShowPassword;
         Employee employee = new Employee();
 
         public Login()
@@ -45,7 +47,10 @@ namespace project_Chapoo
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -72,6 +77,7 @@ namespace project_Chapoo
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxShowPassword);
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.txtUser);
             this.groupBox1.Controls.Add(this.lblPassword);
@@ -133,15 +139,45 @@ namespace project_Chapoo
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::project_Chapoo.Properties.Resources.Laag_2;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(321, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(127, 65);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // checkBoxShowPassword
+            // 
+            this.checkBoxShowPassword.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxShowPassword.BackgroundImage = global::project_Chapoo.Properties.Resources.oog_oogOpen;
+            this.checkBoxShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.checkBoxShowPassword.FlatAppearance.BorderSize = 0;
+            this.checkBoxShowPassword.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.checkBoxShowPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.checkBoxShowPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.checkBoxShowPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(355, 116);
+            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(25, 23);
+            this.checkBoxShowPassword.TabIndex = 4;
+            this.checkBoxShowPassword.TabStop = false;
+            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Login
             // 
             this.ClientSize = new System.Drawing.Size(459, 307);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblError);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,6 +229,20 @@ namespace project_Chapoo
         {
             this.Hide();
             this.Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxShowPassword.Checked)
+            {
+                checkBoxShowPassword.BackgroundImage = Image.FromFile(@"../../Rescources\oog_oogDicht.png");
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                checkBoxShowPassword.BackgroundImage = Image.FromFile(@"../../Rescources\oog_oogOpen.png");
+                txtPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }

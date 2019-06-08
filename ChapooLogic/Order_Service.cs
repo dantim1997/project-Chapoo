@@ -44,6 +44,11 @@ namespace ChapooLogic
 
         }
 
+        public void UpdateOrderTime(int TableNumber)
+        {
+            DAO_Order.UpdateOrderTime(TableNumber);
+        }
+
         public void UpdateStock()
         {
         }

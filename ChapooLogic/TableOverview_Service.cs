@@ -59,9 +59,9 @@ namespace ChapooLogic
             return orderService.GetActiveOrderList();
         }
 
-        public List<OrderProduct> GetActiveOrderProductList(string type)
+        public List<OrderProduct> GetActiveOrderProductList()
         {
-            return orderProductService.GetActiveOrderProductList(type);
+            return orderProductService.GetActiveOrderProductList();
         }
 
         public bool CheckTableStatus(string id)
@@ -82,6 +82,10 @@ namespace ChapooLogic
         public void UpdateOrderProductStatus(int TableNumber, Statustype Status, string type)
         {
             orderProductService.UpdateOrderProductStatus(TableNumber, Status, type);
+        }
+        public void UpdateOrderTime(int TableNumber)
+        {
+            orderService.UpdateOrderTime(TableNumber);
         }
     }
 

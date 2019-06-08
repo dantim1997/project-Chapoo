@@ -28,11 +28,11 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters), type);
         }
 
-        public List<OrderProduct> GetAllByActiveOrder(string type)
+        public List<OrderProduct> GetAllByActiveOrder()
         {
             string query = "SELECT P.OrderId, P.ProductId, P.Status FROM [Order_Product] AS P JOIN [Order] AS O ON O.OrderId = P.OrderId WHERE O.Status NOT LIKE 'c%'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTableActive(ExecuteSelectQuery(query, sqlParameters), type);
+            return ReadTableActive(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public void UpdateAllOrderProduct(List<OrderProduct> orderProducts, Statustype Status)
@@ -60,7 +60,7 @@ namespace ChapooDAL
 
         public void UpdateOrderProductStatusByTablenumber(int Tablenumber, Statustype Status, string type)
         {
-            string query = "UPDATE [OrderProduct] SET OrderProduct.Status = @Status FROM [OrderProduct] AS P JOIN [Order] AS O ON P.OrderId = O.OrderId WHERE O.TableNumber = @TableNumber AND P.ProductId @type 22";
+            string query = "UPDATE [Order_Product] SET Order_Product.Status = @Status FROM [Order_Product] AS P JOIN [Order] AS O ON P.OrderId = O.OrderId WHERE O.TableNumber = @Tablenumber AND P.ProductId " + type + " 22";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("Status", Status),
@@ -108,7 +108,7 @@ namespace ChapooDAL
             return OrderProducts;
         }
 
-        private List<OrderProduct> ReadTableActive(DataTable dataTable, string type)
+        private List<OrderProduct> ReadTableActive(DataTable dataTable)
         {
             List<OrderProduct> OrderProducts = new List<OrderProduct>();
             //each row from the database is converted into the login class
@@ -116,19 +116,12 @@ namespace ChapooDAL
             {
                 OrderProduct OrderProduct = new OrderProduct();
                 OrderProduct.OrderId = (int)dr["OrderID"];
-                int ProductId = (int)dr["ProductID"];
+                Product product = new Product();
+                product.ProductId = (int)dr["ProductID"];
+                OrderProduct.Product = product;
                 OrderProduct.Status = (Statustype)dr["Status"];
-                if (type == "Drink")
-                {
-                    if (ProductId >= 22)
-                    {
-                        OrderProducts.Add(OrderProduct);
-                    }
-                }
-                else
-                {
-                    OrderProducts.Add(OrderProduct);
-                }
+                OrderProducts.Add(OrderProduct);
+
             };
             return OrderProducts;
         }
