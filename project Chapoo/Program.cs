@@ -18,8 +18,7 @@ namespace project_Chapoo
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
             //Application.Run(new TableOverview());
-            ChapooModels.Employee employee = new ChapooModels.Employee();
-            Application.Run(new Order(employee));
+            Application.Run(new Login());
         }
     }
 }
