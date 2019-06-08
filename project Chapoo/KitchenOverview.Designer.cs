@@ -37,6 +37,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_TimeOrder1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
             this.btn_Order1 = new System.Windows.Forms.Button();
             this.btn_Order2 = new System.Windows.Forms.Button();
@@ -55,16 +57,22 @@
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lbl_TimeOrder3 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lb_TableOrder3 = new System.Windows.Forms.Label();
             this.lb_NameOrder3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lbl_TimeOrder2 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lb_TableOrder2 = new System.Windows.Forms.Label();
             this.lb_NameOrder2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lbl_TimeOrder4 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lb_TableOrder4 = new System.Windows.Forms.Label();
@@ -74,14 +82,10 @@
             this.lbl_Loginname = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_LoginID = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbl_TimeOrder1 = new System.Windows.Forms.Label();
-            this.lbl_TimeOrder2 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lbl_TimeOrder3 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.lbl_TimeOrder4 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lb_NoteOrder1 = new System.Windows.Forms.Label();
+            this.lb_NoteOrder2 = new System.Windows.Forms.Label();
+            this.lb_NoteOrder3 = new System.Windows.Forms.Label();
+            this.lb_NoteOrder4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -137,7 +141,7 @@
             this.lv_Order1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lv_Order1.Location = new System.Drawing.Point(12, 290);
             this.lv_Order1.Name = "lv_Order1";
-            this.lv_Order1.Size = new System.Drawing.Size(394, 484);
+            this.lv_Order1.Size = new System.Drawing.Size(394, 437);
             this.lv_Order1.TabIndex = 9;
             this.lv_Order1.UseCompatibleStateImageBehavior = false;
             this.lv_Order1.View = System.Windows.Forms.View.Details;
@@ -171,6 +175,26 @@
             this.panel2.Size = new System.Drawing.Size(394, 100);
             this.panel2.TabIndex = 13;
             // 
+            // lbl_TimeOrder1
+            // 
+            this.lbl_TimeOrder1.AutoSize = true;
+            this.lbl_TimeOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_TimeOrder1.Location = new System.Drawing.Point(346, -1);
+            this.lbl_TimeOrder1.Name = "lbl_TimeOrder1";
+            this.lbl_TimeOrder1.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder1.TabIndex = 8;
+            this.lbl_TimeOrder1.Text = "Time";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(297, -1);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 20);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Time";
+            // 
             // btn_Login
             // 
             this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -185,7 +209,7 @@
             // btn_Order1
             // 
             this.btn_Order1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order1.Location = new System.Drawing.Point(12, 780);
+            this.btn_Order1.Location = new System.Drawing.Point(12, 837);
             this.btn_Order1.Name = "btn_Order1";
             this.btn_Order1.Size = new System.Drawing.Size(394, 96);
             this.btn_Order1.TabIndex = 16;
@@ -196,7 +220,7 @@
             // btn_Order2
             // 
             this.btn_Order2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order2.Location = new System.Drawing.Point(440, 780);
+            this.btn_Order2.Location = new System.Drawing.Point(440, 837);
             this.btn_Order2.Name = "btn_Order2";
             this.btn_Order2.Size = new System.Drawing.Size(394, 96);
             this.btn_Order2.TabIndex = 19;
@@ -213,7 +237,7 @@
             this.lv_Order2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lv_Order2.Location = new System.Drawing.Point(440, 290);
             this.lv_Order2.Name = "lv_Order2";
-            this.lv_Order2.Size = new System.Drawing.Size(394, 484);
+            this.lv_Order2.Size = new System.Drawing.Size(394, 437);
             this.lv_Order2.TabIndex = 17;
             this.lv_Order2.UseCompatibleStateImageBehavior = false;
             this.lv_Order2.View = System.Windows.Forms.View.Details;
@@ -236,7 +260,7 @@
             // btn_Order3
             // 
             this.btn_Order3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order3.Location = new System.Drawing.Point(869, 780);
+            this.btn_Order3.Location = new System.Drawing.Point(869, 837);
             this.btn_Order3.Name = "btn_Order3";
             this.btn_Order3.Size = new System.Drawing.Size(394, 96);
             this.btn_Order3.TabIndex = 22;
@@ -253,7 +277,7 @@
             this.lv_Order3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lv_Order3.Location = new System.Drawing.Point(869, 290);
             this.lv_Order3.Name = "lv_Order3";
-            this.lv_Order3.Size = new System.Drawing.Size(394, 484);
+            this.lv_Order3.Size = new System.Drawing.Size(394, 437);
             this.lv_Order3.TabIndex = 20;
             this.lv_Order3.UseCompatibleStateImageBehavior = false;
             this.lv_Order3.View = System.Windows.Forms.View.Details;
@@ -276,7 +300,7 @@
             // btn_Order4
             // 
             this.btn_Order4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order4.Location = new System.Drawing.Point(1300, 780);
+            this.btn_Order4.Location = new System.Drawing.Point(1300, 837);
             this.btn_Order4.Name = "btn_Order4";
             this.btn_Order4.Size = new System.Drawing.Size(394, 96);
             this.btn_Order4.TabIndex = 25;
@@ -293,7 +317,7 @@
             this.lv_Order4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lv_Order4.Location = new System.Drawing.Point(1300, 290);
             this.lv_Order4.Name = "lv_Order4";
-            this.lv_Order4.Size = new System.Drawing.Size(394, 484);
+            this.lv_Order4.Size = new System.Drawing.Size(394, 437);
             this.lv_Order4.TabIndex = 23;
             this.lv_Order4.UseCompatibleStateImageBehavior = false;
             this.lv_Order4.View = System.Windows.Forms.View.Details;
@@ -326,6 +350,26 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(394, 100);
             this.panel3.TabIndex = 14;
+            // 
+            // lbl_TimeOrder3
+            // 
+            this.lbl_TimeOrder3.AutoSize = true;
+            this.lbl_TimeOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_TimeOrder3.Location = new System.Drawing.Point(346, 0);
+            this.lbl_TimeOrder3.Name = "lbl_TimeOrder3";
+            this.lbl_TimeOrder3.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder3.TabIndex = 12;
+            this.lbl_TimeOrder3.Text = "Time";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label16.Location = new System.Drawing.Point(297, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(43, 20);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "Time";
             // 
             // label4
             // 
@@ -381,6 +425,26 @@
             this.panel4.Size = new System.Drawing.Size(394, 100);
             this.panel4.TabIndex = 15;
             // 
+            // lbl_TimeOrder2
+            // 
+            this.lbl_TimeOrder2.AutoSize = true;
+            this.lbl_TimeOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_TimeOrder2.Location = new System.Drawing.Point(346, 1);
+            this.lbl_TimeOrder2.Name = "lbl_TimeOrder2";
+            this.lbl_TimeOrder2.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder2.TabIndex = 10;
+            this.lbl_TimeOrder2.Text = "Time";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label14.Location = new System.Drawing.Point(297, 1);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(43, 20);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Time";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -434,6 +498,26 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(394, 100);
             this.panel5.TabIndex = 14;
+            // 
+            // lbl_TimeOrder4
+            // 
+            this.lbl_TimeOrder4.AutoSize = true;
+            this.lbl_TimeOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lbl_TimeOrder4.Location = new System.Drawing.Point(346, -1);
+            this.lbl_TimeOrder4.Name = "lbl_TimeOrder4";
+            this.lbl_TimeOrder4.Size = new System.Drawing.Size(43, 20);
+            this.lbl_TimeOrder4.TabIndex = 14;
+            this.lbl_TimeOrder4.Text = "Time";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label18.Location = new System.Drawing.Point(297, -1);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(43, 20);
+            this.label18.TabIndex = 13;
+            this.label18.Text = "Time";
             // 
             // label12
             // 
@@ -526,91 +610,47 @@
             this.lbl_LoginID.TabIndex = 29;
             this.lbl_LoginID.Text = "ID:";
             // 
-            // label7
+            // lb_NoteOrder1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(297, -1);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 20);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Time";
+            this.lb_NoteOrder1.Location = new System.Drawing.Point(12, 730);
+            this.lb_NoteOrder1.Name = "lb_NoteOrder1";
+            this.lb_NoteOrder1.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder1.TabIndex = 30;
+            this.lb_NoteOrder1.Text = "label10";
             // 
-            // lbl_TimeOrder1
+            // lb_NoteOrder2
             // 
-            this.lbl_TimeOrder1.AutoSize = true;
-            this.lbl_TimeOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_TimeOrder1.Location = new System.Drawing.Point(346, -1);
-            this.lbl_TimeOrder1.Name = "lbl_TimeOrder1";
-            this.lbl_TimeOrder1.Size = new System.Drawing.Size(43, 20);
-            this.lbl_TimeOrder1.TabIndex = 8;
-            this.lbl_TimeOrder1.Text = "Time";
+            this.lb_NoteOrder2.Location = new System.Drawing.Point(440, 730);
+            this.lb_NoteOrder2.Name = "lb_NoteOrder2";
+            this.lb_NoteOrder2.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder2.TabIndex = 31;
+            this.lb_NoteOrder2.Text = "label11";
             // 
-            // lbl_TimeOrder2
+            // lb_NoteOrder3
             // 
-            this.lbl_TimeOrder2.AutoSize = true;
-            this.lbl_TimeOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_TimeOrder2.Location = new System.Drawing.Point(346, 1);
-            this.lbl_TimeOrder2.Name = "lbl_TimeOrder2";
-            this.lbl_TimeOrder2.Size = new System.Drawing.Size(43, 20);
-            this.lbl_TimeOrder2.TabIndex = 10;
-            this.lbl_TimeOrder2.Text = "Time";
+            this.lb_NoteOrder3.Location = new System.Drawing.Point(869, 730);
+            this.lb_NoteOrder3.Name = "lb_NoteOrder3";
+            this.lb_NoteOrder3.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder3.TabIndex = 32;
+            this.lb_NoteOrder3.Text = "label15";
             // 
-            // label14
+            // lb_NoteOrder4
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label14.Location = new System.Drawing.Point(297, 1);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(43, 20);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Time";
-            // 
-            // lbl_TimeOrder3
-            // 
-            this.lbl_TimeOrder3.AutoSize = true;
-            this.lbl_TimeOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_TimeOrder3.Location = new System.Drawing.Point(346, 0);
-            this.lbl_TimeOrder3.Name = "lbl_TimeOrder3";
-            this.lbl_TimeOrder3.Size = new System.Drawing.Size(43, 20);
-            this.lbl_TimeOrder3.TabIndex = 12;
-            this.lbl_TimeOrder3.Text = "Time";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label16.Location = new System.Drawing.Point(297, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(43, 20);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "Time";
-            // 
-            // lbl_TimeOrder4
-            // 
-            this.lbl_TimeOrder4.AutoSize = true;
-            this.lbl_TimeOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_TimeOrder4.Location = new System.Drawing.Point(346, -1);
-            this.lbl_TimeOrder4.Name = "lbl_TimeOrder4";
-            this.lbl_TimeOrder4.Size = new System.Drawing.Size(43, 20);
-            this.lbl_TimeOrder4.TabIndex = 14;
-            this.lbl_TimeOrder4.Text = "Time";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label18.Location = new System.Drawing.Point(297, -1);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(43, 20);
-            this.label18.TabIndex = 13;
-            this.label18.Text = "Time";
+            this.lb_NoteOrder4.Location = new System.Drawing.Point(1300, 730);
+            this.lb_NoteOrder4.Name = "lb_NoteOrder4";
+            this.lb_NoteOrder4.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder4.TabIndex = 33;
+            this.lb_NoteOrder4.Text = "label17";
             // 
             // KitchenOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1836, 1052);
+            this.Controls.Add(this.lb_NoteOrder4);
+            this.Controls.Add(this.lb_NoteOrder3);
+            this.Controls.Add(this.lb_NoteOrder2);
+            this.Controls.Add(this.lb_NoteOrder1);
             this.Controls.Add(this.lbl_LoginID);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lbl_Loginname);
@@ -702,5 +742,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lbl_TimeOrder4;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lb_NoteOrder1;
+        private System.Windows.Forms.Label lb_NoteOrder2;
+        private System.Windows.Forms.Label lb_NoteOrder3;
+        private System.Windows.Forms.Label lb_NoteOrder4;
     }
 }

@@ -23,7 +23,7 @@ namespace ChapooDAL
 
         public List<OrderProduct> GetAllByOrder(int orderId, string type)
         {
-            string query = "SELECT OrderId, o.ProductId, Amount, Status, Id FROM Order_Product as o join Product as p on o.ProductId = p.ProductId where OrderId = " + orderId + " and p.ProductType = '" + type + "' and o.Status = 1";
+            string query = "SELECT OrderId, o.ProductId, Amount, Status, Id, Note FROM Order_Product as o join Product as p on o.ProductId = p.ProductId where OrderId = " + orderId + " and p.ProductType = '" + type + "' and o.Status = 1";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters), type);
         }
@@ -103,6 +103,7 @@ namespace ChapooDAL
                 OrderProduct.Amount = (int)dr["Amount"];
                 OrderProduct.Status = (Statustype)dr["Status"];
                 OrderProduct.OrderProductId = (int)dr["Id"];
+                OrderProduct.Note = (string)dr["Note"];
                 OrderProducts.Add(OrderProduct);
             };
             return OrderProducts;

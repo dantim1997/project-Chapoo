@@ -47,6 +47,11 @@ namespace project_Chapoo
             labels.Add("time3", lbl_TimeOrder3);
             labels.Add("time4", lbl_TimeOrder4);
 
+            labels.Add("note1", lb_NoteOrder1);
+            labels.Add("note2", lb_NoteOrder2);
+            labels.Add("note3", lb_NoteOrder3);
+            labels.Add("note4", lb_NoteOrder4);
+
             listviews.Add("lv1", lv_Order1);
             listviews.Add("lv2", lv_Order2);
             listviews.Add("lv3", lv_Order3);
@@ -104,16 +109,19 @@ namespace project_Chapoo
             }
             labels["name" + ordernumber].Text = employees.Where(p => p.EmployeeId == order.EmployeeId).FirstOrDefault().Fullname;
             labels["table" + ordernumber].Text = order.TableNumber.ToString();
-            labels["time" + ordernumber].Text = order.Date.ToString("HH:mm"); ;
+            labels["time" + ordernumber].Text = order.Date.ToString("HH:mm");
             listviews["lv" + ordernumber].Items.Clear();
+            string note = "";
             foreach (OrderProduct orderProduct in order.OrderProduct)
             {
+                note += orderProduct.Product.ProductName+": "+ orderProduct.Note + Environment.NewLine;
                 ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
                 item.SubItems.Add(orderProduct.Product.ProductName);
                 item.SubItems.Add(orderProduct.Amount.ToString());
                 item.SubItems.Add((orderProduct.Status).ToString());
                 listviews["lv" + ordernumber].Items.Add(item);
             }
+            labels["note" + ordernumber].Text = note;
         }
 
         private void btn_Order1_Click(object sender, EventArgs e)
@@ -169,7 +177,7 @@ namespace project_Chapoo
                     order1.OrderId != order.OrderId &&
                     order2.OrderId != order.OrderId &&
                     order3.OrderId != order.OrderId &&
-                    order4.OrderId != order.OrderId)
+                    order4.OrderId != order.OrderId || Orders.Count == 0)
                 {
                     Orders.Add(order);
                 }
