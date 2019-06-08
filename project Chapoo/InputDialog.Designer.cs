@@ -54,7 +54,7 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(12, 117);
+            this.btn_Cancel.Location = new System.Drawing.Point(12, 128);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(94, 42);
             this.btn_Cancel.TabIndex = 2;
@@ -64,7 +64,7 @@
             // 
             // btn_Submit
             // 
-            this.btn_Submit.Location = new System.Drawing.Point(237, 117);
+            this.btn_Submit.Location = new System.Drawing.Point(237, 128);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(93, 42);
             this.btn_Submit.TabIndex = 3;
@@ -76,12 +76,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(342, 182);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.txtBox_Note);
             this.Controls.Add(this.lbl_Note);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InputDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InputDialog";
