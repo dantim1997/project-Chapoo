@@ -39,7 +39,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_TimeOrder1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_Login = new System.Windows.Forms.Button();
+            this.btn_Logout = new System.Windows.Forms.Button();
             this.btn_Order1 = new System.Windows.Forms.Button();
             this.btn_Order2 = new System.Windows.Forms.Button();
             this.lv_Order2 = new System.Windows.Forms.ListView();
@@ -195,16 +195,16 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Time";
             // 
-            // btn_Login
+            // btn_Logout
             // 
-            this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Login.Location = new System.Drawing.Point(1757, 39);
-            this.btn_Login.Name = "btn_Login";
-            this.btn_Login.Size = new System.Drawing.Size(109, 101);
-            this.btn_Login.TabIndex = 14;
-            this.btn_Login.Text = "Logout";
-            this.btn_Login.UseVisualStyleBackColor = true;
-            this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
+            this.btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Logout.Location = new System.Drawing.Point(1757, 39);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(109, 101);
+            this.btn_Logout.TabIndex = 14;
+            this.btn_Logout.Text = "Logout";
+            this.btn_Logout.UseVisualStyleBackColor = true;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // btn_Order1
             // 
@@ -674,7 +674,7 @@
             this.Controls.Add(this.btn_Order2);
             this.Controls.Add(this.lv_Order2);
             this.Controls.Add(this.btn_Order1);
-            this.Controls.Add(this.btn_Login);
+            this.Controls.Add(this.btn_Logout);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lv_Order1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -705,7 +705,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btn_Login;
+        private System.Windows.Forms.Button btn_Logout;
         private System.Windows.Forms.Button btn_Order1;
         private System.Windows.Forms.Button btn_Order2;
         private System.Windows.Forms.ListView lv_Order2;
