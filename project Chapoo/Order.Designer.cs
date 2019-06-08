@@ -51,6 +51,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listView_Order.HideSelection = false;
             this.listView_Order.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
             this.listView_Order.Location = new System.Drawing.Point(12, 52);
@@ -181,6 +182,7 @@
             this.btn_Remove.TabIndex = 18;
             this.btn_Remove.Text = "Remove";
             this.btn_Remove.UseVisualStyleBackColor = false;
+            this.btn_Remove.Click += new System.EventHandler(this.btn_Remove_Click_1);
             // 
             // Order
             // 
