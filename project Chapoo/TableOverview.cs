@@ -215,7 +215,8 @@ namespace project_Chapoo
             }
             else
             {
-                Order orderForm = new Order(employee, tableList[tafelIndex + 1]);
+                tableList[tafelIndex].OrderId = service.GetOrderId(tafelIndex + 1);
+                Order orderForm = new Order(employee, tableList[tafelIndex]);
                 this.Hide();
                 orderForm.ShowDialog();
                 this.Close();
