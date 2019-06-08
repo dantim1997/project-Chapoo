@@ -29,7 +29,7 @@ namespace ChapooDAL
 
         public Employee GetWorkerLogin(string username, string password)
         {
-            string query = "SELECT EmployeeId, Name, Surname, TypeWorker, Username, Password FROM Employee WHERE Username = @username AND Password = @password";
+            string query = "SELECT EmployeeId, Name, Surname, TypeWorker FROM Employee WHERE Username = @username AND Password = @password";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("Username", username),
@@ -40,7 +40,7 @@ namespace ChapooDAL
 
         public Employee GetWorkerById(int EmployeeId)
         {
-            string query = "SELECT EmployeeId, Name, Surname, TypeWorker, Username, Password FROM Employee where EmployeeId = @EmployeeId";
+            string query = "SELECT EmployeeId, Name, Surname, TypeWorker FROM Employee where EmployeeId = @EmployeeId";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("EmployeeId", EmployeeId)
@@ -59,8 +59,6 @@ namespace ChapooDAL
                     login.Name = (string)dr["Name"];
                     login.Surname = (string)dr["Surname"];
                     login.TypeWorker = (string)dr["TypeWorker"];
-                    login.Username = (string)dr["Username"];
-                    login.Password = (string)dr["Password"];
                 };
                 return login;
             }
