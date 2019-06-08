@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapooLogic;
 using ChapooModels;
+using Microsoft.VisualBasic;
 
 namespace project_Chapoo
 {
@@ -165,10 +166,14 @@ namespace project_Chapoo
             }
         }
 
+
+
         private void btn_Note_Click(object sender, EventArgs e)
         {
             var selectedItem = listView_Order.SelectedItems[0];
-            string input = Microsoft.VisualBasic.Interaction.InputBox("Prompt", "Title", "Default", 0, 0);// betere note
+            InputDialog inputDialog = new InputDialog();
+            inputDialog.ShowDialog();
+            string input = inputDialog.getNote();
             orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Note = input;
             UpdateListView();
             btn_Note.Enabled = false;

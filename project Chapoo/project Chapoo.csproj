@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog.Designer.cs">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="KitchenOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     <Compile Include="TableOverview.Designer.cs">
       <DependentUpon>TableOverview.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="InputDialog.resx">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KitchenOverview.resx">
       <DependentUpon>KitchenOverview.cs</DependentUpon>
     </EmbeddedResource>
