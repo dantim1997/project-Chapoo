@@ -16,8 +16,6 @@ namespace project_Chapoo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Login());
-            //Application.Run(new TableOverview());
             Application.Run(new Login());
         }
     }

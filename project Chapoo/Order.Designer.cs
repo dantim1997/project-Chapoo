@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.listView_Order = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,10 +53,10 @@
             this.columnHeader3});
             this.listView_Order.HideSelection = false;
             this.listView_Order.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.listView_Order.Location = new System.Drawing.Point(12, 52);
             this.listView_Order.Name = "listView_Order";
-            this.listView_Order.Size = new System.Drawing.Size(237, 482);
+            this.listView_Order.Size = new System.Drawing.Size(428, 975);
             this.listView_Order.TabIndex = 6;
             this.listView_Order.UseCompatibleStateImageBehavior = false;
             this.listView_Order.View = System.Windows.Forms.View.Details;
@@ -65,6 +65,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
+            this.columnHeader1.Width = 170;
             // 
             // columnHeader2
             // 
@@ -73,6 +74,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Note";
+            this.columnHeader3.Width = 200;
             // 
             // lbl_OrderTable
             // 
@@ -87,7 +89,7 @@
             // btn_Back
             // 
             this.btn_Back.BackColor = System.Drawing.Color.White;
-            this.btn_Back.Location = new System.Drawing.Point(266, 52);
+            this.btn_Back.Location = new System.Drawing.Point(446, 52);
             this.btn_Back.Name = "btn_Back";
             this.btn_Back.Size = new System.Drawing.Size(75, 74);
             this.btn_Back.TabIndex = 8;
@@ -98,7 +100,7 @@
             // btn_Diner
             // 
             this.btn_Diner.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btn_Diner.Location = new System.Drawing.Point(509, 52);
+            this.btn_Diner.Location = new System.Drawing.Point(689, 52);
             this.btn_Diner.Name = "btn_Diner";
             this.btn_Diner.Size = new System.Drawing.Size(75, 74);
             this.btn_Diner.TabIndex = 9;
@@ -109,7 +111,7 @@
             // btn_Lunch
             // 
             this.btn_Lunch.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btn_Lunch.Location = new System.Drawing.Point(428, 52);
+            this.btn_Lunch.Location = new System.Drawing.Point(608, 52);
             this.btn_Lunch.Name = "btn_Lunch";
             this.btn_Lunch.Size = new System.Drawing.Size(75, 74);
             this.btn_Lunch.TabIndex = 10;
@@ -120,7 +122,7 @@
             // btn_Drinks
             // 
             this.btn_Drinks.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btn_Drinks.Location = new System.Drawing.Point(347, 52);
+            this.btn_Drinks.Location = new System.Drawing.Point(527, 52);
             this.btn_Drinks.Name = "btn_Drinks";
             this.btn_Drinks.Size = new System.Drawing.Size(75, 74);
             this.btn_Drinks.TabIndex = 11;
@@ -132,7 +134,7 @@
             // 
             this.btn_Note.BackColor = System.Drawing.Color.LemonChiffon;
             this.btn_Note.Enabled = false;
-            this.btn_Note.Location = new System.Drawing.Point(671, 52);
+            this.btn_Note.Location = new System.Drawing.Point(770, 52);
             this.btn_Note.Name = "btn_Note";
             this.btn_Note.Size = new System.Drawing.Size(75, 74);
             this.btn_Note.TabIndex = 13;
@@ -143,7 +145,7 @@
             // btn_Submit
             // 
             this.btn_Submit.BackColor = System.Drawing.Color.White;
-            this.btn_Submit.Location = new System.Drawing.Point(590, 540);
+            this.btn_Submit.Location = new System.Drawing.Point(770, 953);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(156, 74);
             this.btn_Submit.TabIndex = 14;
@@ -154,7 +156,7 @@
             // btn_Pay
             // 
             this.btn_Pay.BackColor = System.Drawing.Color.White;
-            this.btn_Pay.Location = new System.Drawing.Point(428, 540);
+            this.btn_Pay.Location = new System.Drawing.Point(608, 953);
             this.btn_Pay.Name = "btn_Pay";
             this.btn_Pay.Size = new System.Drawing.Size(156, 74);
             this.btn_Pay.TabIndex = 15;
@@ -164,7 +166,7 @@
             // btn_Reset
             // 
             this.btn_Reset.BackColor = System.Drawing.Color.White;
-            this.btn_Reset.Location = new System.Drawing.Point(347, 540);
+            this.btn_Reset.Location = new System.Drawing.Point(527, 953);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(75, 74);
             this.btn_Reset.TabIndex = 17;
@@ -176,7 +178,7 @@
             // 
             this.btn_Remove.BackColor = System.Drawing.Color.White;
             this.btn_Remove.Enabled = false;
-            this.btn_Remove.Location = new System.Drawing.Point(266, 540);
+            this.btn_Remove.Location = new System.Drawing.Point(446, 953);
             this.btn_Remove.Name = "btn_Remove";
             this.btn_Remove.Size = new System.Drawing.Size(75, 74);
             this.btn_Remove.TabIndex = 18;
@@ -188,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 608);
+            this.ClientSize = new System.Drawing.Size(1904, 1039);
             this.Controls.Add(this.btn_Remove);
             this.Controls.Add(this.btn_Reset);
             this.Controls.Add(this.btn_Pay);

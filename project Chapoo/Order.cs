@@ -32,8 +32,8 @@ namespace project_Chapoo
             this.employee = employee;
             InitButtons();
 
-            //FormBorderStyle = FormBorderStyle.None;
-            //WindowState = FormWindowState.Maximized;
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
 
         }
 
@@ -94,9 +94,9 @@ namespace project_Chapoo
                 for (int j = 0; j < 6; j++)
                 {
                     Button newButton = new Button();
-                    newButton.Height = 75;
+                    newButton.Height = 75; 
                     newButton.Width = 75;
-                    newButton.Location = new Point((80 * j) + 266, (80 * i) + 132); //266 en 132 zijn de begin coordinaten
+                    newButton.Location = new Point((80 * j) + 446, (80 * i) + 132); //266 en 132 zijn de begin coordinaten
                     this.Controls.Add(newButton);
                     buttons.Add(newButton);
                     newButton.Enabled = false;
