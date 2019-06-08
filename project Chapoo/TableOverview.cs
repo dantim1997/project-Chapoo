@@ -194,11 +194,11 @@ namespace project_Chapoo
         private void btnTable1_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            int tafelIndex = int.Parse(btn.Text) - 1;
+            int tableIndex = int.Parse(btn.Text) - 1;
             tableList = service.GetTableList();
 
             ChapooModels.Order order;
-            if (tableList[tafelIndex].Status == "free")
+            if (tableList[tableIndex].Status == "free")
             {
                 string message = "Do you want to set this table occupied.";
                 string title = "Assign table";
@@ -207,16 +207,16 @@ namespace project_Chapoo
                 if (result == DialogResult.Yes)
                 {
                     order = new ChapooModels.Order();
-                    service.CreateOrder(employee.EmployeeId, "new", tableList[tafelIndex].TableNumber);
-                    tableList[tafelIndex].OrderId = service.GetOrderId(tafelIndex + 1);
+                    service.CreateOrder(employee.EmployeeId, "new", tableList[tableIndex].TableNumber);
+                    tableList[tableIndex].OrderId = service.GetOrderId(tableIndex + 1);
                     btn.BackgroundImage = Image.FromFile(@"../../Rescources\table-05.png");
-                    service.UpdateTableStatus((tafelIndex + 1), "occupied");
+                    service.UpdateTableStatus((tableIndex + 1), "occupied");
                 }
             }
             else
             {
-                tableList[tafelIndex].OrderId = service.GetOrderId(tafelIndex + 1);
-                Order orderForm = new Order(employee, tableList[tafelIndex]);
+                tableList[tableIndex].OrderId = service.GetOrderId(tableIndex + 1);
+                Order orderForm = new Order(employee, tableList[tableIndex]);
                 this.Hide();
                 orderForm.ShowDialog();
                 this.Close();
@@ -226,7 +226,7 @@ namespace project_Chapoo
         private void btnBar1_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            int tafelIndex = int.Parse(btn.Tag.ToString());
+            int tableIndex = int.Parse(btn.Tag.ToString());
 
 
             string message = "Set drinks delivered?";
@@ -235,11 +235,11 @@ namespace project_Chapoo
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                service.UpdateOrderProductStatus(tafelIndex, Statustype.Afgehandeld, ">=");
-                service.UpdateOrderTime(tafelIndex);
+                service.UpdateOrderProductStatus(tableIndex, Statustype.Afgehandeld, ">=");
+                service.UpdateOrderTime(tableIndex);
                 activeOrderlist = service.GetActiveOrderList();
                 UpdateTableStatus();
-                btnListBar[tafelIndex - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
+                btnListBar[tableIndex - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
             }
 
         }

@@ -139,9 +139,9 @@
             this.columnHeader1,
             this.columnHeader2});
             this.lv_Order1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order1.Location = new System.Drawing.Point(12, 290);
+            this.lv_Order1.Location = new System.Drawing.Point(59, 307);
             this.lv_Order1.Name = "lv_Order1";
-            this.lv_Order1.Size = new System.Drawing.Size(394, 437);
+            this.lv_Order1.Size = new System.Drawing.Size(430, 484);
             this.lv_Order1.TabIndex = 9;
             this.lv_Order1.UseCompatibleStateImageBehavior = false;
             this.lv_Order1.View = System.Windows.Forms.View.Details;
@@ -170,9 +170,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.lb_TableOrder1);
             this.panel2.Controls.Add(this.lb_NameOrder1);
-            this.panel2.Location = new System.Drawing.Point(12, 170);
+            this.panel2.Location = new System.Drawing.Point(59, 187);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(394, 100);
+            this.panel2.Size = new System.Drawing.Size(430, 100);
             this.panel2.TabIndex = 13;
             // 
             // lbl_TimeOrder1
@@ -198,7 +198,7 @@
             // btn_Login
             // 
             this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Login.Location = new System.Drawing.Point(1585, 22);
+            this.btn_Login.Location = new System.Drawing.Point(1757, 39);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(109, 101);
             this.btn_Login.TabIndex = 14;
@@ -209,9 +209,9 @@
             // btn_Order1
             // 
             this.btn_Order1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order1.Location = new System.Drawing.Point(12, 837);
+            this.btn_Order1.Location = new System.Drawing.Point(59, 797);
             this.btn_Order1.Name = "btn_Order1";
-            this.btn_Order1.Size = new System.Drawing.Size(394, 96);
+            this.btn_Order1.Size = new System.Drawing.Size(430, 96);
             this.btn_Order1.TabIndex = 16;
             this.btn_Order1.Text = "Done";
             this.btn_Order1.UseVisualStyleBackColor = true;
@@ -220,9 +220,9 @@
             // btn_Order2
             // 
             this.btn_Order2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order2.Location = new System.Drawing.Point(440, 837);
+            this.btn_Order2.Location = new System.Drawing.Point(517, 797);
             this.btn_Order2.Name = "btn_Order2";
-            this.btn_Order2.Size = new System.Drawing.Size(394, 96);
+            this.btn_Order2.Size = new System.Drawing.Size(430, 96);
             this.btn_Order2.TabIndex = 19;
             this.btn_Order2.Text = "Done";
             this.btn_Order2.UseVisualStyleBackColor = true;
@@ -235,9 +235,9 @@
             this.columnHeader8,
             this.columnHeader9});
             this.lv_Order2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order2.Location = new System.Drawing.Point(440, 290);
+            this.lv_Order2.Location = new System.Drawing.Point(517, 307);
             this.lv_Order2.Name = "lv_Order2";
-            this.lv_Order2.Size = new System.Drawing.Size(394, 437);
+            this.lv_Order2.Size = new System.Drawing.Size(430, 484);
             this.lv_Order2.TabIndex = 17;
             this.lv_Order2.UseCompatibleStateImageBehavior = false;
             this.lv_Order2.View = System.Windows.Forms.View.Details;
@@ -260,9 +260,9 @@
             // btn_Order3
             // 
             this.btn_Order3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order3.Location = new System.Drawing.Point(869, 837);
+            this.btn_Order3.Location = new System.Drawing.Point(976, 797);
             this.btn_Order3.Name = "btn_Order3";
-            this.btn_Order3.Size = new System.Drawing.Size(394, 96);
+            this.btn_Order3.Size = new System.Drawing.Size(430, 96);
             this.btn_Order3.TabIndex = 22;
             this.btn_Order3.Text = "Done";
             this.btn_Order3.UseVisualStyleBackColor = true;
@@ -275,9 +275,9 @@
             this.columnHeader11,
             this.columnHeader12});
             this.lv_Order3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order3.Location = new System.Drawing.Point(869, 290);
+            this.lv_Order3.Location = new System.Drawing.Point(976, 307);
             this.lv_Order3.Name = "lv_Order3";
-            this.lv_Order3.Size = new System.Drawing.Size(394, 437);
+            this.lv_Order3.Size = new System.Drawing.Size(430, 484);
             this.lv_Order3.TabIndex = 20;
             this.lv_Order3.UseCompatibleStateImageBehavior = false;
             this.lv_Order3.View = System.Windows.Forms.View.Details;
@@ -300,9 +300,9 @@
             // btn_Order4
             // 
             this.btn_Order4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Order4.Location = new System.Drawing.Point(1300, 837);
+            this.btn_Order4.Location = new System.Drawing.Point(1436, 797);
             this.btn_Order4.Name = "btn_Order4";
-            this.btn_Order4.Size = new System.Drawing.Size(394, 96);
+            this.btn_Order4.Size = new System.Drawing.Size(430, 96);
             this.btn_Order4.TabIndex = 25;
             this.btn_Order4.Text = "Done";
             this.btn_Order4.UseVisualStyleBackColor = true;
@@ -315,9 +315,9 @@
             this.columnHeader14,
             this.columnHeader15});
             this.lv_Order4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lv_Order4.Location = new System.Drawing.Point(1300, 290);
+            this.lv_Order4.Location = new System.Drawing.Point(1436, 307);
             this.lv_Order4.Name = "lv_Order4";
-            this.lv_Order4.Size = new System.Drawing.Size(394, 437);
+            this.lv_Order4.Size = new System.Drawing.Size(430, 484);
             this.lv_Order4.TabIndex = 23;
             this.lv_Order4.UseCompatibleStateImageBehavior = false;
             this.lv_Order4.View = System.Windows.Forms.View.Details;
@@ -346,9 +346,9 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.lb_TableOrder3);
             this.panel3.Controls.Add(this.lb_NameOrder3);
-            this.panel3.Location = new System.Drawing.Point(869, 171);
+            this.panel3.Location = new System.Drawing.Point(976, 187);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(394, 100);
+            this.panel3.Size = new System.Drawing.Size(430, 100);
             this.panel3.TabIndex = 14;
             // 
             // lbl_TimeOrder3
@@ -420,9 +420,9 @@
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.lb_TableOrder2);
             this.panel4.Controls.Add(this.lb_NameOrder2);
-            this.panel4.Location = new System.Drawing.Point(440, 170);
+            this.panel4.Location = new System.Drawing.Point(517, 187);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(394, 100);
+            this.panel4.Size = new System.Drawing.Size(430, 100);
             this.panel4.TabIndex = 15;
             // 
             // lbl_TimeOrder2
@@ -494,9 +494,9 @@
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.lb_TableOrder4);
             this.panel5.Controls.Add(this.lb_NameOrder4);
-            this.panel5.Location = new System.Drawing.Point(1300, 170);
+            this.panel5.Location = new System.Drawing.Point(1436, 187);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(394, 100);
+            this.panel5.Size = new System.Drawing.Size(430, 100);
             this.panel5.TabIndex = 14;
             // 
             // lbl_TimeOrder4
@@ -562,7 +562,7 @@
             // btn_reload
             // 
             this.btn_reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_reload.Location = new System.Drawing.Point(449, 22);
+            this.btn_reload.Location = new System.Drawing.Point(517, 39);
             this.btn_reload.Name = "btn_reload";
             this.btn_reload.Size = new System.Drawing.Size(109, 101);
             this.btn_reload.TabIndex = 26;
@@ -574,7 +574,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(17, 22);
+            this.label3.Location = new System.Drawing.Point(59, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 20);
             this.label3.TabIndex = 7;
@@ -584,7 +584,7 @@
             // 
             this.lbl_Loginname.AutoSize = true;
             this.lbl_Loginname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_Loginname.Location = new System.Drawing.Point(78, 22);
+            this.lbl_Loginname.Location = new System.Drawing.Point(120, 39);
             this.lbl_Loginname.Name = "lbl_Loginname";
             this.lbl_Loginname.Size = new System.Drawing.Size(55, 20);
             this.lbl_Loginname.TabIndex = 27;
@@ -594,7 +594,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(225, 22);
+            this.label6.Location = new System.Drawing.Point(267, 39);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 20);
             this.label6.TabIndex = 28;
@@ -604,7 +604,7 @@
             // 
             this.lbl_LoginID.AutoSize = true;
             this.lbl_LoginID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl_LoginID.Location = new System.Drawing.Point(261, 22);
+            this.lbl_LoginID.Location = new System.Drawing.Point(303, 39);
             this.lbl_LoginID.Name = "lbl_LoginID";
             this.lbl_LoginID.Size = new System.Drawing.Size(30, 20);
             this.lbl_LoginID.TabIndex = 29;
@@ -651,6 +651,7 @@
             this.Controls.Add(this.lb_NoteOrder3);
             this.Controls.Add(this.lb_NoteOrder2);
             this.Controls.Add(this.lb_NoteOrder1);
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.lbl_LoginID);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lbl_Loginname);
