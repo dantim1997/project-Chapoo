@@ -131,6 +131,7 @@ namespace project_Chapoo
             lb_NameOrder1.Text = string.Empty;
             lb_TableOrder1.Text = string.Empty;
             lbl_TimeOrder1.Text = string.Empty;
+            lb_NoteOrder1.Text = "No Notes";
             order1 = null;
             NewOrder(1);
         }
@@ -142,6 +143,7 @@ namespace project_Chapoo
             lb_NameOrder2.Text = string.Empty;
             lb_TableOrder2.Text = string.Empty;
             lbl_TimeOrder2.Text = string.Empty;
+            lb_NoteOrder1.Text = "No Notes";
             order2 = null;
             NewOrder(2);
         }
@@ -153,6 +155,7 @@ namespace project_Chapoo
             lb_NameOrder3.Text = string.Empty;
             lb_TableOrder3.Text = string.Empty;
             lbl_TimeOrder3.Text = string.Empty;
+            lb_NoteOrder1.Text = "No Notes";
             order3 = null;
             NewOrder(3);
         }
@@ -164,6 +167,7 @@ namespace project_Chapoo
             lb_NameOrder4.Text = string.Empty;
             lb_TableOrder4.Text = string.Empty;
             lbl_TimeOrder4.Text = string.Empty;
+            lb_NoteOrder1.Text = "No Notes";
             order4 = null;
             NewOrder(4);
         }

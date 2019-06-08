@@ -616,7 +616,7 @@
             this.lb_NoteOrder1.Name = "lb_NoteOrder1";
             this.lb_NoteOrder1.Size = new System.Drawing.Size(429, 104);
             this.lb_NoteOrder1.TabIndex = 30;
-            this.lb_NoteOrder1.Text = "label10";
+            this.lb_NoteOrder1.Text = "No Notes";
             // 
             // lb_NoteOrder2
             // 
@@ -624,7 +624,7 @@
             this.lb_NoteOrder2.Name = "lb_NoteOrder2";
             this.lb_NoteOrder2.Size = new System.Drawing.Size(429, 104);
             this.lb_NoteOrder2.TabIndex = 31;
-            this.lb_NoteOrder2.Text = "label11";
+            this.lb_NoteOrder2.Text = "No Notes";
             // 
             // lb_NoteOrder3
             // 
@@ -632,7 +632,7 @@
             this.lb_NoteOrder3.Name = "lb_NoteOrder3";
             this.lb_NoteOrder3.Size = new System.Drawing.Size(429, 104);
             this.lb_NoteOrder3.TabIndex = 32;
-            this.lb_NoteOrder3.Text = "label15";
+            this.lb_NoteOrder3.Text = "No Notes";
             // 
             // lb_NoteOrder4
             // 
@@ -640,7 +640,7 @@
             this.lb_NoteOrder4.Name = "lb_NoteOrder4";
             this.lb_NoteOrder4.Size = new System.Drawing.Size(428, 104);
             this.lb_NoteOrder4.TabIndex = 33;
-            this.lb_NoteOrder4.Text = "label17";
+            this.lb_NoteOrder4.Text = "No Notes";
             // 
             // KitchenOverview
             // 
