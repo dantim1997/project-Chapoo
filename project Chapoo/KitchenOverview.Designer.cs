@@ -82,6 +82,10 @@
             this.lbl_Loginname = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_LoginID = new System.Windows.Forms.Label();
+            this.lb_NoteOrder1 = new System.Windows.Forms.Label();
+            this.lb_NoteOrder2 = new System.Windows.Forms.Label();
+            this.lb_NoteOrder3 = new System.Windows.Forms.Label();
+            this.lb_NoteOrder4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -606,10 +610,47 @@
             this.lbl_LoginID.TabIndex = 29;
             this.lbl_LoginID.Text = "ID:";
             // 
+            // lb_NoteOrder1
+            // 
+            this.lb_NoteOrder1.Location = new System.Drawing.Point(12, 730);
+            this.lb_NoteOrder1.Name = "lb_NoteOrder1";
+            this.lb_NoteOrder1.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder1.TabIndex = 30;
+            this.lb_NoteOrder1.Text = "label10";
+            // 
+            // lb_NoteOrder2
+            // 
+            this.lb_NoteOrder2.Location = new System.Drawing.Point(440, 730);
+            this.lb_NoteOrder2.Name = "lb_NoteOrder2";
+            this.lb_NoteOrder2.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder2.TabIndex = 31;
+            this.lb_NoteOrder2.Text = "label11";
+            // 
+            // lb_NoteOrder3
+            // 
+            this.lb_NoteOrder3.Location = new System.Drawing.Point(869, 730);
+            this.lb_NoteOrder3.Name = "lb_NoteOrder3";
+            this.lb_NoteOrder3.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder3.TabIndex = 32;
+            this.lb_NoteOrder3.Text = "label15";
+            // 
+            // lb_NoteOrder4
+            // 
+            this.lb_NoteOrder4.Location = new System.Drawing.Point(1300, 730);
+            this.lb_NoteOrder4.Name = "lb_NoteOrder4";
+            this.lb_NoteOrder4.Size = new System.Drawing.Size(390, 104);
+            this.lb_NoteOrder4.TabIndex = 33;
+            this.lb_NoteOrder4.Text = "label17";
+            // 
             // KitchenOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1836, 1052);
+            this.Controls.Add(this.lb_NoteOrder4);
+            this.Controls.Add(this.lb_NoteOrder3);
+            this.Controls.Add(this.lb_NoteOrder2);
+            this.Controls.Add(this.lb_NoteOrder1);
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.lbl_LoginID);
             this.Controls.Add(this.label6);
@@ -702,5 +743,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lbl_TimeOrder4;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lb_NoteOrder1;
+        private System.Windows.Forms.Label lb_NoteOrder2;
+        private System.Windows.Forms.Label lb_NoteOrder3;
+        private System.Windows.Forms.Label lb_NoteOrder4;
     }
 }
