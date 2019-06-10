@@ -170,7 +170,7 @@ namespace project_Chapoo
                         else if (p.MenuType == "Hoofdgerecht")
                             buttons[index].BackColor = Color.LightSalmon;
                         else
-                            buttons[index].BackColor = Color.LightSkyBlue;
+                            buttons[index].BackColor = Color.SteelBlue;
                         break;
                 }
                 index++;
