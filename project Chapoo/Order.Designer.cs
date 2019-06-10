@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
             this.listView_Order = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -63,7 +63,7 @@
             this.listView_Order.Font = new System.Drawing.Font("Arial", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_Order.HideSelection = false;
             this.listView_Order.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem4});
             this.listView_Order.Location = new System.Drawing.Point(129, 119);
             this.listView_Order.Name = "listView_Order";
             this.listView_Order.Size = new System.Drawing.Size(428, 813);
@@ -152,7 +152,7 @@
             this.btn_Note.BackColor = System.Drawing.Color.LemonChiffon;
             this.btn_Note.Enabled = false;
             this.btn_Note.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Note.Location = new System.Drawing.Point(1376, 119);
+            this.btn_Note.Location = new System.Drawing.Point(1385, 119);
             this.btn_Note.Name = "btn_Note";
             this.btn_Note.Size = new System.Drawing.Size(130, 130);
             this.btn_Note.TabIndex = 13;
