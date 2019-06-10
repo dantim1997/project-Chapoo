@@ -123,7 +123,10 @@ namespace project_Chapoo
             string note = "";
             foreach (OrderProduct orderProduct in order.OrderProduct)
             {
-                note += orderProduct.Product.ProductName + ": " + orderProduct.Note + Environment.NewLine;
+                if (note != string.Empty)
+                {
+                    note += orderProduct.Product.ProductName + ": " + orderProduct.Note + Environment.NewLine;
+                }
                 ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
                 item.SubItems.Add(orderProduct.Product.ProductName);
                 item.SubItems.Add(orderProduct.Amount.ToString());
