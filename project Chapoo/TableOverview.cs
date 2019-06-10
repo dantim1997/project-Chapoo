@@ -14,62 +14,62 @@ namespace project_Chapoo
 {
     public partial class TableOverview : Form
     {
-        TableOverview_Service service;
-        List<Table> tableList;
-        List<ChapooModels.Order> activeOrderlist;
-        List<OrderProduct> activeOrderProductList;
-        Employee employee;
-        static Timer timer;
-        static Timer updateTimer;
-        Button[] btnListTable;
-        Button[] btnListBar;
-        Button[] btnListKitchen;
+        private TableOverview_Service Service;
+        private List<Table> TableList;
+        private List<ChapooModels.Order> ActiveOrderlist;
+        private List<OrderProduct> ActiveOrderProductList;
+        private Employee Employee;
+        private static Timer Timer;
+        private static Timer UpdateTimer;
+        private Button[] BtnListTable;
+        private Button[] BtnListBar;
+        private Button[] BtnListKitchen;
 
-        public TableOverview(Employee employee) // employee
+        public TableOverview(Employee employee) // Employee
         {
             InitializeComponent();
-            this.employee = employee;
-            service = new TableOverview_Service();
-            btnListTable = new Button[10] { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
-            btnListBar = new Button[10] { btnBar1, btnBar2, btnBar3, btnBar4, btnBar5, btnBar6, btnBar7, btnBar8, btnBar9, btnBar10 };
-            btnListKitchen = new Button[10] { btnKitchen1, btnKitchen2, btnKitchen3, btnKitchen4, btnKitchen5, btnKitchen6, btnKitchen7, btnKitchen8, btnKitchen9, btnKitchen10 };
-            tableList = service.GetTableList();
-            activeOrderlist = service.GetActiveOrderList();
-            activeOrderProductList = service.GetActiveOrderProductList();
+            this.Employee = employee;
+            Service = new TableOverview_Service();
+            BtnListTable = new Button[10] { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
+            BtnListBar = new Button[10] { btnBar1, btnBar2, btnBar3, btnBar4, btnBar5, btnBar6, btnBar7, btnBar8, btnBar9, btnBar10 };
+            BtnListKitchen = new Button[10] { btnKitchen1, btnKitchen2, btnKitchen3, btnKitchen4, btnKitchen5, btnKitchen6, btnKitchen7, btnKitchen8, btnKitchen9, btnKitchen10 };
+            TableList = Service.GetTableList();
+            ActiveOrderlist = Service.GetActiveOrderList();
+            ActiveOrderProductList = Service.GetActiveOrderProductList();
             UpdateTableStatus();
             ServiceBtnUpdate();
             InfoEmployee();
-            timer = new Timer();
-            updateTimer = new Timer();
+            Timer = new Timer();
+            UpdateTimer = new Timer();
             InitializeTimer();
             InitializeUpdateTimer();
         }
 
         private void InitializeUpdateTimer()
         {
-            updateTimer.Interval = 10000;
-            updateTimer.Tick += new EventHandler(UpdateTimer_Tick);
-            updateTimer.Enabled = true;
+            UpdateTimer.Interval = 10000;
+            UpdateTimer.Tick += new EventHandler(UpdateTimer_Tick);
+            UpdateTimer.Enabled = true;
         }
 
         private void InitializeTimer()
         {
-            timer.Interval = 10000;
-            timer.Tick += new EventHandler(Timer_Tick);
-            timer.Enabled = true;
+            Timer.Interval = 10000;
+            Timer.Tick += new EventHandler(Timer_Tick);
+            Timer.Enabled = true;
         }
         /// <summary>
-        /// Een timer die om de 10 seconden de activeOrderlist en de activeOrderProductlist ophaald.
+        /// This method refreshes the ActiveOrderList and the ActiveOrderProductList every 10 seconds.
         /// </summary>
         /// <param name="Sender"></param>
         /// <param name="e"></param>
         private void UpdateTimer_Tick(object Sender, EventArgs e)
         {
-            activeOrderlist = service.GetActiveOrderList();
-            activeOrderProductList = service.GetActiveOrderProductList();
+            ActiveOrderlist = Service.GetActiveOrderList();
+            ActiveOrderProductList = Service.GetActiveOrderProductList();
         }
         /// <summary>
-        /// Een timer die om de 10 seconden de methodes ServiceBtnUpdate en UpdateTableStatus aanroept. 
+        /// This method calls the methodes ServiceBtnUpdate and UpdateTableStatus every 10 seconds.
         /// </summary>
         /// <param name="Sender"></param>
         /// <param name="e"></param>
@@ -79,43 +79,42 @@ namespace project_Chapoo
             ServiceBtnUpdate();
         }
         /// <summary>
-        /// Deze methode weergeeft de naam en de id van de ingelogde employee.
+        /// This method displays the Employee name and ID.
         /// </summary>
         public void InfoEmployee()
         {
-            lblServerInfo.Text = employee.Name + " " + employee.Surname;
-            lblServerIdInfo.Text = employee.EmployeeId.ToString();
+            lblServerInfo.Text = Employee.Name + " " + Employee.Surname;
+            lblServerIdInfo.Text = Employee.EmployeeId.ToString();
         }
-
         /// <summary>
-        /// Deze methode update voor iedere order de kleur van de tafels als de order.Date met dat tafelnummer meer dan 15 min of 30 min.
+        ///  This method Updates the tablecolor for every order if order.Date with that tablenumber is +15 or +30 minutes.
         /// </summary>
         private void UpdateTableStatus()
         {
-            foreach (ChapooModels.Order order in activeOrderlist)
+            foreach (ChapooModels.Order order in ActiveOrderlist)
             {
                 if (DateTime.Now.AddMinutes(-30) > order.Date)
                 {
-                    btnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-03.png");
+                    BtnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-03.png");
                 }
                 else if (DateTime.Now.AddMinutes(-15) > order.Date)
                 {
-                    btnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-04.png");
+                    BtnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-04.png");
                 }
                 else
                 {
-                    btnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-05.png");
+                    BtnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-05.png");
                 }
             }
         }
         /// <summary>
-        /// 
+        /// This method updates the buttoncolor of btnKitchen and btnBar is the OrderProduct.Status has changed.
         /// </summary>
         private void ServiceBtnUpdate()
         {
-            foreach (ChapooModels.Order order in activeOrderlist)
+            foreach (ChapooModels.Order order in ActiveOrderlist)
             {
-                foreach (OrderProduct orderProduct in activeOrderProductList)
+                foreach (OrderProduct orderProduct in ActiveOrderProductList)
                 {
                     if (order.OrderId == orderProduct.OrderId)
                     {
@@ -124,13 +123,13 @@ namespace project_Chapoo
                             switch (orderProduct.Status)
                             {
                                 case Statustype.Bereid:
-                                    btnListBar[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGroen.png");
+                                    BtnListBar[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGroen.png");
                                     break;
                                 case Statustype.Open:
-                                    btnListBar[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGeel.png");
+                                    BtnListBar[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGeel.png");
                                     break;
                                 case Statustype.Afgehandeld:
-                                    btnListBar[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
+                                    BtnListBar[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
                                     break;
                             }
                         }
@@ -139,13 +138,13 @@ namespace project_Chapoo
                             switch (orderProduct.Status)
                             {
                                 case Statustype.Bereid:
-                                    btnListKitchen[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGroen.png");
+                                    BtnListKitchen[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGroen.png");
                                     break;
                                 case Statustype.Open:
-                                    btnListKitchen[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGeel.png");
+                                    BtnListKitchen[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGeel.png");
                                     break;
                                 case Statustype.Afgehandeld:
-                                    btnListKitchen[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
+                                    BtnListKitchen[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
                                     break;
                             }
                         }
@@ -155,7 +154,7 @@ namespace project_Chapoo
             }
         }
         /// <summary>
-        /// Deze methode is voor de knop brnLogOut. Deze knop sluit de tableoverview en opent het login scherm.
+        /// This method is for the btnLogOut. It closed the TableOverview and opens the Login form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -167,7 +166,7 @@ namespace project_Chapoo
             this.Close();
         }
         /// <summary>
-        /// Deze methode is voor de knoppen btnTable. Deze knop opent het form Order voor het juiste tafelnummer. Als de tafel nog vrij is zet hij de tafel op bezet en maakt de methode een lege order aan.
+        /// This method is for the buttons btnTable. This button opens the Order form with the right tablenumber. If the table.Status is 'free' it will set the table.status to 'occupied' and creates a new Order Object.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -175,10 +174,10 @@ namespace project_Chapoo
         {
             Button btn = (Button)sender;
             int tableIndex = int.Parse(btn.Text) - 1;
-            tableList = service.GetTableList();
+            TableList = Service.GetTableList();
 
             ChapooModels.Order order;
-            if (tableList[tableIndex].Status == "free")
+            if (TableList[tableIndex].Status == "free")
             {
                 string message = "Do you want to set this table occupied.";
                 string title = "Assign table";
@@ -187,23 +186,23 @@ namespace project_Chapoo
                 if (result == DialogResult.Yes)
                 {
                     order = new ChapooModels.Order();
-                    service.CreateOrder(employee.EmployeeId, "new", tableList[tableIndex].TableNumber);
-                    tableList[tableIndex].OrderId = service.GetOrderId(tableIndex + 1);
+                    Service.CreateOrder(Employee.EmployeeId, "new", TableList[tableIndex].TableNumber);
+                    TableList[tableIndex].OrderId = Service.GetOrderId(tableIndex + 1);
                     btn.BackgroundImage = Image.FromFile(@"../../Rescources\table-05.png");
-                    service.UpdateTableStatus((tableIndex + 1), "occupied");
+                    Service.UpdateTableStatus((tableIndex + 1), "occupied");
                 }
             }
             else
             {
-                tableList[tableIndex].OrderId = service.GetOrderId(tableIndex + 1);
-                Order orderForm = new Order(employee, tableList[tableIndex]);
+                TableList[tableIndex].OrderId = Service.GetOrderId(tableIndex + 1);
+                Order orderForm = new Order(Employee, TableList[tableIndex]);
                 this.Hide();
                 orderForm.ShowDialog();
                 this.Close();
             }
         }
         /// <summary>
-        /// Update de status van de orderproduct.status voor de Bar naar afgehandeld en zet de order.Date naar de huidige tijd. Zet oof de button color naar grijs.
+        /// This method is for the buttons btnBar. This button will update the OpderProduct.Status to 'afgehandeld' and updates the Order.Date to DateTime.Now. Then it changes the buttons color to gray.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -219,16 +218,16 @@ namespace project_Chapoo
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                service.UpdateOrderProductStatus(tableIndex, Statustype.Afgehandeld, ">=");
-                service.UpdateOrderTime(tableIndex);
-                activeOrderlist = service.GetActiveOrderList();
+                Service.UpdateOrderProductStatus(tableIndex, Statustype.Afgehandeld, ">=");
+                Service.UpdateOrderTime(tableIndex);
+                ActiveOrderlist = Service.GetActiveOrderList();
                 UpdateTableStatus();
-                btnListBar[tableIndex - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
+                BtnListBar[tableIndex - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
             }
 
         }
         /// <summary>
-        /// Update de status van de orderproduct.status voor de keuken naar afgehandeld en zet de order.Date naar de huidige tijd. Zet oof de button color naar grijs. 
+        /// This method is for the buttons btnKitchen. This button will update the OpderProduct.Status to 'afgehandeld' and updates the Order.Date to DateTime.Now. Then it changes the buttons color to gray.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -244,11 +243,11 @@ namespace project_Chapoo
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                service.UpdateOrderProductStatus(tafelIndex, Statustype.Afgehandeld, "<=");
-                service.UpdateOrderTime(tafelIndex);
-                activeOrderlist = service.GetActiveOrderList();
+                Service.UpdateOrderProductStatus(tafelIndex, Statustype.Afgehandeld, "<=");
+                Service.UpdateOrderTime(tafelIndex);
+                ActiveOrderlist = Service.GetActiveOrderList();
                 UpdateTableStatus();
-                btnListKitchen[tafelIndex - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
+                BtnListKitchen[tafelIndex - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
             }
 
         }

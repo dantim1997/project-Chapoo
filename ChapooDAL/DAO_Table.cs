@@ -26,7 +26,7 @@ namespace ChapooDAL
             return ReadTableList(ExecuteSelectQuery(query, sqlParameters));
         }
         /// <summary>
-        /// This method updates Table.Status .
+        /// This method updates Table.Status with the given parameter status where Table.Tablemumber is equal to the given parameter Tablenumber.
         /// </summary>
         /// <param name="Tablenumber"></param>
         /// <param name="status"></param>
@@ -42,7 +42,11 @@ namespace ChapooDAL
 
             ExecuteEditQuery(query, sqlParameters);
         }
-
+        /// <summary>
+        /// This method returns Table where Table.Tablemumber is equal to the given parameter Tablenumber..
+        /// </summary>
+        /// <param name="TableNumber"></param>
+        /// <returns></returns>
         public Table GetTableByID(int TableNumber)
         {
             string query = "SELECT TableNumber, Status FROM [Table] WHERE TableNumber = @TableNumber";
@@ -52,7 +56,11 @@ namespace ChapooDAL
             };
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
-
+        /// <summary>
+        /// This method fills a table object and returns it.
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <returns></returns>
         private Table ReadTable(DataTable dataTable)
         {
             Table table = new Table();
@@ -64,7 +72,11 @@ namespace ChapooDAL
             };
             return table;
         }
-
+        /// <summary>
+        /// This method fills table objects and adds it to a list. Then it returns the list.
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <returns></returns>
         private List<Table> ReadTableList(DataTable dataTable)
         {
             List<Table> tableList = new List<Table>();

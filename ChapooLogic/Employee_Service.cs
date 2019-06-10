@@ -13,7 +13,7 @@ namespace ChapooLogic
         DAO_Employee dAO_Employee = new DAO_Employee();
 
         /// <summary>
-        /// Deze methode communiceerd met de DAO_Employee en haald een employee op met het megegeven username en password.
+        /// This method communicates with the DAO_Employee and asks for a employee where employee.username and employee.password are equal to the given parameters username and password.
         /// </summary>
         /// <param name="username"></param>
         /// <param name="password"></param>
@@ -23,7 +23,7 @@ namespace ChapooLogic
             return dAO_Employee.GetWorkerLogin(username, password);
         }
         /// <summary>
-        /// Deze methode communiceerd met de DAO_Employee en haald een lijst met alle employees op.
+        /// This method communicates with the DAO_Employee and asks for a list of all employees.
         /// </summary>
         /// <returns></returns>
         public List<Employee> GetAllEmployees()
@@ -31,7 +31,7 @@ namespace ChapooLogic
             return dAO_Employee.GetWorker();
         }
         /// <summary>
-        /// Deze methode communiceerd met de DAO_Employee en haald een employee op met het megegeven employeeId.
+        /// This method communicates with the DAO_Employee and asks for a employee where employee.employeeId is equal to the given parameter Id.
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>

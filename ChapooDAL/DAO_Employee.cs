@@ -19,7 +19,10 @@ namespace ChapooDAL
             string connstring = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             dbConnection = new SqlConnection(connstring);
         }
-
+        /// <summary>
+        /// This method returns a list of all Employees.
+        /// </summary>
+        /// <returns></returns>
         public List<Employee> GetWorker()
         {
             string query = "SELECT EmployeeId, Name, Surname, TypeWorker FROM Employee";
@@ -29,6 +32,7 @@ namespace ChapooDAL
 
         /// <summary>
         /// Haald een employee uit de database waar username en password hetzelfde zijn als die megegeven. 
+        /// This method returns an employee where employee.username and employee.password are equal to the given parameters username and password.
         /// </summary>
         /// <param name="username"></param>
         /// <param name="password"></param>
@@ -45,7 +49,7 @@ namespace ChapooDAL
         }
 
         /// <summary>
-        /// Haald een employee uit de database waar EmployeeId hetzelfde is als die megegeven. 
+        /// This method returns an employee where employee.employeeId is equal to the given parameter EmployeeId.
         /// </summary>
         /// <param name="EmployeeId"></param>
         /// <returns></returns>
@@ -59,7 +63,7 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
         /// <summary>
-        /// Deze methode returnt één employee. 
+        /// This method fills an Employee object and returns it.
         /// </summary>
         /// <param name="dataTable"></param>
         /// <returns></returns>
@@ -84,7 +88,7 @@ namespace ChapooDAL
 
         }
         /// <summary>
-        /// Deze methode returnt een lijst met employees. 
+        /// This method fills Employee objects and adds it to a list. Then it returns the list. 
         /// </summary>
         /// <param name="dataTable"></param>
         /// <returns></returns>

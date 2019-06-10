@@ -209,7 +209,7 @@ namespace project_Chapoo
         }
 
         /// <summary>
-        /// Deze methode opend de juiste form voor de juiste employee door naar het TypeWorker te kijken.
+        /// Deze methode opend de juiste form voor de juiste Employee door naar het TypeWorker te kijken.
         /// </summary>
         public void OpenForm()
         {

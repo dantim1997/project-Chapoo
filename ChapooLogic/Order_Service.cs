@@ -25,7 +25,7 @@ namespace ChapooLogic
         }
 
         /// <summary>
-        /// gets all ordersn by type
+        /// gets all orders by type
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
