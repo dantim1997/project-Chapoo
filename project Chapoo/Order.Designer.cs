@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
             this.listView_Order = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -232,7 +233,7 @@
             // 
             this.lbl_textCurrent.AutoSize = true;
             this.lbl_textCurrent.Font = new System.Drawing.Font("Arial", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_textCurrent.Location = new System.Drawing.Point(1611, 185);
+            this.lbl_textCurrent.Location = new System.Drawing.Point(1585, 185);
             this.lbl_textCurrent.Name = "lbl_textCurrent";
             this.lbl_textCurrent.Size = new System.Drawing.Size(135, 22);
             this.lbl_textCurrent.TabIndex = 20;
@@ -242,7 +243,7 @@
             // 
             this.lbl_currentUser.AutoSize = true;
             this.lbl_currentUser.Font = new System.Drawing.Font("Arial", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_currentUser.Location = new System.Drawing.Point(1611, 207);
+            this.lbl_currentUser.Location = new System.Drawing.Point(1713, 185);
             this.lbl_currentUser.Name = "lbl_currentUser";
             this.lbl_currentUser.Size = new System.Drawing.Size(25, 22);
             this.lbl_currentUser.TabIndex = 21;
@@ -250,11 +251,12 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::project_Chapoo.Properties.Resources.Laag_2;
+            this.pictureBox2.BackColor = System.Drawing.Color.Silver;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(1538, 305);
+            this.pictureBox2.Location = new System.Drawing.Point(1589, 274);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(281, 166);
+            this.pictureBox2.Size = new System.Drawing.Size(281, 501);
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             // 
