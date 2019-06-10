@@ -51,7 +51,7 @@ namespace ChapooDAL
         public List<Order> GetAllOrders(string type)
         {
             string test = DateTime.Now.ToString("dd/MM/yyyy");
-            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where date = '"+DateTime.Now.ToString("MM/dd/yyyy") + "'";
+            string query = "SELECT OrderId, TableNumber, EmployeeId, Date, Status FROM [Order] where cast ([date] as date) = '" + DateTime.Now.ToString("MM/dd/yyyy") + "'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters), type);
         }
