@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapooLogic;
 using ChapooModels;
+using Microsoft.VisualBasic;
 
 namespace project_Chapoo
 {
@@ -33,7 +34,13 @@ namespace project_Chapoo
             producten = ProdSer.GetProducts();
             this.employee = employee;
             lbl_OrderTableInfo.Text = Table.TableNumber.ToString();
+            lbl_currentUser.Text = employee.Fullname;
             InitButtons();
+
+            List<Product> Drinks = new List<Product>();
+            Drinks = ProdSer.GetDrinks();
+            producten = Drinks;
+            FillButtons();
 
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
@@ -76,7 +83,6 @@ namespace project_Chapoo
             List<Product> Drinks = new List<Product>();
             Drinks = ProdSer.GetDrinks();
             producten = Drinks;
-            InitButtons();
             FillButtons();
         }
 
@@ -87,19 +93,20 @@ namespace project_Chapoo
                 button.Text = string.Empty;
                 button.Enabled = false; 
                 button.Click -= new EventHandler(GeneratedButton_Click);
+                button.BackColor = Color.DarkGray;
             }
         }
 
         private void InitButtons()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 4; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < 7; j++)
                 {
                     Button newButton = new Button();
-                    newButton.Height = 75; 
-                    newButton.Width = 75;
-                    newButton.Location = new Point((80 * j) + 446, (80 * i) + 132); //266 en 132 zijn de begin coordinaten
+                    newButton.Height = 130; 
+                    newButton.Width = 130;
+                    newButton.Location = new Point((135 * j) + 574, (135 * i) + 255); //584 en 206 zijn de begin coordinaten 
                     this.Controls.Add(newButton);
                     buttons.Add(newButton);
                     newButton.Enabled = false;
@@ -117,6 +124,15 @@ namespace project_Chapoo
                 buttons[index].Text = p.ProductName;
                 buttons[index].Enabled = true;
                 buttons[index].Click += new EventHandler(GeneratedButton_Click);
+                buttons[index].BackColor = Color.LightGray;
+
+                if (p.ProductType == "Drink")
+                {
+                    if (p.MenuType == "Bier")
+                        buttons[index].BackColor = Color.Yellow;
+                    else if (p.MenuType == "Wijn" || p.MenuType == "Gedistelleerd")
+                        buttons[index].BackColor = Color.Red;
+                }
             }
         }
 
@@ -165,10 +181,14 @@ namespace project_Chapoo
             }
         }
 
+
+
         private void btn_Note_Click(object sender, EventArgs e)
         {
             var selectedItem = listView_Order.SelectedItems[0];
-            string input = Microsoft.VisualBasic.Interaction.InputBox("Prompt", "Title", "Default", 0, 0);// betere note
+            InputDialog inputDialog = new InputDialog();
+            inputDialog.ShowDialog();
+            string input = inputDialog.getNote();
             orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Note = input;
             UpdateListView();
             btn_Note.Enabled = false;

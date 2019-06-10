@@ -84,17 +84,26 @@ namespace project_Chapoo
             Order(order4, 4);
         }
 
+        /// <summary>
+        /// constructor for the from kitchenoverview
+        /// </summary>
+        /// <param name="employee"></param>
         public KitchenOverview(Employee employee)
         {
             InitializeComponent();
-            if(employee.TypeWorker == "cook") { TypeOfView = "Food"; }
-            if(employee.TypeWorker == "bar") { TypeOfView = "Drink"; }
+            if (employee.TypeWorker == "cook") { TypeOfView = "Food"; }
+            if (employee.TypeWorker == "bar") { TypeOfView = "Drink"; }
             CurrentEmployee = employee;
             lbl_Loginname.Text = employee.Fullname;
             lbl_LoginID.Text = employee.EmployeeId.ToString();
 
         }
 
+        /// <summary>
+        /// shows the order in the right collumn
+        /// </summary>
+        /// <param name="order"></param>
+        /// <param name="ordernumber"></param>
         private void Order(ChapooModels.Order order, int ordernumber)
         {
             if (order == null)
@@ -114,7 +123,7 @@ namespace project_Chapoo
             string note = "";
             foreach (OrderProduct orderProduct in order.OrderProduct)
             {
-                note += orderProduct.Product.ProductName+": "+ orderProduct.Note + Environment.NewLine;
+                note += orderProduct.Product.ProductName + ": " + orderProduct.Note + Environment.NewLine;
                 ListViewItem item = new ListViewItem(orderProduct.OrderProductId.ToString());
                 item.SubItems.Add(orderProduct.Product.ProductName);
                 item.SubItems.Add(orderProduct.Amount.ToString());
@@ -124,54 +133,59 @@ namespace project_Chapoo
             labels["note" + ordernumber].Text = note;
         }
 
+        /// <summary>
+        /// on button1 click 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Order1_Click(object sender, EventArgs e)
         {
             OrderProduct_Service.UpdateAllStatus(order1.OrderProduct, Statustype.Bereid);
-            lv_Order1.Items.Clear();
-            lb_NameOrder1.Text = string.Empty;
-            lb_TableOrder1.Text = string.Empty;
-            lbl_TimeOrder1.Text = string.Empty;
-            lb_NoteOrder1.Text = "No Notes";
             order1 = null;
-            NewOrder(1);
+            SetOrderInView(1);
         }
 
+        /// <summary>
+        /// on button2 click 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Order2_Click(object sender, EventArgs e)
         {
             OrderProduct_Service.UpdateAllStatus(order2.OrderProduct, Statustype.Bereid);
-            lv_Order2.Items.Clear();
-            lb_NameOrder2.Text = string.Empty;
-            lb_TableOrder2.Text = string.Empty;
-            lbl_TimeOrder2.Text = string.Empty;
-            lb_NoteOrder1.Text = "No Notes";
             order2 = null;
-            NewOrder(2);
+            SetOrderInView(2);
         }
 
+        /// <summary>
+        /// on button3 click 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Order3_Click(object sender, EventArgs e)
         {
             OrderProduct_Service.UpdateAllStatus(order3.OrderProduct, Statustype.Bereid);
-            lv_Order3.Items.Clear();
-            lb_NameOrder3.Text = string.Empty;
-            lb_TableOrder3.Text = string.Empty;
-            lbl_TimeOrder3.Text = string.Empty;
-            lb_NoteOrder1.Text = "No Notes";
             order3 = null;
-            NewOrder(3);
+            SetOrderInView(3);
         }
 
+        /// <summary>
+        /// on button4 click 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Order4_Click(object sender, EventArgs e)
         {
             OrderProduct_Service.UpdateAllStatus(order4.OrderProduct, Statustype.Bereid);
-            lv_Order4.Items.Clear();
-            lb_NameOrder4.Text = string.Empty;
-            lb_TableOrder4.Text = string.Empty;
-            lbl_TimeOrder4.Text = string.Empty;
-            lb_NoteOrder1.Text = "No Notes";
             order4 = null;
-            NewOrder(4);
+            SetOrderInView(4);
         }
 
+        /// <summary>
+        /// get all new orders from the database and put them in the orderlist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_reload_Click(object sender, EventArgs e)
         {
             List<ChapooModels.Order> newOrders = Order_Service.GetOrders(TypeOfView);
@@ -188,23 +202,28 @@ namespace project_Chapoo
             }
             if (order1 == null)
             {
-                NewOrder(1);
+                SetOrderInView(1);
             }
             if (order2 == null)
             {
-                NewOrder(2);
+                SetOrderInView(2);
             }
             if (order3 == null)
             {
-                NewOrder(3);
+                SetOrderInView(3);
             }
             if (order4 == null)
             {
-                NewOrder(4);
+                SetOrderInView(4);
             }
         }
 
-        private void btn_Login_Click(object sender, EventArgs e)
+        /// <summary>
+        /// logs the cook out and goes to the login screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Logout_Click(object sender, EventArgs e)
         {
             this.Hide();
             Login login = new Login();
@@ -212,8 +231,17 @@ namespace project_Chapoo
             this.Close();
         }
 
-        private void NewOrder(int orderNumber)
+        /// <summary>
+        /// when the order is set on done the SetOrderinView will set the first order in the list in the view
+        /// </summary>
+        /// <param name="orderNumber"></param>
+        private void SetOrderInView(int orderNumber)
         {
+            labels["name" + orderNumber].Text = string.Empty;
+            labels["table" + orderNumber].Text = string.Empty; ;
+            labels["time" + orderNumber].Text = string.Empty;
+            listviews["lv" + orderNumber].Items.Clear();
+            labels["note" + orderNumber].Text = "No Note";
             if (Orders.Count != 0)
             {
                 ChapooModels.Order order = Orders.FirstOrDefault();
