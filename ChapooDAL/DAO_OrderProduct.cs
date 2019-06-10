@@ -84,6 +84,22 @@ namespace ChapooDAL
             };
             ExecuteEditQuery(query, sqlParameters);
         }
+        /// <summary>
+        /// update status by orderproduct with the OrderId
+        /// </summary>
+        /// <param name="OrderId"></param>
+        /// <param name="Status"></param>
+        public void UpdateOrderProductStatusByOrderId(int OrderId, Statustype Status)
+        {
+            string query = "UPDATE [Order_Product] SET Status = @Status WHERE OrderId = @OrderId";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("Status", (int)Status),
+                new SqlParameter("OrderId", OrderId)
+
+            };
+            ExecuteEditQuery(query, sqlParameters);
+        }
 
         /// <summary>
         /// create an orderproduct

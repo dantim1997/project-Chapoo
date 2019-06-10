@@ -66,7 +66,14 @@ namespace ChapooLogic
         {
             DAO_OrderProduct.UpdateOrderProductStatusByTablenumber(TableNumber, Status, type);
         }
-
-
+        /// <summary>
+        /// update orderproducts by orderID
+        /// </summary>
+        /// <param name="OrderId"></param>
+        /// <param name="Status"></param>
+        public void UpdateOrderProductStatusByOrderId(int OrderId, Statustype Status)
+        {
+            DAO_OrderProduct.UpdateOrderProductStatusByOrderId(OrderId, Status);
+        }
     }
 }

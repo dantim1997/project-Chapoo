@@ -228,6 +228,7 @@ namespace project_Chapoo
             if (dr == DialogResult.Yes)
             {
                 SendOrder();
+                orderProService.UpdateOrderProductStatusByOrderId(Table.OrderId, Statustype.Afgehandeld);
                 TableOverview tableOverview = new TableOverview(employee);
                 this.Hide();
                 tableOverview.ShowDialog();
