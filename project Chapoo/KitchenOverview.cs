@@ -59,6 +59,11 @@ namespace project_Chapoo
 
             Label label = labels["name" + 1];
 
+            order1 = new ChapooModels.Order();
+            order2 = new ChapooModels.Order();
+            order3 = new ChapooModels.Order();
+            order4 = new ChapooModels.Order();
+
             employees = Employee_Service.GetAllEmployees();
 
             int i = 0;
@@ -106,7 +111,7 @@ namespace project_Chapoo
         /// <param name="ordernumber"></param>
         private void Order(ChapooModels.Order order, int ordernumber)
         {
-            if (order == null)
+            if (order.OrderId == 0)
                 return;
 
             switch (ordernumber)
@@ -144,7 +149,7 @@ namespace project_Chapoo
         private void btn_Order1_Click(object sender, EventArgs e)
         {
             OrderProduct_Service.UpdateAllStatus(order1.OrderProduct, Statustype.Bereid);
-            order1 = null;
+            order1 = new ChapooModels.Order();
             SetOrderInView(1);
         }
 
@@ -156,7 +161,7 @@ namespace project_Chapoo
         private void btn_Order2_Click(object sender, EventArgs e)
         {
             OrderProduct_Service.UpdateAllStatus(order2.OrderProduct, Statustype.Bereid);
-            order2 = null;
+            order2 = new ChapooModels.Order();
             SetOrderInView(2);
         }
 
@@ -168,7 +173,7 @@ namespace project_Chapoo
         private void btn_Order3_Click(object sender, EventArgs e)
         {
             OrderProduct_Service.UpdateAllStatus(order3.OrderProduct, Statustype.Bereid);
-            order3 = null;
+            order3 = new ChapooModels.Order();
             SetOrderInView(3);
         }
 
@@ -180,7 +185,7 @@ namespace project_Chapoo
         private void btn_Order4_Click(object sender, EventArgs e)
         {
             OrderProduct_Service.UpdateAllStatus(order4.OrderProduct, Statustype.Bereid);
-            order4 = null;
+            order4 = new ChapooModels.Order();
             SetOrderInView(4);
         }
 
@@ -198,24 +203,24 @@ namespace project_Chapoo
                     order1.OrderId != order.OrderId &&
                     order2.OrderId != order.OrderId &&
                     order3.OrderId != order.OrderId &&
-                    order4.OrderId != order.OrderId || Orders.Count == 0)
+                    order4.OrderId != order.OrderId)
                 {
                     Orders.Add(order);
                 }
             }
-            if (order1 == null)
+            if (order1.OrderId == 0)
             {
                 SetOrderInView(1);
             }
-            if (order2 == null)
+            if (order2.OrderId == 0)
             {
                 SetOrderInView(2);
             }
-            if (order3 == null)
+            if (order3.OrderId == 0)
             {
                 SetOrderInView(3);
             }
-            if (order4 == null)
+            if (order4.OrderId == 0)
             {
                 SetOrderInView(4);
             }
