@@ -9,24 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChapooLogic;
 using ChapooModels;
-using Microsoft.VisualBasic;
 
 namespace project_Chapoo
 {
     public partial class Order : Form
     {
-        public Product_Service ProdSer = new Product_Service();
-        public List<OrderProduct> orderProducts = new List<OrderProduct>(); //List voor de producten in de bestelling
-        List<Button> buttons = new List<Button>(); //List voor alle aangemaakte buttons
-        List<Product> producten = new List<Product>(); //List voor het maken van de buttons
-        public Table Table = new Table();
-
-        Order_Service orderService = new Order_Service();
-        OrderProduct_Service orderProService = new OrderProduct_Service();
-        TableOverview_Service tableService = new TableOverview_Service();
-
-        Employee employee;
-
+        private Employee Employee;
+        private Table Table;
+        private Product_Service ProdSer = new Product_Service();
+        private Order_Service orderService = new Order_Service();
+        private OrderProduct_Service orderProductService = new OrderProduct_Service();
+        private TableOverview_Service tableService = new TableOverview_Service();
+        private List<OrderProduct> orderProducts = new List<OrderProduct>(); //List voor de producten in de bestelling
+        private List<Button> buttons = new List<Button>(); //List voor alle aangemaakte buttons
+        private List<Product> producten = new List<Product>(); //List voor het maken van de buttons
+     
         /// <summary>
         /// constructor, retrieves employee and table from tableoverview, initializes buttons and updates labels to display current user and table
         /// </summary>
@@ -35,21 +32,16 @@ namespace project_Chapoo
         public Order(Employee employee, Table table)
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
             Table = table;
+            Employee = employee;
             producten = ProdSer.GetProducts();
-            this.employee = employee;
             lbl_OrderTableInfo.Text = Table.TableNumber.ToString();
             lbl_currentUser.Text = employee.Fullname;
             InitButtons();
 
-            List<Product> Drinks = new List<Product>();
-            Drinks = ProdSer.GetDrinks();
-            producten = Drinks;
-            FillButtons();
-
-            FormBorderStyle = FormBorderStyle.None;
-            WindowState = FormWindowState.Maximized;
-
+            GetProducts("Drinks"); //Default startup option
         }
 
         /// <summary>
@@ -58,10 +50,31 @@ namespace project_Chapoo
         public void SendOrder()
         {
             orderService.UpdateOrder(Table.OrderId, "In Progress...");
-            orderProService.CreateOrderProduct(orderProducts);
+            orderProductService.CreateOrderProduct(orderProducts);
         }
 
-
+        /// <summary>
+        /// Adds type of product to list
+        /// </summary>
+        /// <param name="type"></param>
+        private void GetProducts(string type)
+        {
+            producten.Clear();
+            switch (type)
+            {
+                case "Drinks":
+                    producten = ProdSer.GetDrinks();
+                    break;
+                case "Diner":
+                    producten = ProdSer.GetDiner();
+                    break;
+                case "Lunch":
+                    producten = ProdSer.GetLunch();
+                    break;
+            }
+            FillButtons();
+        }
+            
         /// <summary>
         /// gets lunch items 
         /// </summary>
@@ -69,11 +82,7 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void btn_Lunch_Click(object sender, EventArgs e)
         {
-            producten.Clear();
-            List<Product> LunchItem = new List<Product>();
-            LunchItem = ProdSer.GetLunch();
-            producten = LunchItem;
-            FillButtons();
+            GetProducts("Lunch");
         }
 
         /// <summary>
@@ -83,11 +92,7 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void btn_Diner_Click(object sender, EventArgs e)
         {
-            producten.Clear();
-            List<Product> DinerItem = new List<Product>();
-            DinerItem = ProdSer.GetDiner();
-            producten = DinerItem;
-            FillButtons();
+            GetProducts("Diner");
         }
 
         /// <summary>
@@ -97,11 +102,7 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void btn_Drinks_Click(object sender, EventArgs e)
         {
-            producten.Clear();
-            List<Product> Drinks = new List<Product>();
-            Drinks = ProdSer.GetDrinks();
-            producten = Drinks;
-            FillButtons();
+            GetProducts("Drinks");
         }
 
         /// <summary>
@@ -218,6 +219,25 @@ namespace project_Chapoo
         }
 
         /// <summary>
+        /// clears listview and list of products in order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Weet je zeker dat je de order wilt resetten?", "Reset Order", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                foreach (OrderProduct orderProduct in orderProducts)
+                {
+                    orderProduct.Product.Supply += orderProducts.Where(t => t.Product.ProductId == orderProduct.Product.ProductId).FirstOrDefault().Amount;
+                }
+                listView_Order.Items.Clear();
+                orderProducts.Clear();
+            }
+        }
+
+        /// <summary>
         /// finishes order, returns to tableoverview
         /// </summary>
         /// <param name="sender"></param>
@@ -228,14 +248,13 @@ namespace project_Chapoo
             if (dr == DialogResult.Yes)
             {
                 SendOrder();
-                orderProService.UpdateOrderProductStatusByOrderId(Table.OrderId, Statustype.Afgehandeld);
-                TableOverview tableOverview = new TableOverview(employee);
+                orderProductService.UpdateOrderProductStatusByOrderId(Table.OrderId, Statustype.Afgehandeld);
+                TableOverview tableOverview = new TableOverview(Employee);
                 this.Hide();
                 tableOverview.ShowDialog();
                 this.Close();
             }
         }
-
 
         /// <summary>
         /// Opens dialogwindow to add a note to selected product 
@@ -250,8 +269,7 @@ namespace project_Chapoo
             string input = inputDialog.getNote();
             orderProducts.Where(t => t.Product.ProductName == selectedItem.Text).FirstOrDefault().Note = input;
             UpdateListView();
-            btn_Note.Enabled = false;
-            btn_Remove.Enabled = false;
+            EnableControlButtons(false);
         }
 
         /// <summary>
@@ -273,38 +291,7 @@ namespace project_Chapoo
                 orderProducts.Remove(orderProduct);
             }
             UpdateListView();
-            btn_Remove.Enabled = false;
-            btn_Note.Enabled = false;
-        }
-
-        /// <summary>
-        /// enables note and remove buttons
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void listView_Order_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btn_Remove.Enabled = true;
-            btn_Note.Enabled = true;
-        }
-
-        /// <summary>
-        /// clears listview and list of products in order
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_Reset_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("Weet je zeker dat je de order wilt resetten?", "Reset Order", MessageBoxButtons.YesNo);
-            if (dr == DialogResult.Yes)
-            {
-                foreach(OrderProduct orderProduct in orderProducts)
-                {
-                    orderProduct.Product.Supply += orderProducts.Where(t => t.Product.ProductId == orderProduct.Product.ProductId).FirstOrDefault().Amount;
-                }
-                listView_Order.Items.Clear();
-                orderProducts.Clear();
-            }
+            EnableControlButtons(false);
         }
 
         /// <summary>
@@ -314,10 +301,30 @@ namespace project_Chapoo
         /// <param name="e"></param>
         private void btn_Back_Click(object sender, EventArgs e)
         {
-            TableOverview tableOverview = new TableOverview(employee);
+            TableOverview tableOverview = new TableOverview(Employee);
             this.Hide();
             tableOverview.ShowDialog();
             this.Close();
+        }
+
+        /// <summary>
+        /// enables buttons on item click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listView_Order_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EnableControlButtons(true);
+        }
+
+        /// <summary>
+        /// method for enabling/disabling remove and note buttons
+        /// </summary>
+        /// <param name="state"></param>
+        private void EnableControlButtons(bool state)
+        {
+            btn_Remove.Enabled = state;
+            btn_Note.Enabled = state;
         }
 
         /// <summary>
@@ -347,7 +354,7 @@ namespace project_Chapoo
             {
                 orderService.UpdateStatus("closed", Table.OrderId);
                 tableService.UpdateTableStatus(Table.TableNumber, "free");
-                TableOverview tableOverview = new TableOverview(employee);
+                TableOverview tableOverview = new TableOverview(Employee);
                 this.Hide();
                 tableOverview.ShowDialog();
                 this.Close();

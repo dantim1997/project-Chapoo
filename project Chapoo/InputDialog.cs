@@ -13,16 +13,16 @@ namespace project_Chapoo
     public partial class InputDialog : Form
     {
         public string inputNote;
-        
+
         /// <summary>
         /// return note for use in order
         /// </summary>
         /// <returns></returns>
-
-    public string getNote()
+        public string getNote()
         {
             return inputNote;
         }
+
         /// <summary>
         /// constructor
         /// </summary>

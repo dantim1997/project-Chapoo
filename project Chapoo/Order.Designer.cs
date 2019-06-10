@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
             this.listView_Order = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -63,7 +63,7 @@
             this.listView_Order.Font = new System.Drawing.Font("Arial", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_Order.HideSelection = false;
             this.listView_Order.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem1});
             this.listView_Order.Location = new System.Drawing.Point(71, 90);
             this.listView_Order.Name = "listView_Order";
             this.listView_Order.Size = new System.Drawing.Size(457, 930);
@@ -242,7 +242,7 @@
             // 
             this.lbl_textCurrent.AutoSize = true;
             this.lbl_textCurrent.Font = new System.Drawing.Font("Arial", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_textCurrent.Location = new System.Drawing.Point(1627, 243);
+            this.lbl_textCurrent.Location = new System.Drawing.Point(1695, 235);
             this.lbl_textCurrent.Name = "lbl_textCurrent";
             this.lbl_textCurrent.Size = new System.Drawing.Size(135, 22);
             this.lbl_textCurrent.TabIndex = 20;
@@ -252,7 +252,7 @@
             // 
             this.lbl_currentUser.AutoSize = true;
             this.lbl_currentUser.Font = new System.Drawing.Font("Arial", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_currentUser.Location = new System.Drawing.Point(1630, 265);
+            this.lbl_currentUser.Location = new System.Drawing.Point(1751, 257);
             this.lbl_currentUser.Name = "lbl_currentUser";
             this.lbl_currentUser.Size = new System.Drawing.Size(25, 22);
             this.lbl_currentUser.TabIndex = 21;
