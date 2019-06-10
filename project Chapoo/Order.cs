@@ -131,7 +131,7 @@ namespace project_Chapoo
                     newButton.Height = 150; 
                     newButton.Width = 150;
                     newButton.Font = new Font(newButton.Font.FontFamily, 10);
-                    newButton.Location = new Point((155 * j) + 534, (155 * i) + 246); 
+                    newButton.Location = new Point((156 * j) + 534, (156 * i) + 246); 
                     this.Controls.Add(newButton);
                     buttons.Add(newButton);
                     newButton.Enabled = false;
@@ -169,7 +169,9 @@ namespace project_Chapoo
                         if (p.MenuType == "Voorgerecht")
                             buttons[index].BackColor = Color.LightSeaGreen;
                         else if (p.MenuType == "Hoofdgerecht")
-                            buttons[index].BackColor = Color.LightSalmon;
+                            buttons[index].BackColor = Color.LimeGreen;
+                        else if (p.MenuType == "Tussengerecht")
+                            buttons[index].BackColor = Color.LightPink;
                         else
                             buttons[index].BackColor = Color.SteelBlue;
                         break;
