@@ -116,7 +116,7 @@
             // 
             this.lb_NameOrder1.AutoSize = true;
             this.lb_NameOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NameOrder1.Location = new System.Drawing.Point(112, 11);
+            this.lb_NameOrder1.Location = new System.Drawing.Point(136, 12);
             this.lb_NameOrder1.Name = "lb_NameOrder1";
             this.lb_NameOrder1.Size = new System.Drawing.Size(114, 25);
             this.lb_NameOrder1.TabIndex = 5;
@@ -126,7 +126,7 @@
             // 
             this.lb_TableOrder1.AutoSize = true;
             this.lb_TableOrder1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TableOrder1.Location = new System.Drawing.Point(112, 61);
+            this.lb_TableOrder1.Location = new System.Drawing.Point(136, 61);
             this.lb_TableOrder1.Name = "lb_TableOrder1";
             this.lb_TableOrder1.Size = new System.Drawing.Size(114, 25);
             this.lb_TableOrder1.TabIndex = 6;
@@ -395,7 +395,7 @@
             // 
             this.lb_TableOrder3.AutoSize = true;
             this.lb_TableOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TableOrder3.Location = new System.Drawing.Point(112, 61);
+            this.lb_TableOrder3.Location = new System.Drawing.Point(137, 61);
             this.lb_TableOrder3.Name = "lb_TableOrder3";
             this.lb_TableOrder3.Size = new System.Drawing.Size(114, 25);
             this.lb_TableOrder3.TabIndex = 6;
@@ -405,7 +405,7 @@
             // 
             this.lb_NameOrder3.AutoSize = true;
             this.lb_NameOrder3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NameOrder3.Location = new System.Drawing.Point(112, 11);
+            this.lb_NameOrder3.Location = new System.Drawing.Point(137, 11);
             this.lb_NameOrder3.Name = "lb_NameOrder3";
             this.lb_NameOrder3.Size = new System.Drawing.Size(114, 25);
             this.lb_NameOrder3.TabIndex = 5;
@@ -469,7 +469,7 @@
             // 
             this.lb_TableOrder2.AutoSize = true;
             this.lb_TableOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TableOrder2.Location = new System.Drawing.Point(112, 61);
+            this.lb_TableOrder2.Location = new System.Drawing.Point(137, 61);
             this.lb_TableOrder2.Name = "lb_TableOrder2";
             this.lb_TableOrder2.Size = new System.Drawing.Size(114, 25);
             this.lb_TableOrder2.TabIndex = 6;
@@ -479,7 +479,7 @@
             // 
             this.lb_NameOrder2.AutoSize = true;
             this.lb_NameOrder2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NameOrder2.Location = new System.Drawing.Point(112, 11);
+            this.lb_NameOrder2.Location = new System.Drawing.Point(137, 12);
             this.lb_NameOrder2.Name = "lb_NameOrder2";
             this.lb_NameOrder2.Size = new System.Drawing.Size(114, 25);
             this.lb_NameOrder2.TabIndex = 5;
@@ -543,7 +543,7 @@
             // 
             this.lb_TableOrder4.AutoSize = true;
             this.lb_TableOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TableOrder4.Location = new System.Drawing.Point(112, 61);
+            this.lb_TableOrder4.Location = new System.Drawing.Point(136, 61);
             this.lb_TableOrder4.Name = "lb_TableOrder4";
             this.lb_TableOrder4.Size = new System.Drawing.Size(114, 25);
             this.lb_TableOrder4.TabIndex = 6;
@@ -553,7 +553,7 @@
             // 
             this.lb_NameOrder4.AutoSize = true;
             this.lb_NameOrder4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NameOrder4.Location = new System.Drawing.Point(112, 11);
+            this.lb_NameOrder4.Location = new System.Drawing.Point(136, 12);
             this.lb_NameOrder4.Name = "lb_NameOrder4";
             this.lb_NameOrder4.Size = new System.Drawing.Size(114, 25);
             this.lb_NameOrder4.TabIndex = 5;
