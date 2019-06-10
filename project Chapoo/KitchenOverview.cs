@@ -128,7 +128,7 @@ namespace project_Chapoo
             string note = "";
             foreach (OrderProduct orderProduct in order.OrderProduct)
             {
-                if (note != string.Empty)
+                if (orderProduct.Note != string.Empty)
                 {
                     note += orderProduct.Product.ProductName + ": " + orderProduct.Note + Environment.NewLine;
                 }
