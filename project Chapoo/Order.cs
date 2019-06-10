@@ -234,6 +234,7 @@ namespace project_Chapoo
                 }
                 listView_Order.Items.Clear();
                 orderProducts.Clear();
+                orderProductService.UpdateOrderProductStatusByOrderId(Table.OrderId, Statustype.Afgehandeld);
             }
         }
 
@@ -248,7 +249,6 @@ namespace project_Chapoo
             if (dr == DialogResult.Yes)
             {
                 SendOrder();
-                orderProductService.UpdateOrderProductStatusByOrderId(Table.OrderId, Statustype.Afgehandeld);
                 TableOverview tableOverview = new TableOverview(Employee);
                 this.Hide();
                 tableOverview.ShowDialog();
