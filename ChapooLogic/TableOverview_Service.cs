@@ -11,7 +11,6 @@ namespace ChapooLogic
     public class TableOverview_Service
     {
         bool tableOccupied = false;
-        int orderId;
         DAO_Table tableDAO;
         Order_Service orderService;
         OrderProduct_Service orderProductService;

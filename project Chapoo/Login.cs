@@ -33,22 +33,18 @@ namespace project_Chapoo
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
         private void InitializeComponent()
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -91,6 +87,26 @@ namespace project_Chapoo
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
+            // 
+            // checkBoxShowPassword
+            // 
+            this.checkBoxShowPassword.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxShowPassword.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxShowPassword.BackgroundImage = global::project_Chapoo.Properties.Resources.oog_oogDicht;
+            this.checkBoxShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.checkBoxShowPassword.FlatAppearance.BorderSize = 0;
+            this.checkBoxShowPassword.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.checkBoxShowPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.checkBoxShowPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.checkBoxShowPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxShowPassword.ForeColor = System.Drawing.Color.Transparent;
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(350, 116);
+            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(25, 23);
+            this.checkBoxShowPassword.TabIndex = 4;
+            this.checkBoxShowPassword.TabStop = false;
+            this.checkBoxShowPassword.UseVisualStyleBackColor = false;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // txtPassword
             // 
@@ -149,24 +165,6 @@ namespace project_Chapoo
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // checkBoxShowPassword
-            // 
-            this.checkBoxShowPassword.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxShowPassword.BackgroundImage = global::project_Chapoo.Properties.Resources.oog_oogOpen;
-            this.checkBoxShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.checkBoxShowPassword.FlatAppearance.BorderSize = 0;
-            this.checkBoxShowPassword.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.checkBoxShowPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.checkBoxShowPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.checkBoxShowPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBoxShowPassword.Location = new System.Drawing.Point(355, 116);
-            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
-            this.checkBoxShowPassword.Size = new System.Drawing.Size(25, 23);
-            this.checkBoxShowPassword.TabIndex = 4;
-            this.checkBoxShowPassword.TabStop = false;
-            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
-            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // Login
             // 
             this.ClientSize = new System.Drawing.Size(459, 307);
@@ -175,6 +173,7 @@ namespace project_Chapoo
             this.Controls.Add(this.lblError);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -183,13 +182,18 @@ namespace project_Chapoo
 
         }
         
+        /// <summary>
+        /// Deze methode controleerd de inloggegevens als er op de login knop gedrukt word.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
             if (txtUser.Text != "" && txtPassword.Text != "")
             {
                 employee = employeeService.GetWorkerLogin(txtUser.Text, txtPassword.Text);
 
-                if (employee.Fullname == null)
+                if (employee.TypeWorker == null)
                 {
                     lblError.Text = "Incorrect 'username' or 'password' entered. Please try again*";
                 }
@@ -204,6 +208,9 @@ namespace project_Chapoo
             }
         }
 
+        /// <summary>
+        /// Deze methode opend de juiste form voor de juiste employee door naar het TypeWorker te kijken.
+        /// </summary>
         public void OpenForm()
         {
             this.Hide();
@@ -225,22 +232,32 @@ namespace project_Chapoo
             this.Close();
         }
 
+        /// <summary>
+        /// Deze methode sluit de applicatie.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
             this.Close();
         }
 
+        /// <summary>
+        /// Deze methode schakeld in en uit of de gebruikers wachtwoord zichtbaar is.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxShowPassword.Checked)
             {
-                checkBoxShowPassword.BackgroundImage = Image.FromFile(@"../../Rescources\oog_oogDicht.png");
+                checkBoxShowPassword.BackgroundImage = Image.FromFile(@"../../Rescources\oog_oogOpen.png");
                 txtPassword.UseSystemPasswordChar = false;
             }
             else
             {
-                checkBoxShowPassword.BackgroundImage = Image.FromFile(@"../../Rescources\oog_oogOpen.png");
+                checkBoxShowPassword.BackgroundImage = Image.FromFile(@"../../Rescources\oog_oogDicht.png");
                 txtPassword.UseSystemPasswordChar = true;
             }
         }

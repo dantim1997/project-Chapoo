@@ -27,6 +27,12 @@ namespace ChapooDAL
             return ReadAllTables(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        /// <summary>
+        /// Haald een employee uit de database waar username en password hetzelfde zijn als die megegeven. 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public Employee GetWorkerLogin(string username, string password)
         {
             string query = "SELECT EmployeeId, Name, Surname, TypeWorker FROM Employee WHERE Username = @username AND Password = @password";
@@ -38,6 +44,11 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        /// <summary>
+        /// Haald een employee uit de database waar EmployeeId hetzelfde is als die megegeven. 
+        /// </summary>
+        /// <param name="EmployeeId"></param>
+        /// <returns></returns>
         public Employee GetWorkerById(int EmployeeId)
         {
             string query = "SELECT EmployeeId, Name, Surname, TypeWorker FROM Employee where EmployeeId = @EmployeeId";
@@ -47,7 +58,11 @@ namespace ChapooDAL
             };
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
-
+        /// <summary>
+        /// Deze methode returnt één employee. 
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <returns></returns>
         private Employee ReadTable(DataTable dataTable)
         {
             Employee login = new Employee();
@@ -68,6 +83,11 @@ namespace ChapooDAL
             }
 
         }
+        /// <summary>
+        /// Deze methode returnt een lijst met employees. 
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <returns></returns>
         private List<Employee> ReadAllTables(DataTable dataTable)
         {
             List<Employee> Employees = new List<Employee>();
