@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
             this.listView_Order = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -63,10 +63,10 @@
             this.listView_Order.Font = new System.Drawing.Font("Arial", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_Order.HideSelection = false;
             this.listView_Order.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
-            this.listView_Order.Location = new System.Drawing.Point(129, 119);
+            listViewItem1});
+            this.listView_Order.Location = new System.Drawing.Point(71, 90);
             this.listView_Order.Name = "listView_Order";
-            this.listView_Order.Size = new System.Drawing.Size(428, 813);
+            this.listView_Order.Size = new System.Drawing.Size(457, 930);
             this.listView_Order.TabIndex = 6;
             this.listView_Order.UseCompatibleStateImageBehavior = false;
             this.listView_Order.View = System.Windows.Forms.View.Details;
@@ -87,13 +87,13 @@
             // 
             this.columnHeader3.Text = "Note";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 130;
+            this.columnHeader3.Width = 163;
             // 
             // lbl_OrderTable
             // 
             this.lbl_OrderTable.AutoSize = true;
             this.lbl_OrderTable.Font = new System.Drawing.Font("Arial", 14.26415F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_OrderTable.Location = new System.Drawing.Point(125, 73);
+            this.lbl_OrderTable.Location = new System.Drawing.Point(67, 63);
             this.lbl_OrderTable.Name = "lbl_OrderTable";
             this.lbl_OrderTable.Size = new System.Drawing.Size(156, 24);
             this.lbl_OrderTable.TabIndex = 7;
@@ -103,9 +103,10 @@
             // 
             this.btn_Back.BackColor = System.Drawing.Color.White;
             this.btn_Back.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Back.Location = new System.Drawing.Point(572, 119);
+            this.btn_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Back.Location = new System.Drawing.Point(534, 90);
             this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(130, 130);
+            this.btn_Back.Size = new System.Drawing.Size(150, 150);
             this.btn_Back.TabIndex = 8;
             this.btn_Back.Text = "Back";
             this.btn_Back.UseVisualStyleBackColor = false;
@@ -115,9 +116,10 @@
             // 
             this.btn_Diner.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btn_Diner.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Diner.Location = new System.Drawing.Point(980, 119);
+            this.btn_Diner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Diner.Location = new System.Drawing.Point(1158, 90);
             this.btn_Diner.Name = "btn_Diner";
-            this.btn_Diner.Size = new System.Drawing.Size(130, 130);
+            this.btn_Diner.Size = new System.Drawing.Size(150, 150);
             this.btn_Diner.TabIndex = 9;
             this.btn_Diner.Text = "Diner";
             this.btn_Diner.UseVisualStyleBackColor = false;
@@ -127,9 +129,10 @@
             // 
             this.btn_Lunch.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btn_Lunch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Lunch.Location = new System.Drawing.Point(844, 119);
+            this.btn_Lunch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Lunch.Location = new System.Drawing.Point(1002, 90);
             this.btn_Lunch.Name = "btn_Lunch";
-            this.btn_Lunch.Size = new System.Drawing.Size(130, 130);
+            this.btn_Lunch.Size = new System.Drawing.Size(150, 150);
             this.btn_Lunch.TabIndex = 10;
             this.btn_Lunch.Text = "Lunch";
             this.btn_Lunch.UseVisualStyleBackColor = false;
@@ -139,9 +142,10 @@
             // 
             this.btn_Drinks.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btn_Drinks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Drinks.Location = new System.Drawing.Point(1116, 119);
+            this.btn_Drinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Drinks.Location = new System.Drawing.Point(846, 90);
             this.btn_Drinks.Name = "btn_Drinks";
-            this.btn_Drinks.Size = new System.Drawing.Size(130, 130);
+            this.btn_Drinks.Size = new System.Drawing.Size(150, 150);
             this.btn_Drinks.TabIndex = 11;
             this.btn_Drinks.Text = "Drinks";
             this.btn_Drinks.UseVisualStyleBackColor = false;
@@ -152,9 +156,10 @@
             this.btn_Note.BackColor = System.Drawing.Color.LemonChiffon;
             this.btn_Note.Enabled = false;
             this.btn_Note.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Note.Location = new System.Drawing.Point(1385, 119);
+            this.btn_Note.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Note.Location = new System.Drawing.Point(1458, 90);
             this.btn_Note.Name = "btn_Note";
-            this.btn_Note.Size = new System.Drawing.Size(130, 130);
+            this.btn_Note.Size = new System.Drawing.Size(150, 150);
             this.btn_Note.TabIndex = 13;
             this.btn_Note.Text = "Note";
             this.btn_Note.UseVisualStyleBackColor = false;
@@ -164,9 +169,10 @@
             // 
             this.btn_Submit.BackColor = System.Drawing.Color.White;
             this.btn_Submit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Submit.Location = new System.Drawing.Point(980, 802);
+            this.btn_Submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Submit.Location = new System.Drawing.Point(1308, 870);
             this.btn_Submit.Name = "btn_Submit";
-            this.btn_Submit.Size = new System.Drawing.Size(260, 130);
+            this.btn_Submit.Size = new System.Drawing.Size(300, 150);
             this.btn_Submit.TabIndex = 14;
             this.btn_Submit.Text = "Submit";
             this.btn_Submit.UseVisualStyleBackColor = false;
@@ -176,9 +182,10 @@
             // 
             this.btn_Pay.BackColor = System.Drawing.Color.White;
             this.btn_Pay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Pay.Location = new System.Drawing.Point(1246, 802);
+            this.btn_Pay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Pay.Location = new System.Drawing.Point(1002, 870);
             this.btn_Pay.Name = "btn_Pay";
-            this.btn_Pay.Size = new System.Drawing.Size(260, 130);
+            this.btn_Pay.Size = new System.Drawing.Size(300, 150);
             this.btn_Pay.TabIndex = 15;
             this.btn_Pay.Text = "Pay";
             this.btn_Pay.UseVisualStyleBackColor = false;
@@ -188,9 +195,10 @@
             // 
             this.btn_Reset.BackColor = System.Drawing.Color.White;
             this.btn_Reset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Reset.Location = new System.Drawing.Point(708, 802);
+            this.btn_Reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Reset.Location = new System.Drawing.Point(690, 870);
             this.btn_Reset.Name = "btn_Reset";
-            this.btn_Reset.Size = new System.Drawing.Size(130, 130);
+            this.btn_Reset.Size = new System.Drawing.Size(150, 150);
             this.btn_Reset.TabIndex = 17;
             this.btn_Reset.Text = "Reset";
             this.btn_Reset.UseVisualStyleBackColor = false;
@@ -201,9 +209,10 @@
             this.btn_Remove.BackColor = System.Drawing.Color.White;
             this.btn_Remove.Enabled = false;
             this.btn_Remove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_Remove.Location = new System.Drawing.Point(572, 802);
+            this.btn_Remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.26415F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Remove.Location = new System.Drawing.Point(534, 870);
             this.btn_Remove.Name = "btn_Remove";
-            this.btn_Remove.Size = new System.Drawing.Size(130, 130);
+            this.btn_Remove.Size = new System.Drawing.Size(150, 150);
             this.btn_Remove.TabIndex = 18;
             this.btn_Remove.Text = "Remove";
             this.btn_Remove.UseVisualStyleBackColor = false;
@@ -213,7 +222,7 @@
             // 
             this.lbl_OrderTableInfo.AutoSize = true;
             this.lbl_OrderTableInfo.Font = new System.Drawing.Font("Arial", 14.26415F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_OrderTableInfo.Location = new System.Drawing.Point(287, 73);
+            this.lbl_OrderTableInfo.Location = new System.Drawing.Point(219, 63);
             this.lbl_OrderTableInfo.Name = "lbl_OrderTableInfo";
             this.lbl_OrderTableInfo.Size = new System.Drawing.Size(28, 24);
             this.lbl_OrderTableInfo.TabIndex = 7;
@@ -223,9 +232,9 @@
             // 
             this.pictureBox1.BackgroundImage = global::project_Chapoo.Properties.Resources.Laag_2;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(1611, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(1634, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(281, 166);
+            this.pictureBox1.Size = new System.Drawing.Size(258, 152);
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
@@ -233,7 +242,7 @@
             // 
             this.lbl_textCurrent.AutoSize = true;
             this.lbl_textCurrent.Font = new System.Drawing.Font("Arial", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_textCurrent.Location = new System.Drawing.Point(1585, 185);
+            this.lbl_textCurrent.Location = new System.Drawing.Point(1630, 167);
             this.lbl_textCurrent.Name = "lbl_textCurrent";
             this.lbl_textCurrent.Size = new System.Drawing.Size(135, 22);
             this.lbl_textCurrent.TabIndex = 20;
@@ -243,7 +252,7 @@
             // 
             this.lbl_currentUser.AutoSize = true;
             this.lbl_currentUser.Font = new System.Drawing.Font("Arial", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_currentUser.Location = new System.Drawing.Point(1713, 185);
+            this.lbl_currentUser.Location = new System.Drawing.Point(1630, 189);
             this.lbl_currentUser.Name = "lbl_currentUser";
             this.lbl_currentUser.Size = new System.Drawing.Size(25, 22);
             this.lbl_currentUser.TabIndex = 21;
@@ -251,12 +260,11 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Silver;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(1589, 274);
+            this.pictureBox2.Location = new System.Drawing.Point(1615, 318);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(281, 501);
+            this.pictureBox2.Size = new System.Drawing.Size(289, 417);
             this.pictureBox2.TabIndex = 22;
             this.pictureBox2.TabStop = false;
             // 
