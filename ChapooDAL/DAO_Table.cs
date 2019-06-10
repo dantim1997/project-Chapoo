@@ -15,20 +15,21 @@ namespace ChapooDAL
             string connstring = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             dbConnection = new SqlConnection(connstring);
         }
-        public Table GetTable()
-        {
-            string query = "SELECT TableNumber, Status FROM Table";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTable(ExecuteSelectQuery(query, sqlParameters));
-        }
-
+        /// <summary>
+        /// This method returns a List of all tables.
+        /// </summary>
+        /// <returns></returns>
         public List<Table> GetTableList()
         {
             string query = "SELECT TableNumber, Status FROM [Table]";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTableList(ExecuteSelectQuery(query, sqlParameters));
         }
-
+        /// <summary>
+        /// This method updates Table.Status .
+        /// </summary>
+        /// <param name="Tablenumber"></param>
+        /// <param name="status"></param>
         public void SetTableStatus(int Tablenumber, string status)
         {
             string query = "UPDATE [Table] SET Status = @status WHERE Tablenumber = @Tablenumber";

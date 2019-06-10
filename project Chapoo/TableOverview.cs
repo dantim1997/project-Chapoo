@@ -58,68 +58,38 @@ namespace project_Chapoo
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Enabled = true;
         }
-
+        /// <summary>
+        /// Een timer die om de 10 seconden de activeOrderlist en de activeOrderProductlist ophaald.
+        /// </summary>
+        /// <param name="Sender"></param>
+        /// <param name="e"></param>
         private void UpdateTimer_Tick(object Sender, EventArgs e)
         {
             activeOrderlist = service.GetActiveOrderList();
             activeOrderProductList = service.GetActiveOrderProductList();
         }
-
+        /// <summary>
+        /// Een timer die om de 10 seconden de methodes ServiceBtnUpdate en UpdateTableStatus aanroept. 
+        /// </summary>
+        /// <param name="Sender"></param>
+        /// <param name="e"></param>
         private void Timer_Tick(object Sender, EventArgs e)
         {
             UpdateTableStatus();
             ServiceBtnUpdate();
         }
-
+        /// <summary>
+        /// Deze methode weergeeft de naam en de id van de ingelogde employee.
+        /// </summary>
         public void InfoEmployee()
         {
             lblServerInfo.Text = employee.Name + " " + employee.Surname;
             lblServerIdInfo.Text = employee.EmployeeId.ToString();
         }
 
-        //private void UpdateTableStatus()
-        //{
-        //    foreach (Table table in tableList)
-        //    {
-        //        if (table.Status == "occupied")
-        //        {
-        //            switch (table.TableNumber)
-        //            {
-        //                case 1:
-        //                    btnTable1.Image = Image.FromFile(@"../../Rescources\table-05.png");
-        //                    break;
-        //                case 2:
-        //                    btnTable2.Image = Image.FromFile(@"../../Rescources\table-05.png");
-        //                    break;
-        //                case 3:
-        //                    btnTable3.Image = Image.FromFile(@"../../Rescources\table-05.png");
-        //                    break;
-        //                case 4:
-        //                    btnTable4.Image = Image.FromFile(@"../../Rescources\table-05.png");
-        //                    break;
-        //                case 5:
-        //                    btnTable5.Image = Image.FromFile(@"../../Rescources\table-05.png");
-        //                    break;
-        //                case 6:
-        //                    btnTable6.Image = Image.FromFile(@"../../Rescources\table-05.png");
-        //                    break;
-        //                case 7:
-        //                    btnTable7.Image = Image.FromFile(@"../../Rescources\table-05.png");
-        //                    break;
-        //                case 8:
-        //                    btnTable8.Image = Image.FromFile(@"../../Rescources\table-05.png");
-        //                    break;
-        //                case 9:
-        //                    btnTable9.Image = Image.FromFile(@"../../Rescources\table-05.png");
-        //                    break;
-        //                case 10:
-        //                    btnTable10.Image = Image.FromFile(@"../../Rescources\table-05.png");
-        //                    break;
-        //            }
-        //        }
-        //    }
-        //}
-
+        /// <summary>
+        /// Deze methode update voor iedere order de kleur van de tafels als de order.Date met dat tafelnummer meer dan 15 min of 30 min.
+        /// </summary>
         private void UpdateTableStatus()
         {
             foreach (ChapooModels.Order order in activeOrderlist)
@@ -138,7 +108,9 @@ namespace project_Chapoo
                 }
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         private void ServiceBtnUpdate()
         {
             foreach (ChapooModels.Order order in activeOrderlist)
@@ -182,7 +154,11 @@ namespace project_Chapoo
                 }
             }
         }
-
+        /// <summary>
+        /// Deze methode is voor de knop brnLogOut. Deze knop sluit de tableoverview en opent het login scherm.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -190,7 +166,11 @@ namespace project_Chapoo
             login.ShowDialog();
             this.Close();
         }
-
+        /// <summary>
+        /// Deze methode is voor de knoppen btnTable. Deze knop opent het form Order voor het juiste tafelnummer. Als de tafel nog vrij is zet hij de tafel op bezet en maakt de methode een lege order aan.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTable1_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -222,7 +202,11 @@ namespace project_Chapoo
                 this.Close();
             }
         }
-
+        /// <summary>
+        /// Update de status van de orderproduct.status voor de Bar naar afgehandeld en zet de order.Date naar de huidige tijd. Zet oof de button color naar grijs.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBar1_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -243,6 +227,11 @@ namespace project_Chapoo
             }
 
         }
+        /// <summary>
+        /// Update de status van de orderproduct.status voor de keuken naar afgehandeld en zet de order.Date naar de huidige tijd. Zet oof de button color naar grijs. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnKitchen1_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
