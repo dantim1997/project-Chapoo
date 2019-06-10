@@ -128,9 +128,10 @@ namespace project_Chapoo
                 for (int j = 0; j < 7; j++)
                 {
                     Button newButton = new Button();
-                    newButton.Height = 130; 
-                    newButton.Width = 130;
-                    newButton.Location = new Point((135 * j) + 574, (135 * i) + 255); //584 en 206 zijn de begin coordinaten 
+                    newButton.Height = 150; 
+                    newButton.Width = 150;
+                    newButton.Font = new Font(newButton.Font.FontFamily, 10);
+                    newButton.Location = new Point((155 * j) + 534, (155 * i) + 246); 
                     this.Controls.Add(newButton);
                     buttons.Add(newButton);
                     newButton.Enabled = false;
