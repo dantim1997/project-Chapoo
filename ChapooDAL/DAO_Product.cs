@@ -14,12 +14,19 @@ namespace ChapooDAL
     {
         private SqlConnection dbConnection;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         public DAO_Product()
         {
             string connstring = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
             dbConnection = new SqlConnection(connstring);
         }
 
+        /// <summary>
+        /// Gets all products from database
+        /// </summary>
+        /// <returns></returns>
         public List<Product> GetProducts()
         {
             string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW,supply,MenuType FROM Product";
@@ -27,13 +34,10 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
-        public List<Product> GetAllFood()
-        {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW FROM Product where ProductType = 'Food'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadTable(ExecuteSelectQuery(query, sqlParameters));
-        }
-
+        /// <summary>
+        /// gets all lunch products from database
+        /// </summary>
+        /// <returns></returns>
         public List<Product> GetAllLunch()
         {
             string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply, MenuType FROM Product where ProductID BETWEEN 3 AND 12";
@@ -41,6 +45,10 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        /// <summary>
+        /// gets all diner products from database
+        /// </summary>
+        /// <returns></returns>
         public List<Product> GetAllDiner()
         {
             string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply, MenuType FROM Product where ProductID BETWEEN 13 AND 23";
@@ -48,18 +56,15 @@ namespace ChapooDAL
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        /// <summary>
+        /// gets all drink products from database
+        /// </summary>
+        /// <returns></returns>
         public List<Product> GetAllDrinks()
         {
             string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply, MenuType FROM Product where ProductType = 'Drink'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadTable(ExecuteSelectQuery(query, sqlParameters));
-        }
-
-        public Product GetAllByBill(int productId, string type)
-        {
-            string query = "SELECT ProductId, ProductName, ProductPrice, ProductType, BTW, supply FROM Product where ProductType = '" + type+"' and ProductId = "+productId;
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadProduct(ExecuteSelectQuery(query, sqlParameters));
         }
 
         public Product GetByProductId(int productId, string type)
@@ -69,6 +74,12 @@ namespace ChapooDAL
             return ReadProduct(ExecuteSelectQuery(query, sqlParameters));
         }
 
+
+        /// <summary>
+        /// reads each product from the database
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <returns></returns>
         private Product ReadProduct(DataTable dataTable)
         {
             Product product = new Product();
@@ -86,6 +97,12 @@ namespace ChapooDAL
             return product;
         }
 
+
+        /// <summary>
+        /// reads each product from database in a list
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <returns></returns>
         private List<Product> ReadTable(DataTable dataTable)
         {
             List<Product> products = new List<Product>();
@@ -105,6 +122,11 @@ namespace ChapooDAL
             return products;
         }
 
+        /// <summary>
+        /// updates the stock for a product
+        /// </summary>
+        /// <param name="Stock"></param>
+        /// <param name="productId"></param>
         public void UpdateProductStock(int Stock, int productId)
         {
             dbConnection.Open();

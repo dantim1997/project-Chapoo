@@ -10,31 +10,47 @@ namespace ChapooLogic
 {
     public class Product_Service
     {
+
+ 
+        DAO_Product product_DAO = new DAO_Product();
+
+        /// <summary>
+        /// places all products from database in list
+        /// </summary>
+        /// <returns></returns>
         public List<Product> GetProducts()
         {
-            DAO_Product ProductDAO = new DAO_Product();
-            List<Product> products = ProductDAO.GetProducts();
+            List<Product> products = product_DAO.GetProducts();
             return products;
         }
 
+        /// <summary>
+        /// places all drink products in a list
+        /// </summary>
+        /// <returns></returns>
         public List<Product> GetDrinks()
         {
-            DAO_Product ProductDAO = new DAO_Product();
-            List<Product> products = ProductDAO.GetAllDrinks();
+            List<Product> products = product_DAO.GetAllDrinks();
             return products;
         }
 
+        /// <summary>
+        /// places all lunch products in a list
+        /// </summary>
+        /// <returns></returns>
         public List<Product> GetLunch()
         {
-            DAO_Product ProductDAO = new DAO_Product();
-            List<Product> products = ProductDAO.GetAllLunch();
+            List<Product> products = product_DAO.GetAllLunch();
             return products;
         }
 
+        /// <summary>
+        /// places all diner products in a list
+        /// </summary>
+        /// <returns></returns>
         public List<Product> GetDiner()
         {
-            DAO_Product ProductDAO = new DAO_Product();
-            List<Product> products = ProductDAO.GetAllDiner();
+            List<Product> products = product_DAO.GetAllDiner();
             return products;
         }
     }

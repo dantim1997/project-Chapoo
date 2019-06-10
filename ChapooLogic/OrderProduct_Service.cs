@@ -18,6 +18,7 @@ namespace ChapooLogic
         /// <param name="OrderId"></param>
         /// <param name="type"></param>
         /// <returns></returns>
+        
         public List<OrderProduct> GetAllByOrder(int OrderId, string type)
         {
             return DAO_OrderProduct.GetAllByOrder(OrderId, type);
@@ -28,6 +29,7 @@ namespace ChapooLogic
         /// </summary>
         /// <param name="orderProduct"></param>
         /// <param name="status"></param>
+        
         public void UpdateAllStatus(List<OrderProduct> orderProduct, Statustype status)
         {
             DAO_OrderProduct.UpdateAllOrderProduct(orderProduct, status);
@@ -37,6 +39,7 @@ namespace ChapooLogic
         /// create orderproducts
         /// </summary>
         /// <param name="orderProducts"></param>
+        
         public void CreateOrderProduct(List<OrderProduct> orderProducts)
         {
             DAO_OrderProduct.CreateOrderPruduct(orderProducts);
@@ -46,6 +49,7 @@ namespace ChapooLogic
         /// get active orderproducts
         /// </summary>
         /// <returns></returns>
+        
         public List<OrderProduct> GetActiveOrderProductList()
         {
             return DAO_OrderProduct.GetAllByActiveOrder();
@@ -57,6 +61,7 @@ namespace ChapooLogic
         /// <param name="TableNumber"></param>
         /// <param name="Status"></param>
         /// <param name="type"></param>
+       
         public void UpdateOrderProductStatus(int TableNumber, Statustype Status, string type)
         {
             DAO_OrderProduct.UpdateOrderProductStatusByTablenumber(TableNumber, Status, type);

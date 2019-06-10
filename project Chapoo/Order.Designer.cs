@@ -47,7 +47,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_textCurrent = new System.Windows.Forms.Label();
             this.lbl_currentUser = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // listView_Order
@@ -246,11 +248,22 @@
             this.lbl_currentUser.TabIndex = 21;
             this.lbl_currentUser.Text = "...";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::project_Chapoo.Properties.Resources.Laag_2;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(1538, 305);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(281, 166);
+            this.pictureBox2.TabIndex = 22;
+            this.pictureBox2.TabStop = false;
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1039);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lbl_currentUser);
             this.Controls.Add(this.lbl_textCurrent);
             this.Controls.Add(this.pictureBox1);
@@ -270,6 +283,7 @@
             this.Name = "Order";
             this.Text = "Order";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +308,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_textCurrent;
         private System.Windows.Forms.Label lbl_currentUser;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

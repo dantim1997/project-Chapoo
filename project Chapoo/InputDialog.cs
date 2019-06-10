@@ -13,16 +13,29 @@ namespace project_Chapoo
     public partial class InputDialog : Form
     {
         public string inputNote;
+        
+        /// <summary>
+        /// return note for use in order
+        /// </summary>
+        /// <returns></returns>
 
-        public string getNote()
+    public string getNote()
         {
             return inputNote;
         }
+        /// <summary>
+        /// constructor
+        /// </summary>
         public InputDialog()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// saves input, closes window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Submit_Click(object sender, EventArgs e)
         {
             string input = txtBox_Note.Text;
@@ -30,6 +43,11 @@ namespace project_Chapoo
             this.Close();
         }
 
+        /// <summary>
+        /// closes window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();

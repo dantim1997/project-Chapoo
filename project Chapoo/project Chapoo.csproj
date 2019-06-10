@@ -161,5 +161,8 @@
   <ItemGroup>
     <None Include="Rescources\oog_oogOpen.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Rescources\legenda %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

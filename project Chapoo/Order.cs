@@ -27,6 +27,11 @@ namespace project_Chapoo
 
         Employee employee;
 
+        /// <summary>
+        /// constructor, retrieves employee and table from tableoverview, initializes buttons and updates labels to display current user and table
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <param name="table"></param>
         public Order(Employee employee, Table table)
         {
             InitializeComponent();
@@ -47,11 +52,9 @@ namespace project_Chapoo
 
         }
 
-        public ChapooModels.Order GetOrder(ChapooModels.Order order)
-        {
-            return order;
-        }
-
+        /// <summary>
+        /// Updates table states and creates order with list of orderproducts
+        /// </summary>
         public void SendOrder()
         {
             orderService.UpdateOrder(Table.OrderId, "In Progress...");
@@ -59,6 +62,11 @@ namespace project_Chapoo
         }
 
 
+        /// <summary>
+        /// gets lunch items 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Lunch_Click(object sender, EventArgs e)
         {
             producten.Clear();
@@ -68,6 +76,11 @@ namespace project_Chapoo
             FillButtons();
         }
 
+        /// <summary>
+        /// gets diner items
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Diner_Click(object sender, EventArgs e)
         {
             producten.Clear();
@@ -77,6 +90,11 @@ namespace project_Chapoo
             FillButtons();
         }
 
+        /// <summary>
+        /// gets drink items
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Drinks_Click(object sender, EventArgs e)
         {
             producten.Clear();
@@ -86,6 +104,9 @@ namespace project_Chapoo
             FillButtons();
         }
 
+        /// <summary>
+        /// clears button info
+        /// </summary>
         private void ResetButtons()
         {
             foreach(Button button in buttons)
@@ -97,6 +118,9 @@ namespace project_Chapoo
             }
         }
 
+        /// <summary>
+        /// initializes button location, color, size and clickable state
+        /// </summary>
         private void InitButtons()
         {
             for (int i = 0; i < 4; i++)
@@ -114,28 +138,50 @@ namespace project_Chapoo
             }
         }
 
+        /// <summary>
+        /// uses current products to name, color and enable buttons
+        /// </summary>
         private void FillButtons()
         {
             ResetButtons();
-            int index = -1;
+            int index = 0;
             foreach(Product p in producten)
             {
-                index++;
+          
                 buttons[index].Text = p.ProductName;
                 buttons[index].Enabled = true;
                 buttons[index].Click += new EventHandler(GeneratedButton_Click);
                 buttons[index].BackColor = Color.LightGray;
-
-                if (p.ProductType == "Drink")
+                switch(p.ProductType)
                 {
-                    if (p.MenuType == "Bier")
-                        buttons[index].BackColor = Color.Yellow;
-                    else if (p.MenuType == "Wijn" || p.MenuType == "Gedistelleerd")
-                        buttons[index].BackColor = Color.Red;
+                    case "Drink":
+                        if (p.MenuType == "Bier")
+                            buttons[index].BackColor = Color.LightGoldenrodYellow;
+                        else if (p.MenuType == "Wijn" || p.MenuType == "Gedistelleerd")
+                            buttons[index].BackColor = Color.IndianRed;
+                        else if (p.MenuType == "Frisdrank")
+                            buttons[index].BackColor = Color.LightGreen;
+                        else
+                            buttons[index].BackColor = Color.SandyBrown;
+                        break;
+                    case "Food":
+                        if (p.MenuType == "Voorgerecht")
+                            buttons[index].BackColor = Color.LightSeaGreen;
+                        else if (p.MenuType == "Hoofdgerecht")
+                            buttons[index].BackColor = Color.LightSalmon;
+                        else
+                            buttons[index].BackColor = Color.LightSkyBlue;
+                        break;
                 }
+                index++;
             }
         }
 
+        /// <summary>
+        /// Adds product to listview, updates supply 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void GeneratedButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -168,6 +214,11 @@ namespace project_Chapoo
             }
         }
 
+        /// <summary>
+        /// finishes order, returns to tableoverview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Submit_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Wil je de order doorgeven naar de keuken?", "Order bevestigen", MessageBoxButtons.YesNo);
@@ -182,7 +233,11 @@ namespace project_Chapoo
         }
 
 
-
+        /// <summary>
+        /// Opens dialogwindow to add a note to selected product 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Note_Click(object sender, EventArgs e)
         {
             var selectedItem = listView_Order.SelectedItems[0];
@@ -195,6 +250,11 @@ namespace project_Chapoo
             btn_Remove.Enabled = false;
         }
 
+        /// <summary>
+        /// Substracts amount of a product in order by one
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Remove_Click_1(object sender, EventArgs e)
         {
             var selectedItem = listView_Order.SelectedItems[0];
@@ -213,12 +273,22 @@ namespace project_Chapoo
             btn_Note.Enabled = false;
         }
 
+        /// <summary>
+        /// enables note and remove buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listView_Order_SelectedIndexChanged(object sender, EventArgs e)
         {
             btn_Remove.Enabled = true;
             btn_Note.Enabled = true;
         }
 
+        /// <summary>
+        /// clears listview and list of products in order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Weet je zeker dat je de order wilt resetten?", "Reset Order", MessageBoxButtons.YesNo);
@@ -233,6 +303,11 @@ namespace project_Chapoo
             }
         }
 
+        /// <summary>
+        /// returns to tableoverview without saving
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Back_Click(object sender, EventArgs e)
         {
             TableOverview tableOverview = new TableOverview(employee);
@@ -241,6 +316,9 @@ namespace project_Chapoo
             this.Close();
         }
 
+        /// <summary>
+        /// updates the listview
+        /// </summary>
         void UpdateListView()
         {
             listView_Order.Items.Clear();
@@ -253,6 +331,11 @@ namespace project_Chapoo
             }
         }
 
+        /// <summary>
+        /// closes order, returns to tableoverview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Pay_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Do you want to finish the order?", "Confirm finishing order", MessageBoxButtons.YesNo);
