@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>chapoo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -162,6 +165,7 @@
     <None Include="Rescources\oog_oogOpen.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chapoo.ico" />
     <Content Include="Rescources\legenda %281%29.png" />
     <Content Include="Rescources\legenda %282%29.png" />
   </ItemGroup>
