@@ -354,6 +354,7 @@ namespace project_Chapoo
             {
                 orderService.UpdateStatus("closed", Table.OrderId);
                 tableService.UpdateTableStatus(Table.TableNumber, "free");
+                orderProductService.UpdateOrderProductStatusByOrderId(Table.OrderId, Statustype.Afgehandeld);
                 TableOverview tableOverview = new TableOverview(Employee);
                 this.Hide();
                 tableOverview.ShowDialog();
