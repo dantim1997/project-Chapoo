@@ -183,7 +183,7 @@ namespace project_Chapoo
         }
         
         /// <summary>
-        /// Deze methode controleerd de inloggegevens als er op de login knop gedrukt word.
+        /// This method checks the login credentials when the login button is pressed.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -209,7 +209,7 @@ namespace project_Chapoo
         }
 
         /// <summary>
-        /// Deze methode opend de juiste form voor de juiste Employee door naar het TypeWorker te kijken.
+        /// This method opens the right form for the right employee.
         /// </summary>
         public void OpenForm()
         {
@@ -233,7 +233,7 @@ namespace project_Chapoo
         }
 
         /// <summary>
-        /// Deze methode sluit de applicatie.
+        /// This method closes the application
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -244,7 +244,7 @@ namespace project_Chapoo
         }
 
         /// <summary>
-        /// Deze methode schakeld in en uit of de gebruikers wachtwoord zichtbaar is.
+        /// This method toggles the visability of the password.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
