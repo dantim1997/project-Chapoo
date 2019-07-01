@@ -43,7 +43,6 @@ namespace project_Chapoo
             UpdateTableStatus();
             ServiceBtnUpdate();
             InfoEmployee();
-            Timer = new Timer();
             InitializeTimer();
         }
 
@@ -60,6 +59,7 @@ namespace project_Chapoo
 
         private void InitializeTimer()
         {
+            Timer = new Timer();
             Timer.Interval = 10000;
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Enabled = true;
