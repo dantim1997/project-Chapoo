@@ -72,14 +72,15 @@ namespace ChapooDAL
         /// <param name="Tablenumber"></param>
         /// <param name="Status"></param>
         /// <param name="type"></param>
-        public void UpdateOrderProductStatusByTablenumber(int Tablenumber, Statustype Status, string type)
+        public void UpdateOrderProductStatusByTablenumber(int Tablenumber, Statustype Status, string Type)
         {
-            string query = "UPDATE [Order_Product] SET Order_Product.Status = @Status FROM [Order_Product] AS P JOIN [Order] AS O ON P.OrderId = O.OrderId WHERE O.TableNumber = @Tablenumber AND P.ProductId " + type + " 22";
+            //string query = "UPDATE [Order_Product] SET Order_Product.Status = @Status FROM [Order_Product] AS P JOIN [Order] AS O ON P.OrderId = O.OrderId WHERE O.TableNumber = @Tablenumber AND P.ProductId " + type + " 22";
+            string query = "UPDATE [Order_Product] SET Order_Product.Status = @Status FROM[Order] AS O JOIN[Order_Product] AS OP ON O.OrderId = OP.OrderId JOIN[Product] AS P ON OP.ProductId = P.ProductId WHERE O.TableNumber = @Tablenumber AND P.ProductType = @Type";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("Status", Status),
                 new SqlParameter("TableNumber", Tablenumber),
-                new SqlParameter("Type", type)
+                new SqlParameter("Type", Type)
 
             };
             ExecuteEditQuery(query, sqlParameters);

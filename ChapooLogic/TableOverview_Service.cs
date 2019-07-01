@@ -13,12 +13,14 @@ namespace ChapooLogic
         private DAO_Table TableDAO;
         private Order_Service OrderService;
         private OrderProduct_Service OrderProductService;
+        private Product_Service ProductService;
 
         public TableOverview_Service()
         {
             TableDAO = new DAO_Table();
             OrderService = new Order_Service();
             OrderProductService = new OrderProduct_Service();
+            ProductService = new Product_Service();
         }
         /// <summary>
         /// This method communicates with the DAO_Table and retrieves a list of all tables.
@@ -99,6 +101,11 @@ namespace ChapooLogic
         public void UpdateOrderTime(int TableNumber)
         {
             OrderService.UpdateOrderTime(TableNumber);
+        }
+
+        public List<Product> GetProductList()
+        {
+            return ProductService.GetProducts();
         }
     }
 

@@ -211,7 +211,7 @@ namespace project_Chapoo
         /// <summary>
         /// This method opens the right form for the right employee.
         /// </summary>
-        public void OpenForm()
+        private void OpenForm()
         {
             this.Hide();
             switch (employee.TypeWorker)

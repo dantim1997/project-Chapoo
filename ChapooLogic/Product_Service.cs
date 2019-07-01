@@ -10,8 +10,6 @@ namespace ChapooLogic
 {
     public class Product_Service
     {
-
- 
         DAO_Product product_DAO = new DAO_Product();
 
         /// <summary>

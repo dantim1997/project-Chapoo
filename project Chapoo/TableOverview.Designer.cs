@@ -196,7 +196,7 @@
             this.btnKitchen9.Tag = "9";
             this.btnKitchen9.Text = "Kitchen";
             this.btnKitchen9.UseVisualStyleBackColor = true;
-            this.btnKitchen9.Click += new System.EventHandler(this.btnKitchen1_Click);
+            this.btnKitchen9.Click += new System.EventHandler(this.btnBar1_Click);
             // 
             // btnKitchen10
             // 
@@ -214,7 +214,7 @@
             this.btnKitchen10.Tag = "10";
             this.btnKitchen10.Text = "Kitchen";
             this.btnKitchen10.UseVisualStyleBackColor = true;
-            this.btnKitchen10.Click += new System.EventHandler(this.btnKitchen1_Click);
+            this.btnKitchen10.Click += new System.EventHandler(this.btnBar1_Click);
             // 
             // btnKitchen7
             // 
@@ -231,7 +231,7 @@
             this.btnKitchen7.Tag = "7";
             this.btnKitchen7.Text = "Kitchen";
             this.btnKitchen7.UseVisualStyleBackColor = true;
-            this.btnKitchen7.Click += new System.EventHandler(this.btnKitchen1_Click);
+            this.btnKitchen7.Click += new System.EventHandler(this.btnBar1_Click);
             // 
             // btnKitchen8
             // 
@@ -249,7 +249,7 @@
             this.btnKitchen8.Tag = "8";
             this.btnKitchen8.Text = "Kitchen";
             this.btnKitchen8.UseVisualStyleBackColor = true;
-            this.btnKitchen8.Click += new System.EventHandler(this.btnKitchen1_Click);
+            this.btnKitchen8.Click += new System.EventHandler(this.btnBar1_Click);
             // 
             // btnBar9
             // 
@@ -303,7 +303,7 @@
             this.btnKitchen5.Tag = "5";
             this.btnKitchen5.Text = "Kitchen";
             this.btnKitchen5.UseVisualStyleBackColor = true;
-            this.btnKitchen5.Click += new System.EventHandler(this.btnKitchen1_Click);
+            this.btnKitchen5.Click += new System.EventHandler(this.btnBar1_Click);
             // 
             // btnKitchen6
             // 
@@ -321,7 +321,7 @@
             this.btnKitchen6.Tag = "6";
             this.btnKitchen6.Text = "Kitchen";
             this.btnKitchen6.UseVisualStyleBackColor = true;
-            this.btnKitchen6.Click += new System.EventHandler(this.btnKitchen1_Click);
+            this.btnKitchen6.Click += new System.EventHandler(this.btnBar1_Click);
             // 
             // btnBar7
             // 
@@ -374,7 +374,7 @@
             this.btnKitchen3.Tag = "3";
             this.btnKitchen3.Text = "Kitchen";
             this.btnKitchen3.UseVisualStyleBackColor = true;
-            this.btnKitchen3.Click += new System.EventHandler(this.btnKitchen1_Click);
+            this.btnKitchen3.Click += new System.EventHandler(this.btnBar1_Click);
             // 
             // btnKitchen4
             // 
@@ -392,7 +392,7 @@
             this.btnKitchen4.Tag = "4";
             this.btnKitchen4.Text = "Kitchen";
             this.btnKitchen4.UseVisualStyleBackColor = true;
-            this.btnKitchen4.Click += new System.EventHandler(this.btnKitchen1_Click);
+            this.btnKitchen4.Click += new System.EventHandler(this.btnBar1_Click);
             // 
             // btnBar5
             // 
@@ -446,7 +446,7 @@
             this.btnKitchen1.Tag = "1";
             this.btnKitchen1.Text = "Kitchen";
             this.btnKitchen1.UseVisualStyleBackColor = true;
-            this.btnKitchen1.Click += new System.EventHandler(this.btnKitchen1_Click);
+            this.btnKitchen1.Click += new System.EventHandler(this.btnBar1_Click);
             // 
             // btnKitchen2
             // 
@@ -464,7 +464,7 @@
             this.btnKitchen2.Tag = "2";
             this.btnKitchen2.Text = "Kitchen";
             this.btnKitchen2.UseVisualStyleBackColor = true;
-            this.btnKitchen2.Click += new System.EventHandler(this.btnKitchen1_Click);
+            this.btnKitchen2.Click += new System.EventHandler(this.btnBar1_Click);
             // 
             // btnBar3
             // 

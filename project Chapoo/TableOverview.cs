@@ -18,12 +18,13 @@ namespace project_Chapoo
         private List<Table> TableList;
         private List<ChapooModels.Order> ActiveOrderlist;
         private List<OrderProduct> ActiveOrderProductList;
+        private List<Product> ProductList;
         private Employee Employee;
-        private static Timer Timer;
-        private static Timer UpdateTimer;
+        private static Timer Timer;// kan ook megegeven.
         private Button[] BtnListTable;
         private Button[] BtnListBar;
         private Button[] BtnListKitchen;
+        private Dictionary<Images, Image> ButtonImages;
 
         public TableOverview(Employee employee) // Employee
         {
@@ -33,23 +34,28 @@ namespace project_Chapoo
             BtnListTable = new Button[10] { btnTable1, btnTable2, btnTable3, btnTable4, btnTable5, btnTable6, btnTable7, btnTable8, btnTable9, btnTable10 };
             BtnListBar = new Button[10] { btnBar1, btnBar2, btnBar3, btnBar4, btnBar5, btnBar6, btnBar7, btnBar8, btnBar9, btnBar10 };
             BtnListKitchen = new Button[10] { btnKitchen1, btnKitchen2, btnKitchen3, btnKitchen4, btnKitchen5, btnKitchen6, btnKitchen7, btnKitchen8, btnKitchen9, btnKitchen10 };
+            ButtonImages = new Dictionary<Images, Image>();
+            LoadImages();
             TableList = Service.GetTableList();
             ActiveOrderlist = Service.GetActiveOrderList();
             ActiveOrderProductList = Service.GetActiveOrderProductList();
+            ProductList = Service.GetProductList();
             UpdateTableStatus();
             ServiceBtnUpdate();
             InfoEmployee();
             Timer = new Timer();
-            UpdateTimer = new Timer();
             InitializeTimer();
-            InitializeUpdateTimer();
         }
 
-        private void InitializeUpdateTimer()
+        private void LoadImages()
         {
-            UpdateTimer.Interval = 10000;
-            UpdateTimer.Tick += new EventHandler(UpdateTimer_Tick);
-            UpdateTimer.Enabled = true;
+            ButtonImages.Add(Images.btnTableGray, Image.FromFile(@"../../Rescources\table-02.png"));
+            ButtonImages.Add(Images.btnTableRed, Image.FromFile(@"../../Rescources\table-03.png"));
+            ButtonImages.Add(Images.btnTableYellow, Image.FromFile(@"../../Rescources\table-04.png"));
+            ButtonImages.Add(Images.btnTableGreen, Image.FromFile(@"../../Rescources\table-05.png"));
+            ButtonImages.Add(Images.btnServiceGray, Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png"));
+            ButtonImages.Add(Images.btnServiceGreen, Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGroen.png"));
+            ButtonImages.Add(Images.btnServiceYellow, Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGeel.png"));
         }
 
         private void InitializeTimer()
@@ -57,16 +63,6 @@ namespace project_Chapoo
             Timer.Interval = 10000;
             Timer.Tick += new EventHandler(Timer_Tick);
             Timer.Enabled = true;
-        }
-        /// <summary>
-        /// This method refreshes the ActiveOrderList and the ActiveOrderProductList every 10 seconds.
-        /// </summary>
-        /// <param name="Sender"></param>
-        /// <param name="e"></param>
-        private void UpdateTimer_Tick(object Sender, EventArgs e)
-        {
-            ActiveOrderlist = Service.GetActiveOrderList();
-            ActiveOrderProductList = Service.GetActiveOrderProductList();
         }
         /// <summary>
         /// This method calls the methodes ServiceBtnUpdate and UpdateTableStatus every 10 seconds.
@@ -77,11 +73,13 @@ namespace project_Chapoo
         {
             UpdateTableStatus();
             ServiceBtnUpdate();
+            ActiveOrderlist = Service.GetActiveOrderList();
+            ActiveOrderProductList = Service.GetActiveOrderProductList();
         }
         /// <summary>
         /// This method displays the Employee name and ID.
         /// </summary>
-        public void InfoEmployee()
+        private void InfoEmployee()
         {
             lblServerInfo.Text = Employee.Name + " " + Employee.Surname;
             lblServerIdInfo.Text = Employee.EmployeeId.ToString();
@@ -95,15 +93,15 @@ namespace project_Chapoo
             {
                 if (DateTime.Now.AddMinutes(-30) > order.Date)
                 {
-                    BtnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-03.png");
+                    BtnListTable[order.TableNumber - 1].BackgroundImage = ButtonImages[Images.btnTableRed];
                 }
                 else if (DateTime.Now.AddMinutes(-15) > order.Date)
                 {
-                    BtnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-04.png");
+                    BtnListTable[order.TableNumber - 1].BackgroundImage = ButtonImages[Images.btnTableYellow];
                 }
                 else
                 {
-                    BtnListTable[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\table-05.png");
+                    BtnListTable[order.TableNumber - 1].BackgroundImage = ButtonImages[Images.btnTableGreen];
                 }
             }
         }
@@ -118,41 +116,43 @@ namespace project_Chapoo
                 {
                     if (order.OrderId == orderProduct.OrderId)
                     {
-                        if (orderProduct.Product.ProductId >= 22)
-                        {
-                            switch (orderProduct.Status)
-                            {
-                                case Statustype.Bereid:
-                                    BtnListBar[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGroen.png");
-                                    break;
-                                case Statustype.Open:
-                                    BtnListBar[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGeel.png");
-                                    break;
-                                case Statustype.Afgehandeld:
-                                    BtnListBar[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
-                                    break;
-                            }
-                        }
-                        else
-                        {
-                            switch (orderProduct.Status)
-                            {
-                                case Statustype.Bereid:
-                                    BtnListKitchen[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGroen.png");
-                                    break;
-                                case Statustype.Open:
-                                    BtnListKitchen[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGeel.png");
-                                    break;
-                                case Statustype.Afgehandeld:
-                                    BtnListKitchen[order.TableNumber - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
-                                    break;
-                            }
-                        }
-
+                        SetServiceButtonColor(order, orderProduct);
                     }
                 }
             }
         }
+        /// <summary>
+        /// This method changes the color of the service buttons depending on the status of the order.
+        /// </summary>
+        /// <param name="order"></param>
+        /// <param name="orderProduct"></param>
+        private void SetServiceButtonColor(ChapooModels.Order order, OrderProduct orderProduct)
+        {
+            Button[] ButtonList;
+
+            if (ProductList[orderProduct.Product.ProductId].ProductType == "Drink")
+            {
+                ButtonList = BtnListBar;
+            }
+            else
+            {
+                ButtonList = BtnListKitchen;
+            }
+
+            switch (orderProduct.Status)
+            {
+                case Statustype.Bereid:
+                    ButtonList[order.TableNumber - 1].BackgroundImage = ButtonImages[Images.btnServiceGreen];
+                    break;
+                case Statustype.Open:
+                    ButtonList[order.TableNumber - 1].BackgroundImage = ButtonImages[Images.btnServiceYellow];
+                    break;
+                case Statustype.Afgehandeld:
+                    ButtonList[order.TableNumber - 1].BackgroundImage = ButtonImages[Images.btnServiceGray];
+                    break;
+            }
+        }
+
         /// <summary>
         /// This method is for the btnLogOut. It closed the TableOverview and opens the Login form.
         /// </summary>
@@ -188,7 +188,7 @@ namespace project_Chapoo
                     order = new ChapooModels.Order();
                     Service.CreateOrder(Employee.EmployeeId, "new", TableList[tableIndex].TableNumber);
                     TableList[tableIndex].OrderId = Service.GetOrderId(tableIndex + 1);
-                    btn.BackgroundImage = Image.FromFile(@"../../Rescources\table-05.png");
+                    btn.BackgroundImage = ButtonImages[Images.btnTableGreen];
                     Service.UpdateTableStatus((tableIndex + 1), "occupied");
                 }
             }
@@ -209,20 +209,36 @@ namespace project_Chapoo
         private void btnBar1_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            int tableIndex = int.Parse(btn.Tag.ToString());
+            string buttonType;
+            int tafelIndex = Convert.ToInt16(btn.Tag);
 
+            if (btn.Text == "Bar")
+            {
+                buttonType = "Drink";
+            }
+            else
+            {
+                buttonType = "Food";
+            }
 
-            string message = "Set drinks delivered?";
+            string message = "Set item delivered?";
             string title = "Update servings";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                Service.UpdateOrderProductStatus(tableIndex, Statustype.Afgehandeld, ">=");
-                Service.UpdateOrderTime(tableIndex);
+                Service.UpdateOrderProductStatus(tafelIndex, Statustype.Afgehandeld, buttonType);
+                Service.UpdateOrderTime(tafelIndex);
                 ActiveOrderlist = Service.GetActiveOrderList();
                 UpdateTableStatus();
-                BtnListBar[tableIndex - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
+                if (buttonType == "Food")
+                {
+                    BtnListKitchen[tafelIndex - 1].BackgroundImage = ButtonImages[Images.btnServiceGray];
+                }
+                else
+                {
+                    BtnListBar[tafelIndex - 1].BackgroundImage = ButtonImages[Images.btnServiceGray];
+                }
             }
 
         }
@@ -231,26 +247,6 @@ namespace project_Chapoo
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnKitchen1_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            int tafelIndex = int.Parse(btn.Tag.ToString());
-
-
-            string message = "Set food delivered?";
-            string title = "Update servings";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.Yes)
-            {
-                Service.UpdateOrderProductStatus(tafelIndex, Statustype.Afgehandeld, "<=");
-                Service.UpdateOrderTime(tafelIndex);
-                ActiveOrderlist = Service.GetActiveOrderList();
-                UpdateTableStatus();
-                BtnListKitchen[tafelIndex - 1].BackgroundImage = Image.FromFile(@"../../Rescources\btnBestelling_btnBestellingGrijs.png");
-            }
-
-        }
 
     }
 }
