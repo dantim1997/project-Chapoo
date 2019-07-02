@@ -55,7 +55,7 @@ namespace project_Chapoo
             this.btnCancel.Location = new System.Drawing.Point(6, 180);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(180, 55);
-            this.btnCancel.TabIndex = 0;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -70,6 +70,7 @@ namespace project_Chapoo
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
+            this.btnLogin.Enter += new System.EventHandler(this.btnLogin_Click_1);
             // 
             // groupBox1
             // 
@@ -167,6 +168,7 @@ namespace project_Chapoo
             // 
             // Login
             // 
+            this.AcceptButton = this.btnLogin;
             this.ClientSize = new System.Drawing.Size(459, 307);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);

@@ -20,13 +20,13 @@ namespace project_Chapoo
         private List<OrderProduct> ActiveOrderProductList;
         private List<Product> ProductList;
         private Employee Employee;
-        private static Timer Timer;// kan ook megegeven.
+        private static Timer Timer;
         private Button[] BtnListTable;
         private Button[] BtnListBar;
         private Button[] BtnListKitchen;
         private Dictionary<Images, Image> ButtonImages;
 
-        public TableOverview(Employee employee) // Employee
+        public TableOverview(Employee employee)
         {
             InitializeComponent();
             this.Employee = employee;
@@ -72,9 +72,9 @@ namespace project_Chapoo
         private void Timer_Tick(object Sender, EventArgs e)
         {
             UpdateTableStatus();
-            ServiceBtnUpdate();
             ActiveOrderlist = Service.GetActiveOrderList();
             ActiveOrderProductList = Service.GetActiveOrderProductList();
+            ServiceBtnUpdate();
         }
         /// <summary>
         /// This method displays the Employee name and ID.
@@ -242,11 +242,5 @@ namespace project_Chapoo
             }
 
         }
-        /// <summary>
-        /// This method is for the buttons btnKitchen. This button will update the OpderProduct.Status to 'afgehandeld' and updates the Order.Date to DateTime.Now. Then it changes the buttons color to gray.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
     }
 }
